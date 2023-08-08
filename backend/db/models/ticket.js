@@ -51,6 +51,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('Completed', 'CSR-Need Schedule', 'Need Review', 'Waiting for Part', 'CSR-Part Came In', 'CSR-Reschedule Done', 'Cancel'),
       allowNull: false,
     },
+    number: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+      validate: {
+        len: [2, 50]
+      }
+    }
   }, {
     sequelize,
     modelName: 'Ticket',

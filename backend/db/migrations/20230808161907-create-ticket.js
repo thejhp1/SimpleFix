@@ -19,6 +19,10 @@ module.exports = {
       employeeId: {
         type: Sequelize.INTEGER,
       },
+      number: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
       customerId: {
         type: Sequelize.INTEGER,
       },

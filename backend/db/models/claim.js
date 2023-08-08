@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("Claim Submitted", "Claim Under Review", "Need Submit", "Paid", "Rejected"),
+      type: DataTypes.ENUM("Claim Submitted", "Need Submit", "Paid", "Rejected"),
       allowNull: false,
     },
   }, {
