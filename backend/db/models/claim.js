@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Part extends Model {
+  class Claim extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,53 +11,42 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Part.belongsTo(models.Ticket, {
+      Claim.belongsTo(models.Ticket, {
         foreignKey: 'ticketId'
       })
-
     }
   }
-  Part.init({
+  Claim.init({
     ticketId: {
-      type:DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     number: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [2, 50]
       }
     },
-    price: {
-      type:DataTypes.INTEGER,
+    labor: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    description: {
-      type:DataTypes.STRING,
+    part: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [2, 50]
-      }
     },
-    orderNumber: {
-      type:DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [2, 50]
-      }
-    },
-    quantity: {
-      type:DataTypes.INTEGER,
+    mileage: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered'),
+      type: DataTypes.ENUM("Claim Submitted", "Claim Under Review", "Need Submit", "Paid", "Rejected"),
       allowNull: false,
     },
   }, {
     sequelize,
-    modelName: 'Part',
+    modelName: 'Claim',
   });
-  return Part;
+  return Claim;
 };

@@ -37,7 +37,7 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.ENUM("Claim Submitted", "Claim Under Review", "Need Submit", "Paid", "Rejected"),
         allowNull: false,
       },
       createdAt: {
