@@ -7,7 +7,7 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { Employee } = require("../../db/models");
 
 const router = express.Router();
 
@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
 router.post("/", validateLogin, async (req, res, next) => {
   const { credential, password } = req.body;
 
-  const user = await User.unscoped().findOne({
+  const user = await Employee.unscoped().findOne({
     where: {
       [Op.or]: {
         username: credential,

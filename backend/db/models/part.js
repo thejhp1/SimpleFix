@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     orderNumber: {
       type:DataTypes.STRING,
-      allowNull: false,
       validate: {
         len: [2, 50]
       }
@@ -52,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered'),
+      type: DataTypes.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered', 'Used'),
       allowNull: false,
     },
   }, {

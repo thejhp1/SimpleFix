@@ -33,14 +33,13 @@ module.exports = {
       },
       orderNumber: {
         type: Sequelize.STRING(50),
-        allowNull: false,
       },
       quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
       status: {
-        type: Sequelize.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered'),
+        type: Sequelize.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered', 'Used'),
         allowNull: false
       },
       createdAt: {
