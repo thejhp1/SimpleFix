@@ -2,7 +2,7 @@
 
 ## MVP
 
-## BONUS
+## BONUS FEATURES
 
 ## TECHNOLOGIES USED
 
