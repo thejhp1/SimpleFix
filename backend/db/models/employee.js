@@ -3,31 +3,30 @@ const {
   Model, Validator
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class Employee extends Model {
     static associate(models) {
       // define association here
+      Employee.belongsTo(models.Company, {
+        foreignKey: 'companyId'
+      })
+
+      Employee.hasMany(models.Ticket, {
+        foreignKey: 'employeeId',
+        onDelete: 'CASCADE',
+        hooks: true
+      })
     }
   }
-  User.init({
-    firstName: {
-      type: DataTypes.STRING(30),
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING(30),
-      allowNull: false,
+  Employee.init({
+    companyId: {
+      type: DataTypes.INTEGER,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        len: [4,30],
+        len: [4,50],
         isNotEmail(value) {
           if (Validator.isEmail(value)) {
             throw new Error("Cannot be an email.");
@@ -60,5 +59,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return User;
+  return Employee;
 };
