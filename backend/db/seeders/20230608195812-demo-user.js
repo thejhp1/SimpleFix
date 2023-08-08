@@ -9,52 +9,28 @@ if (process.env.NODE_ENV === 'production') {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-    options.tableName = 'Users';
+    options.tableName = 'Employees';
     return queryInterface.bulkInsert(options, [
       {
-        email: 'demo@user.io',
-        firstName: 'Alec',
-        lastName: 'Keeler',
-        username: 'Demo-lition',
+        companyId: 1,
+        email: 'demo1@user.io',
+        username: 'Demo-A',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: 'user1@user.io',
-        firstName: 'J',
-        lastName: 'P',
-        username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync('password2')
+        companyId: 2,
+        email: 'demo2@user.io',
+        username: 'Demo-B',
+        hashedPassword: bcrypt.hashSync('password')
       },
-      {
-        email: 'user2@user.io',
-        firstName: 'Mod',
-        lastName: 'Four',
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync('password3')
-      }
     ], {});
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-    options.tableName = 'Users';
+    options.tableName = 'Employees';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+      username: { [Op.in]: ['Demo-A', 'Demo-B'] }
     }, {});
   }
 };
