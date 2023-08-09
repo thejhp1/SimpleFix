@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { jwtConfig } = require("../config");
-const { User } = require("../db/models");
+const { Employee } = require("../db/models");
 
 const { secret, expiresIn } = jwtConfig;
 
@@ -9,8 +9,9 @@ const setTokenCookie = (res, user) => {
   // Create the token.
   const safeUser = {
     id: user.id,
-    email: user.email,
+    companyId: user.companyId,
     username: user.username,
+    email: user.email,
   };
   const token = jwt.sign(
     { data: safeUser },
@@ -40,10 +41,10 @@ const restoreUser = (req, res, next) => {
     if (err) {
       return next();
     }
-
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAA')
     try {
       const { id } = jwtPayload.data;
-      req.user = await User.findByPk(id, {
+      req.user = await Employee.findByPk(id, {
         attributes: {
           include: ["email", "createdAt", "updatedAt"],
         },

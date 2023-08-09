@@ -5,7 +5,7 @@ import ProfileButton from "./ProfileButton";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
-import "./NavigationBar.css";
+import "../../styles/components/NavigationBar.css";
 
 function NavigationBar({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -13,7 +13,7 @@ function NavigationBar({ isLoaded }) {
     <div className="navi-bar">
       <div className="navi-home">
         <NavLink style={{ textDecoration: "none" }} exact to="/">
-          
+
         </NavLink>
       </div>
       {isLoaded && (

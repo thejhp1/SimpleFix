@@ -61,7 +61,8 @@ function LoginFormModal() {
     } else if (password.length < 6) {
       errors.password = "Password must be atleast 6 characters";
     }
-
+    console.log("CRDENTIAL", credential)
+    console.log("PASSWORD", password)
     if (Object.values(errors).length === 0) {
       dispatch(sessionActions.login({ credential, password }))
         .then(closeModal)
@@ -75,7 +76,7 @@ function LoginFormModal() {
   };
 
   const demoUser = () => {
-    dispatch(sessionActions.login({ credential: "Demo", password: "demo1" }))
+    dispatch(sessionActions.login({ credential: "Demo-A", password: "password" }))
         .then(closeModal)
         .catch(async (res) => {
           if (res && res.errors) {
