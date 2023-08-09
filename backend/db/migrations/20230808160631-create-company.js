@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "production") {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Company", {
+    await queryInterface.createTable("Companies", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = "Company";
+    options.tableName = "Companies";
     await queryInterface.dropTable(options);
   },
 };
