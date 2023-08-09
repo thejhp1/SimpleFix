@@ -49,14 +49,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       status: {
-        type: DataTypes.ENUM,
-        values: [
+        type: DataTypes.ENUM(
           "Need PO",
           "Waiting for Part",
           "Part Ready",
           "Backordered",
-          "Used"
-        ],
+          "Used"),
         allowNull: false,
       },
     },
