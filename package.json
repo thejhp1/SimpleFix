@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "## Database Schema Design",
   "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "vite": "^4.3.9"
+  },
   "scripts": {
     "install": "npm install vite && npm install @vitejs/plugin-react-swc && npm --prefix backend install backend && npm --prefix frontend install frontend",
     "render-postbuild": "npm run build --prefix frontend",
