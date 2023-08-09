@@ -253,7 +253,9 @@ module.exports = {
         status: "Completed",
         number: "68768835",
       },
-    ], options);
+    ], options).catch((err) => {
+      throw new Error(err);
+    });
   },
 
   async down (queryInterface, Sequelize) {

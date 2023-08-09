@@ -257,7 +257,9 @@ module.exports = {
         },
       ],
       options
-    );
+    ).catch((err) => {
+      throw new Error(err);
+    });
   },
 
   async down(queryInterface, Sequelize) {

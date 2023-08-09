@@ -61,7 +61,9 @@ module.exports = {
         mileage: 33,
         status: "Rejected",
       },
-    ], options);
+    ], options).catch((err) => {
+      throw new Error(err);
+    });
   },
 
   async down (queryInterface, Sequelize) {
