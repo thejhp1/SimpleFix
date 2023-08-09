@@ -1,7 +1,6 @@
 .signup-modal-outer-container {
     padding: 0px 3.2rem;
     padding-bottom: 3rem;
-    padding-top: 2.25rem;
 }
 
 .signup-modal-container {
@@ -37,24 +36,12 @@
     border: 1px solid #CCCCCC
 }
 
-.signup-modal-inputs:hover {
-    border: 1px solid black;
-    transition-duration: .5s;
-}
-
 .signup-modal-inputs:focus  {
     outline: none;
-    border: 1px solid #00798A;
 }
 
 .signup-modal-input:focus  {
     outline: none;
-    border: 1px solid #00798A;
-}
-
-.signup-modal-input:hover {
-    border: 1px solid black;
-    transition-duration: .5s;
 }
 
 .signup-modal-login {
@@ -68,7 +55,7 @@
 
 .signup-modal-button {
     width: 23.5rem;
-    background-color: #e32359;
+    background-color: var(--primary-light);
     color: white;
     border-radius: .5rem;
     margin-top: 16px;
@@ -77,16 +64,15 @@
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .signup-modal-button:disabled {
-    background-color: #999999;
+    background-color: var(--gray);
     cursor: text;
 }
 
 .signup-modal-button:hover:enabled{
-    background-color: #de3a68
+    background-color: var(--primary-light-accent);
 }
 
 .signup-modal-errors-email {
@@ -135,4 +121,12 @@
     position: absolute;
     font-weight: 500;
     margin-top: 8.8rem;
+}
+
+.signup-xmark {
+    position: absolute;
+    margin-left: 24.7rem;
+    margin-top: 1.5rem;
+    color: #999999;
+    cursor: pointer;
 }

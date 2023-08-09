@@ -99,7 +99,7 @@ function LoginFormModal() {
   };
   return (
     <div className="login-modal-container">
-      <i className="fa-solid fa-xmark fa-xl" onClick={closeModal}></i>
+      <i className="fa-solid fa-xmark fa-xl login-xmark" onClick={closeModal}></i>
       <section className="login-modal-header-container">
         <div className="login-modal-icon">
           <img width="175px" height="175px" src="/images/LandingPage_BlackVerticalLogo.png"></img>

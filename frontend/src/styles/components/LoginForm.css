@@ -78,12 +78,12 @@
 }
 
 .login-modal-button:disabled {
-    background-color: #999999;
+    background-color: var(--gray);
     cursor: text;
 }
 
 .login-modal-button:hover:enabled{
-    background-color: #de3a68
+    background-color: var(--primary-light-accent)
 }
 
 .login-modal-separator {
@@ -152,7 +152,7 @@
     cursor: pointer;
 }
 
-.fa-xmark {
+.login-xmark {
     position: absolute;
     margin-left: 25.4rem;
     margin-top: 1.5rem;
