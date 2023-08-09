@@ -4,8 +4,9 @@
   "description": "## Database Schema Design",
   "main": "index.js",
   "dependencies": {
+    "@vitejs/plugin-react-swc": "^3.3.2",
     "bcryptjs": "^2.4.3",
-    "vite": "^4.3.9"
+    "vite": "^4.4.9"
   },
   "scripts": {
     "install": "npm install vite && npm install @vitejs/plugin-react-swc && npm --prefix backend install backend && npm --prefix frontend install frontend",
