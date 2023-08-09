@@ -205,7 +205,7 @@ module.exports = {
     options.tableName = 'Parts';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      status: { [Op.in]: ['Need PO', 'Waitin for Part', 'Part Ready', 'Backordered', 'Used'] }
+      status: { [Op.in]: ['Need PO', 'Waiting for Part', 'Part Ready', 'Backordered', 'Used'] }
     }, {});
   }
 };

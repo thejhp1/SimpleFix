@@ -39,7 +39,7 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered', 'Used'),
+        type: Sequelize.ENUM('Need PO', 'Waiting for Part', 'Part Ready', 'Backordered', 'Used'),
         allowNull: false
       },
       createdAt: {
