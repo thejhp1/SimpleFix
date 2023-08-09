@@ -256,7 +256,7 @@ module.exports = {
           serialNumber: "ST026032Q",
         },
       ],
-      {}
+      options
     );
   },
 

@@ -25,7 +25,7 @@ module.exports = {
         username: 'Demo-B',
         hashedPassword: bcrypt.hashSync('password')
       },
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {

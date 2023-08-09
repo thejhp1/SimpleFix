@@ -198,7 +198,7 @@ module.exports = {
         quantity: 1,
         status: "Used"
       },
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {

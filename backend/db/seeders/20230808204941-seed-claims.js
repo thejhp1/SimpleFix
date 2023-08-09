@@ -61,7 +61,7 @@ module.exports = {
         mileage: 33,
         status: "Rejected",
       },
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {

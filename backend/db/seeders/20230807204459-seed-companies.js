@@ -1,7 +1,4 @@
 'use strict';
-
-const bcrypt = require("bcryptjs");
-
 let options = {};
 
 if (process.env.NODE_ENV === 'production') {
@@ -11,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    options.tableName = 'Companies';
+    options.tableName = 'Companys';
     return queryInterface.bulkInsert(options, [
       {
         name: "Samsung"
@@ -19,11 +16,11 @@ module.exports = {
       {
         name: "GE"
       }
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {
-    options.tableName = 'Companies';
+    options.tableName = 'Companys';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       name: { [Op.in]: ['Samsung', 'GE'] }

@@ -373,7 +373,7 @@ module.exports = {
         state: "NC",
         zip: "27040",
       },
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {

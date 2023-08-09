@@ -253,7 +253,7 @@ module.exports = {
         status: "Completed",
         number: "68768835",
       },
-    ], {});
+    ], options);
   },
 
   async down (queryInterface, Sequelize) {
