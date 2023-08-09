@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('Need PO', 'Waitin for Part', 'Part Ready', 'Backordered', 'Used'),
+      type: DataTypes.ENUM('Need PO', 'Waiting for Part', 'Part Ready', 'Backordered', 'Used'),
       allowNull: false,
     },
   }, {
