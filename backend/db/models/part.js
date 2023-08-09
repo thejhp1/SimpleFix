@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Part extends Model {
     /**
@@ -12,51 +10,59 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Part.belongsTo(models.Ticket, {
-        foreignKey: 'ticketId'
-      })
-
+        foreignKey: "ticketId",
+      });
     }
   }
-  Part.init({
-    ticketId: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
+  Part.init(
+    {
+      ticketId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 50],
+        },
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [2, 50],
+        },
+      },
+      orderNumber: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [2, 50],
+        },
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      status: {
+        type: DataTypes.ENUM(
+          "Need PO",
+          "Waiting for Part",
+          "Part Ready",
+          "Backordered",
+          "Used"
+        ),
+        allowNull: false,
+      },
     },
-    number: {
-      type:DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [2, 50]
-      }
-    },
-    price: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
-    },
-    description: {
-      type:DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [2, 50]
-      }
-    },
-    orderNumber: {
-      type:DataTypes.STRING,
-      validate: {
-        len: [2, 50]
-      }
-    },
-    quantity: {
-      type:DataTypes.INTEGER,
-      allowNull: false,
-    },
-    status: {
-      type: DataTypes.ENUM('Need PO', 'Waiting for Part', 'Part Ready', 'Backordered', 'Used'),
-      allowNull: false,
-    },
-  }, {
-    sequelize,
-    modelName: 'Part',
-  });
+    {
+      sequelize,
+      modelName: "Part",
+    }
+  );
   return Part;
 };
