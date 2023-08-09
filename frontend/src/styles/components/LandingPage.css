@@ -1,0 +1,8 @@
+.landing-page-video {
+    display: flex;
+    justify-content: center;
+}
+
+.landing-page-video {
+    background-color: var(--black);
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import OpenModalMenuItem from "./OpenModalMenuItem";
@@ -12,9 +11,7 @@ function NavigationBar({ isLoaded }) {
   return (
     <div className="navi-bar">
       <div className="navi-home">
-        <NavLink style={{ textDecoration: "none" }} exact to="/">
-
-        </NavLink>
+          <span>SimpleFix</span>
       </div>
       {isLoaded && (
         <>
@@ -22,13 +19,13 @@ function NavigationBar({ isLoaded }) {
             <ProfileButton user={sessionUser} />
           ) : (
             <div className="navi-login-container">
-              <div className="navi-login-login">
+              <div className="navi-login-login-button">
                 <OpenModalMenuItem
                   itemText="Log in"
                   modalComponent={<LoginFormModal />}
                 />
               </div>
-              <div className="navi-login-signup">
+              <div className="navi-login-signup-button">
                 <OpenModalMenuItem
                   itemText="Sign up"
                   modalComponent={<SignupFormModal />}
