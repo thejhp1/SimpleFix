@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import SignupFormModal from "../SignupFormModal/SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -32,25 +32,6 @@ function ProfileButton({ user }) {
   }, [showMenu]);
 
   const closeMenu = () => setShowMenu(false);
-
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-    closeMenu();
-    history.push("/");
-  };
-
-  const toGroups = (e) => {
-    e.preventDefault();
-    closeMenu();
-    history.push("/groups");
-  };
-
-  const toEvents = (e) => {
-    e.preventDefault();
-    closeMenu();
-    history.push("/events");
-  };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const ulClassNames =

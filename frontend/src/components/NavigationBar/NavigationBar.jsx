@@ -4,9 +4,8 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
-import Logo from "../../images/logo2.png";
-import "./Navigation.css";
+import SignupFormModal from "../SignupFormModal/SignupFormModal";
+import "./NavigationBar.css";
 
 function NavigationBar({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -14,7 +13,7 @@ function NavigationBar({ isLoaded }) {
     <div className="navi-bar">
       <div className="navi-home">
         <NavLink style={{ textDecoration: "none" }} exact to="/">
-          <img src={Logo} alt="" className="navi-logo"></img>
+          
         </NavLink>
       </div>
       {isLoaded && (
