@@ -3,8 +3,12 @@
     --white: #F6F6F6;
     --black: #000000;
     --primary-light: #5CE1E6;
+    --primary-light-accent: #12f7ff;
     --primary-dark: #004AAD;
     --banner: #2789E9;
+    --errors: #F23F42;
+    --delete:#DA373C;
+    --delete-accent:#A12828;
 }
 
 @font-face {

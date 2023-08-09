@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import OpenModalMenuItem from "../NavigationBar/OpenModalMenuItem";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
-import "./LoginForm.css";
+import "../../styles/components/LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -61,9 +61,10 @@ function LoginFormModal() {
     } else if (password.length < 6) {
       errors.password = "Password must be atleast 6 characters";
     }
-    console.log("CRDENTIAL", credential)
-    console.log("PASSWORD", password)
+
     if (Object.values(errors).length === 0) {
+      console.log('credential', credential)
+      console.log('password', password)
       dispatch(sessionActions.login({ credential, password }))
         .then(closeModal)
         .catch(async (res) => {
@@ -96,23 +97,12 @@ function LoginFormModal() {
       setPassState1("hidden");
     }
   };
-
-  const sendToFB = () => {
-    alert("Feature coming soon!");
-  };
-  const sendToG = () => {
-    alert("Feature coming soon!");
-  };
-  const sendToA = () => {
-    alert("Feature coming soon!");
-  };
-
   return (
     <div className="login-modal-container">
-      <i className="fa-sharp fa-solid fa-xmark fa-xl" onClick={closeModal}></i>
+      <i className="fa-solid fa-xmark fa-xl" onClick={closeModal}></i>
       <section className="login-modal-header-container">
         <div className="login-modal-icon">
-          <i class="fa-brands fa-meetup"></i>
+          <img width="175px" height="175px" src="/images/LandingPage_BlackVerticalLogo.png"></img>
         </div>
         <h1
           className="login-modal-title"
@@ -133,13 +123,15 @@ function LoginFormModal() {
       <form className="login-modal" onSubmit={handleSubmit}>
         <label className="login-modal-label-login">Email</label>
         <input
-          className="login-modal-input"
+          className={`login-modal-input ${errors.credential ? "error" : ""}`}
           type="text"
           value={credential}
           autoComplete="username"
           onChange={(e) => setCredential(e.target.value)}
           required
         />
+        {errors.credential && <p className="error-input-email"><i class="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
+
         <div className="login-modal-label-container">
           <label className="login-modal-label-password">Password</label>
           <span
@@ -163,16 +155,14 @@ function LoginFormModal() {
           className={`fa-sharp fa-solid fa-eye reveal-pass fa-sm ${passState2}`}
         ></i>
         <input
-          className="login-modal-input input-password"
+          className={`login-modal-input ${errors.credential ? "error" : ""}`}
           type={showPass}
           value={password}
           autoComplete="current-password"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.credential && (
-          <p className="login-modal-errors">{errors.credential}</p>
-        )}
+        {errors.credential && <p className="error-input-password"><i class="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
         <div className="login-modal-keep-signed-in">
           <input
             type="checkbox"
@@ -210,45 +200,13 @@ function LoginFormModal() {
         <p className="login-modal-separator-center">or</p>
         <p className="login-modal-separator-border"> </p>
       </div>
-      <section className="login-modal-link-container">
-        <i className="fas fa-brands fa-facebook-f fa-xl"></i>
-        <button onClick={sendToFB} className="login-modal-link fb">
-          Log in with Facebook
-        </button>
-        <img
-          alt=""
-          className="fa-g"
-          width="24"
-          height="24"
-          src="https://secure.meetupstatic.com/next/images/login/google.svg?w=48"
-        ></img>
-        <button onClick={sendToG} className="login-modal-link g">
-          Log in with Google
-        </button>
-        <i class="fas fa-brands fa-apple fa-xl"></i>
-        <button onClick={sendToA} className="login-modal-link a">
-          Log in with Apple
-        </button>
-      </section>
       <div className="login-modal-footer">
         <span
-          style={{
-            color: "rgb(0, 121, 138)",
-            marginTop: "2rem",
-            fontSize: "14px",
-            cursor: "pointer",
-          }}
           onClick={loginIssue}
         >
           Issues with log in?
         </span>
         <span
-          style={{
-            color: "rgb(0, 121, 138)",
-            marginTop: "2rem",
-            fontSize: "14px",
-            cursor: "pointer",
-          }}
           onClick={demoUser}
         >
           Log in as Demo User

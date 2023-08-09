@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50rem;
+    gap: 45rem;
     background-color: var(--black);
 }
 
@@ -12,9 +12,6 @@
     list-style-type: none;
     display: flex;
     gap: 2rem;
-    /* flex-direction: row; */
-    /* align-items: center; */
-    cursor: pointer;
 }
 
 .navi-home {
@@ -23,15 +20,28 @@
     color: var(--primary-dark);
 }
 
+.navi-home > img {
+    margin-top: 1rem;
+}
 .navi-login-login-button, .navi-login-signup-button  {
     display: flex;
     align-items: center;
-    height: 2rem;
-    padding: 1.2rem;
+    height: 2.2rem;
+    padding: 1rem;
     background: var(--primary-light);
     border-radius: 1rem;
     font-size: 20px;
     font-weight: 600;
+}
+
+.navi-login-login-button:hover, .navi-login-signup-button:hover {
+    box-shadow: 0px 1px 10px var(--white);
+    cursor: pointer;
+    background: var(--primary-light-accent)
+}
+
+.navi-login-login-button:active, .navi-login-signup-button:active {
+    background: var(--primary-light);
 }
 
 /* .navi-login-signup-button {
@@ -97,7 +107,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: -3.3rem;
 }
 
 .navi-icon-new-group {
@@ -108,17 +117,9 @@
     font-size: 14px;
 }
 
-.profile-dropdown-group-container {
-    border-top: 1px solid black;
-    cursor: pointer;
-}
 
 .profile-dropdown-container > li {
     padding: 4px 15px;
-}
-
-.profile-dropdown-event-container {
-    cursor: pointer;
 }
 
 .profile-dropdown-logout-container {

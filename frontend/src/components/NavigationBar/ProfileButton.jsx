@@ -33,11 +33,12 @@ function ProfileButton({ user }) {
 
   const closeMenu = () => setShowMenu(false);
 
-  const logout = (e) => {
-    e.preventDefault();
+  const logout = () => {
+    // e.preventDefault();
+    console.log('aaasd')
     dispatch(sessionActions.logout());
-    closeMenu();
-    history.push("/");
+    // closeMenu();
+    // history.push("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -56,12 +57,6 @@ function ProfileButton({ user }) {
             <div className="profile-dropdown-container">
               <li>Hello, {user.firstName}</li>
               <li>{user.email}</li>
-              <li className="profile-dropdown-group-container">
-                {/* <span onClick={toGroups}>View groups</span> */}
-              </li>
-              <li className="profile-dropdown-event-container">
-                {/* <span onClick={toEvents}>View events</span> */}
-              </li>
               <li className="profile-dropdown-logout-container">
                 <span onClick={logout}>Log out</span>
               </li>

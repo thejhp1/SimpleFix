@@ -7,6 +7,7 @@ export default function LandingPage() {
       <div className='landing-page-video'>
         <video src="/public/landingpage_logo.mp4" autoPlay loop muted></video>
       </div>
+      <>asdasd</>
     </>
   )
 }

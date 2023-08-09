@@ -4,14 +4,12 @@ import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
 import OpenModalMenuItem from "../NavigationBar/OpenModalMenuItem";
-import "./SignupForm.css";
+import "../../styles/components/SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -20,12 +18,7 @@ function SignupFormModal() {
 
   useEffect(() => {
     const validateError = {};
-    if (!firstName.length) {
-      validateError.firstName = "First name cannot be empty";
-    }
-    if (!lastName.length) {
-      validateError.lastName = "Last name cannot be empty";
-    }
+
     if (username.length < 4) {
       validateError.username = "Username cannot be less than 4 characters";
     }
@@ -41,19 +34,13 @@ function SignupFormModal() {
     if (!email.length) {
       validateError.email = "Email cannot be empty";
     }
+
     setValidateError(validateError);
-  }, [email, username, firstName, lastName, password, confirmPassword]);
+  }, [email, username, password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = {};
-    if (firstName.length > 30) {
-      errors.firstName = "First name cannot exceed 30 characters";
-    }
-
-    if (lastName.length > 30) {
-      errors.lastName = "Last name cannot exceed 30 characters";
-    }
 
     if (email.length > 256) {
       errors.email = "Email cannot exceed 256 characters";
@@ -98,8 +85,6 @@ function SignupFormModal() {
         sessionActions.signup({
           email,
           username,
-          firstName,
-          lastName,
           password,
         })
       )
@@ -126,7 +111,7 @@ function SignupFormModal() {
       <i className="fa-sharp fa-solid fa-xmark fa-xl" onClick={closeModal}></i>
       <section className="signup-modal-container">
         <div className="login-modal-icon">
-          <i class="fa-brands fa-meetup"></i>
+          <img width="175px" height="175px" src="/images/LandingPage_BlackVerticalLogo.png"></img>
         </div>
         <h1>Sign Up</h1>
         <div className="signup-modal-login">
@@ -139,36 +124,6 @@ function SignupFormModal() {
           </span>
         </div>
         <form className="signup-modal-input-form" onSubmit={handleSubmit}>
-          <label>
-            {" "}
-            First Name
-            <input
-              type="text"
-              className="signup-modal-inputs"
-              placeholder="First name must be at least 1 character..."
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </label>
-          {errors.firstName && (
-            <p className="signup-modal-errors-firstname">{errors.firstName}</p>
-          )}
-          <label>
-            {" "}
-            Last Name
-            <input
-              type="text"
-              className="signup-modal-inputs"
-              placeholder="Last name must be at least 1 character..."
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </label>
-          {errors.lastName && (
-            <p className="signup-modal-errors-lastname">{errors.lastName}</p>
-          )}
           <label>
             {" "}
             Email

@@ -11,7 +11,7 @@ function NavigationBar({ isLoaded }) {
   return (
     <div className="navi-bar">
       <div className="navi-home">
-          <span>SimpleFix</span>
+          <img src="/images/LandingPage_WhiteHorizontalLogo.png"></img>
       </div>
       {isLoaded && (
         <>
