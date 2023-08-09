@@ -41,13 +41,14 @@ module.exports = {
           allowNull: false,
         },
         status: {
-          type: Sequelize.ENUM(
+          type: Sequelize.ENUM,
+          values: [
             "Need PO",
             "Waiting for Part",
             "Part Ready",
             "Backordered",
             "Used"
-          ),
+          ],
           allowNull: false,
         },
         createdAt: {
