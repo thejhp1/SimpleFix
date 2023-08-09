@@ -10,22 +10,14 @@
   },
   "scripts": {
     "install": "npm install vite && npm install @vitejs/plugin-react-swc && npm --prefix backend install backend && npm --prefix frontend install frontend",
-    "render-postbuild": "npm run build --prefix frontend",
     "dev:backend": "npm install --prefix backend start",
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend",
-    "build": "npm run --prefix backend build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thejhp1/SimpleFix.git"
+    "build": "npm run --prefix backend build",
+    "render-postbuild": "npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thejhp1/SimpleFix/issues"
-  },
-  "homepage": "https://github.com/thejhp1/SimpleFix#readme"
+  "license": "ISC"
 }
