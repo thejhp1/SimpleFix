@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
-import Footer from '../Footer/Footer';
+import React, { useRef } from "react";
+import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
+import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/LandingPage.css";
 
 export default function LandingPage() {
@@ -8,77 +9,122 @@ export default function LandingPage() {
   const fourthSlideRef = useRef(null);
 
   const secondSlide = () => {
-    secondSlideRef.current?.scrollIntoView({behavior: "smooth"})
-  }
+    secondSlideRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const thirdSlide = () => {
-    thirdSlideRef.current?.scrollIntoView({behavior: "smooth"})
-  }
+    thirdSlideRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const fourthSlide = () => {
-    fourthSlideRef.current?.scrollIntoView({behavior: "smooth"})
+    fourthSlideRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const sendToTop = () => {
+    window.scrollTo({ top: 1, behavior: "smooth" });
   }
 
   return (
     <>
-      <div className='landing-page-scroll'>
-        <section className='landing-page-inital-block'>
-          <section className='landing-page-video-container'>
-            <div className='landing-page-video_inner'>
-              <video src="/images/landingpage_logo.mp4" autoPlay loop muted></video>
+      <div className="landing-page-scroll">
+        <section className="landing-page-inital-block">
+          <section className="landing-page-video-container">
+            <div className="landing-page-video_inner">
+              <video
+                src="/images/landingpage_logo.mp4"
+                autoPlay
+                loop
+                muted
+              ></video>
             </div>
           </section>
-          <section className='landing-page-slide-container'>
-            <div onClick={secondSlide} className='landing-page-slide_inner'>
+          <section className="landing-page-slide-container">
+            <div onClick={secondSlide} className="landing-page-slide_inner">
               <p class="landing-page-slider fa-bounce">EXPLORE</p>
               <i class="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
 
-        <section className='landing-page-block'>
-          <section ref={secondSlideRef} className='landing-page-ref'>
-          </section>
-          <section className='landing-page-info'>
-            <div className='landing-page-info_inner'>
-              <h1>SimpleFix is an ideal, easy to use ticket management system.  </h1>
+        <section className="landing-page-block">
+          <section ref={secondSlideRef} className="landing-page-ref"></section>
+          <section className="landing-page-info">
+            <div className="landing-page-info_inner">
+              <img
+                width="500px"
+                height="500px"
+                src="/images/LandingPage_FirstBlock.png"
+              />
+              <h1>
+                Effortlessly manage customer support using SimpleFix. Streamline
+                processes, enhance collaboration, and deliver top-notch
+                assistance.
+              </h1>
             </div>
           </section>
-          <section className='landing-page-slide-container'>
-            <div onClick={thirdSlide} className='landing-page-slide_inner'>
+          <section className="landing-page-slide-container">
+            <div onClick={thirdSlide} className="landing-page-slide_inner">
               <p class="landing-page-slider fa-bounce">EXPLORE</p>
               <i class="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
 
-        <section className='landing-page-block'>
-          <section ref={thirdSlideRef} className='landing-page-ref'>
-
-          </section>
-          <section className='landing-page-info'>
-            <div className='landing-page-info_inner'>
-              <h1>Hello World</h1>
+        <section className="landing-page-block">
+          <section ref={thirdSlideRef} className="landing-page-ref"></section>
+          <section className="landing-page-info">
+            <div className="landing-page-info_inner">
+              <h1>
+                Instantly create and manage tickets. Efficiently keep track of
+                parts and your claims.
+              </h1>
+              <img
+                width="500px"
+                height="500px"
+                src="/images/LandingPage_SecondBlock.png"
+              />
             </div>
           </section>
-          <section className='landing-page-slide-container'>
-            <div onClick={fourthSlide} className='landing-page-slide_inner'>
-              <p  class="landing-page-slider fa-bounce">EXPLORE</p>
+          <section className="landing-page-slide-container">
+            <div onClick={fourthSlide} className="landing-page-slide_inner">
+              <p class="landing-page-slider fa-bounce">EXPLORE</p>
               <i class="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
 
-        <section className='landing-page-block'>
-          <section ref={fourthSlideRef} className='landing-page-ref'>
-          </section>
-          <section className='landing-page-final-info'>
-            <div className='landing-page-info_inner'>
-              <h1>Are you ready? Let's get started!</h1>
+        <section className="landing-page-block">
+          <section ref={fourthSlideRef} className="landing-page-ref"></section>
+          <section className="landing-page-final-info">
+            <div className="landing-page-final-info_inner">
+              <img
+                width="500px"
+                height="500px"
+                src="/images/LandingPage_ThirdBlock.png"
+              />
+
+              <h1>
+                Say goodbye to ticket management complexities - say hello to
+                SimpleFix.
+              </h1>
+              <h3>Are you ready? Let's get started!</h3>
+              <button className="landing-page-final-button">
+                {" "}
+                <OpenModalMenuItem
+                  itemText="Sign Up"
+                  modalComponent={<SignupFormModal />}
+                />
+              </button>
+              <section className="landing-page-final-slide-container">
+                <div onClick={sendToTop} className="landing-page-slide_inner">
+                  <p class="landing-page-slider fa-bounce">BACK UP</p>
+                  <i class="fa-solid fa-angle-up fa-bounce"></i>
+                </div>
+              </section>
             </div>
           </section>
         </section>
       </div>
     </>
-  )
+  );
 }

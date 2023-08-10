@@ -122,7 +122,7 @@
 }
 
 .profile-dropdown-menu-option:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-light);
     border-radius: .2rem;
     cursor: pointer;
 }

@@ -51,9 +51,57 @@
 
 .landing-page-info_inner {
     color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
+
+.landing-page-final-info_inner {
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
 
 .landing-page-ref {
     height: 70px;
     background-color: var(--black);
+}
+
+.landing-page-final-info_inner > h1 {
+    font-size: 24px;
+}
+
+.landing-page-info_inner > h1 {
+    width: 30rem;
+    line-height: 2.5rem;
+    font-size: 24px;
+}
+
+.landing-page-final-button {
+    list-style-type: none;
+    width: 15rem;
+    height: 3rem;
+    border-radius: .5rem;
+    background-color: var(--primary-light);
+    color: var(--white);
+    font-family: quicksand;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+.landing-page-final-button:hover {
+    background-color: var(--primary-light-accent);
+    box-shadow: 0px 1px 10px var(--white);
+}
+
+.landing-page-final-slide-container {
+    margin-bottom: -6.5rem;
+    margin-top: 12rem;
 }

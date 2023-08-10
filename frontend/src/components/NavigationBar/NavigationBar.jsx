@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ProfileButton from "./ProfileButton";
-import OpenModalMenuItem from "./OpenModalMenuItem";
+import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/NavigationBar.css";

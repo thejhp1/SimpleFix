@@ -13,6 +13,10 @@
     cursor: default;
 }
 
+.footer_inner > img {
+    cursor: pointer;
+}
+
 .footer-developer {
     display: flex;
     align-items: center;

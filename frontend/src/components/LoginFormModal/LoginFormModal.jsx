@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import OpenModalMenuItem from "../NavigationBar/OpenModalMenuItem";
+import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/LoginForm.css";
 
