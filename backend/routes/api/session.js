@@ -25,7 +25,6 @@ const validateLogin = [
 // Restore session user
 router.get("/", async (req, res) => {
   const { user } = req;
-  console.log("USERRRRRRRRRRRRRRRRRRRRRRRRRRRRR", user)
   if (user) {
     const company = await Company.findOne({
       where: {

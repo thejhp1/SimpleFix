@@ -41,7 +41,6 @@ const restoreUser = (req, res, next) => {
     if (err) {
       return next();
     }
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAA')
     try {
       const { id } = jwtPayload.data;
       req.user = await Employee.findByPk(id, {

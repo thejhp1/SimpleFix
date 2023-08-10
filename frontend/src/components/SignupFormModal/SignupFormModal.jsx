@@ -55,7 +55,6 @@ function SignupFormModal() {
     }
 
     if (!email.includes("@")) {
-      console.log('asdasd')
       errors.email = "Invalid email";
     } else if (
       !email.endsWith(".org") &&
@@ -127,7 +126,6 @@ function SignupFormModal() {
         <form className="signup-modal-input-form" onSubmit={handleSubmit}>
           <label>
             <p className="signup-modal-input-label">Email</p>
-            {console.log(errors.email)}
             <input
               type="text"
               className={`signup-modal-inputs ${errors.email ? "errors" : ""}`}

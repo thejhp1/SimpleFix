@@ -63,8 +63,6 @@ function LoginFormModal() {
     }
 
     if (Object.values(errors).length === 0) {
-      console.log('credential', credential)
-      console.log('password', password)
       dispatch(sessionActions.login({ credential, password }))
         .then(closeModal)
         .catch(async (res) => {
