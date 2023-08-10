@@ -43,6 +43,7 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const ulClassNames =
     "fas fa-regular navi-user-arrow fa-angle-" + (showMenu ? "down fa-xl" : "up fa-xl");
+
   return (
     <>
       <div className="navi-icons">
@@ -61,7 +62,6 @@ function ProfileButton({ user }) {
                 <p>Let's get to work</p>
                 <i class="fa-regular fa-handshake"></i>
               </span>
-
               <span onClick={logout} className="profile-dropdown-menu-option">
                 <p>Log out</p>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>

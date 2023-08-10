@@ -6,6 +6,8 @@
     align-items: center;
     gap: 45rem;
     background-color: var(--black);
+    display: flex;
+    z-index: -1;
 }
 
 .navi-login-container {
@@ -14,15 +16,6 @@
     gap: 2rem;
 }
 
-.navi-home {
-    font-size: 56px;
-    font-weight: 700;
-    color: var(--primary-dark);
-}
-
-.navi-home > img {
-    margin-top: 1rem;
-}
 .navi-login-login-button, .navi-login-signup-button  {
     display: flex;
     align-items: center;
@@ -58,12 +51,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.fa-angle-up, .fa-angle-down {
+.navi-button:hover {
+    background-color: var(--primary-light-accent);
+}
+
+.navi-button:active {
+    background-color: var(--primary-light);
+    margin-top: .2rem;
+}
+
+.navi-user-arrow {
     color: #CCCCCC;
     padding-left: 5px;
     margin-right: 3.3rem;
+    cursor: pointer;
+}
+
+.navi-user-arrow:active {
+    margin-top: .2rem;
 }
 
 .navi-icons {

@@ -19,6 +19,8 @@ function NavigationBar({ isLoaded }) {
       <div className="navi-home">
           <img onClick={sendToLanding}src="/images/LandingPage_WhiteHorizontalLogo.png"></img>
       </div>
+
+
       {isLoaded && (
         <>
           {sessionUser ? (
