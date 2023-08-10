@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";

@@ -1,0 +1,19 @@
+.list-template-container {
+    display: grid;
+    padding-top: 70px;
+    height: 1220px;
+    grid-template-rows: 126px 1fr;
+    grid-template-columns: 1.5fr;
+}
+
+.list-template-search-container {
+    background-color: var(--background);
+    grid-column: 1/1;
+    grid-row: 1/2;
+}
+
+.list-template-info-container {
+    background-color: var(--background);
+    grid-column: 1/1;
+    grid-row: 2/2;
+}

@@ -5,7 +5,11 @@ const router = express.Router();
 const { requireAuth } = require("../../utils/auth")
 
 router.get("/", async (req, res, next) => {
+    const { user } = req
     const tickets = await Ticket.findAll({
+        where: {
+            employeeId: user.id
+        },
         include: [{
             model: Customer
         },
@@ -14,9 +18,9 @@ router.get("/", async (req, res, next) => {
         }
     ]
     })
-    
+
     return res.json({
-        Tickets: tickets
+        tickets: tickets
     })
 })
 

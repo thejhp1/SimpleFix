@@ -6,6 +6,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import LandingPage from "./components/LandingPage/LandingPage";
 import MainPage from "./components/MainPage/MainPage";
 import Footer from "./components/Footer/Footer";
+import ListTemplate from "./components/ListTemplate/ListTemplate";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,15 @@ function App() {
           </Route>
           <Route path="/home">
             <MainPage />
+          </Route>
+          <Route path="/tickets">
+            <ListTemplate />
+          </Route>
+          <Route path="/parts">
+            <ListTemplate />
+          </Route>
+          <Route path="/claims">
+            <ListTemplate />
           </Route>
         </Switch>
       )}
