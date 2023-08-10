@@ -1,0 +1,42 @@
+.main-page-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../public/images/MainPage_Header.png);
+    height: 500px;
+}
+
+.main-page-body-container {
+    background-color: var(--background);
+    height: 55.85vh;
+    display: flex;
+    justify-content: center;
+    gap: 20rem
+}
+
+.main-page-header-text {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--white);
+    background-color: #252525bc;
+    padding: 0rem 1rem;
+}
+
+.main-page-body_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+}
+
+.main-page-body_inner > h1 {
+    font-size: 32px;
+    margin-bottom: 2rem;
+}
+
+.main-page-body_options {
+    height: 20rem;
+    width: 15rem;
+    border-radius: .5rem;
+    background-color: var(--gray);
+}

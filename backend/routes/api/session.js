@@ -7,7 +7,7 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { Employee } = require("../../db/models");
+const { Employee, Company } = require("../../db/models");
 
 const router = express.Router();
 
@@ -23,14 +23,21 @@ const validateLogin = [
 ];
 
 // Restore session user
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const { user } = req;
+  console.log("USERRRRRRRRRRRRRRRRRRRRRRRRRRRRR", user)
   if (user) {
+    const company = await Company.findOne({
+      where: {
+        id: user.companyId
+      }
+    })
     const safeUser = {
       id: user.id,
       companyId: user.companyId,
       username: user.username,
       email: user.email,
+      company: company.name,
     };
     return res.json({
       user: safeUser,
@@ -49,6 +56,9 @@ router.post("/", validateLogin, async (req, res, next) => {
         email: credential,
       },
     },
+    include: {
+      model: Company
+    }
   });
 
   if (!user || !bcrypt.compareSync(password, user.hashedPassword.toString())) {
@@ -64,6 +74,7 @@ router.post("/", validateLogin, async (req, res, next) => {
     companyId: user.companyId,
     username: user.username,
     email: user.email,
+    comapny: user.Company
   };
 
   await setTokenCookie(res, safeUser);
@@ -78,5 +89,6 @@ router.delete("/", (_req, res) => {
   res.clearCookie("token");
   return res.json({ message: "success" });
 });
+
 
 module.exports = router;

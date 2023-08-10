@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ProfileButton from "./ProfileButton";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
@@ -8,10 +9,15 @@ import "../../styles/components/NavigationBar.css";
 
 function NavigationBar({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory();
+
+  const sendToLanding = () => {
+    history.push("/")
+  }
   return (
     <div className="navi-bar">
       <div className="navi-home">
-          <img src="/images/LandingPage_WhiteHorizontalLogo.png"></img>
+          <img onClick={sendToLanding}src="/images/LandingPage_WhiteHorizontalLogo.png"></img>
       </div>
       {isLoaded && (
         <>
@@ -21,13 +27,13 @@ function NavigationBar({ isLoaded }) {
             <div className="navi-login-container">
               <div className="navi-login-login-button">
                 <OpenModalMenuItem
-                  itemText="Log in"
+                  itemText="LOGIN"
                   modalComponent={<LoginFormModal />}
                 />
               </div>
               <div className="navi-login-signup-button">
                 <OpenModalMenuItem
-                  itemText="Sign up"
+                  itemText="SIGNUP"
                   modalComponent={<SignupFormModal />}
                 />
               </div>

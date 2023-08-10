@@ -2,10 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import OpenModalMenuItem from "./OpenModalMenuItem";
-import LoginFormModal from "../LoginFormModal/LoginFormModal";
-import SignupFormModal from "../SignupFormModal/SignupFormModal";
-
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -34,47 +30,44 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   const logout = () => {
-    // e.preventDefault();
-    console.log('aaasd')
     dispatch(sessionActions.logout());
-    // closeMenu();
-    // history.push("/");
+    closeMenu();
+    history.push("/");
   };
+
+  const sendToMain = () => {
+    closeMenu();
+    history.push("/home")
+  }
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const ulClassNames =
-    "fas fa-regular fa-angle-" + (showMenu ? "up fa-xl" : "down fa-xl");
+    "fas fa-regular navi-user-arrow fa-angle-" + (showMenu ? "down fa-xl" : "up fa-xl");
   return (
     <>
       <div className="navi-icons">
 
         <button onClick={openMenu} className="navi-button">
-          <i className="fas fa-user-circle fa-xl" />
+          <p>MENU</p>
         </button>
         <i className={ulClassNames} onClick={openMenu}></i>
         <ul className={ulClassName} ref={ulRef}>
           {user ? (
             <div className="profile-dropdown-container">
-              <li>Hello, {user.firstName}</li>
+              <li>Welcome to SimpleFix</li>
               <li>{user.email}</li>
-              <li className="profile-dropdown-logout-container">
-                <span onClick={logout}>Log out</span>
-              </li>
+              <p className="profile-dropdown-border"></p>
+              <span onClick={sendToMain} className="profile-dropdown-menu-option">
+                <p>Let's get to work</p>
+                <i class="fa-regular fa-handshake"></i>
+              </span>
+
+              <span onClick={logout} className="profile-dropdown-menu-option">
+                <p>Log out</p>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              </span>
             </div>
-          ) : (
-            <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
-            </>
-          )}
+          ) : ""}
         </ul>
       </div>
     </>

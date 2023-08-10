@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session"
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import LandingPage from "./components/LandingPage/LandingPage";
+import MainPage from "./components/MainPage/MainPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LandingPage />
+          </Route>
+          <Route path="/home">
+            <MainPage />
           </Route>
         </Switch>
       )}
