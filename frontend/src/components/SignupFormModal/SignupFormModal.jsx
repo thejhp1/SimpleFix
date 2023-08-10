@@ -46,15 +46,16 @@ function SignupFormModal() {
       errors.email = "Email cannot exceed 256 characters";
     }
 
-    if (username.length > 30) {
-      errors.username = "Username cannot exceed 30 characters";
+    if (username.length > 50) {
+      errors.username = "Username cannot exceed 50 characters";
     }
 
-    if (password.length > 60) {
-      errors.password = "Password cannot exceed 60 characters";
+    if (password.length > 50) {
+      errors.password = "Password cannot exceed 50 characters";
     }
 
     if (!email.includes("@")) {
+      console.log('asdasd')
       errors.email = "Invalid email";
     } else if (
       !email.endsWith(".org") &&
@@ -108,7 +109,7 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal-outer-container">
-      <i className="fa-sharp fa-solid fa-xmark fa-xl signup-xmark" onClick={closeModal}></i>
+      <i className="fa-sharp fa-solid fa-xmark fa-xl signupp-xmark" onClick={closeModal}></i>
       <section className="signup-modal-container">
         <div className="login-modal-icon">
           <img width="175px" height="175px" src="/images/LandingPage_BlackVerticalLogo.png"></img>
@@ -125,68 +126,63 @@ function SignupFormModal() {
         </div>
         <form className="signup-modal-input-form" onSubmit={handleSubmit}>
           <label>
-            {" "}
-            Email
+            <p className="signup-modal-input-label">Email</p>
+            {console.log(errors.email)}
             <input
               type="text"
-              className="signup-modal-inputs"
+              className={`signup-modal-inputs ${errors.email ? "errors" : ""}`}
               placeholder="Enter a valid email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            {errors.email && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.email}</p>}
+
           </label>
-          {errors.email && (
-            <p className="signup-modal-errors-email">{errors.email}</p>
-          )}
+
           <label>
-            {" "}
-            Username
+            <p className="signup-modal-input-label">Username</p>
             <input
               type="text"
-              className="signup-modal-inputs"
+              className={`signup-modal-inputs ${errors.username ? "errors" : ""}`}
               placeholder="Username must be at least 4 characters..."
               autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
+            {errors.username && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.username}</p>}
           </label>
-          {errors.username && (
-            <p className="signup-modal-errors-username">{errors.username}</p>
-          )}
+
           <label>
-            {" "}
-            Password
+          <p className="signup-modal-input-label">Password</p>
             <input
               type="password"
               placeholder="Password must be at least 4 characters..."
               autoComplete="new-password"
-              className="signup-modal-inputs"
+              className={`signup-modal-inputs ${errors.password ? "errors" : ""}`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            {errors.password && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
+
           </label>
-          {errors.password && (
-            <p className="signup-modal-errors-password-1">{errors.password}</p>
-          )}
           <label>
-            {" "}
-            Confirm Password
+          <p className="signup-modal-input-label">Confirm Password</p>
+
             <input
               type="password"
               placeholder="Please make sure that both passwords are matching..."
-              className="signup-modal-inputs"
+              className={`signup-modal-inputs ${errors.username ? "errors" : ""}`}
               autoComplete="new-password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
+            {errors.password && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
+
           </label>
-          {errors.password && (
-            <p className="signup-modal-errors-password-2">{errors.password}</p>
-          )}
           <button
             className="signup-modal-button"
             type="submit"

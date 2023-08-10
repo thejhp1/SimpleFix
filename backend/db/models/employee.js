@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Employee.init({
     companyId: {
       type: DataTypes.INTEGER,
+      defaultValue: 1
     },
     username: {
       type: DataTypes.STRING,

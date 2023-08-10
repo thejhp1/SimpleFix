@@ -1,6 +1,6 @@
 .signup-modal-outer-container {
     padding: 0px 3.2rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 .signup-modal-container {
@@ -10,7 +10,7 @@
 }
 
 .signup-modal-container > h1 {
-    margin-top: 0px;
+    margin-top: -1rem;
     font-size: 1.75rem;
     margin-bottom: .5rem;
 }
@@ -18,7 +18,7 @@
 .signup-modal-input-form {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -49,21 +49,22 @@
     margin-bottom: 1.9rem;
 }
 
-.signup-modal {
-    list-style-type: none;
-}
 
 .signup-modal-button {
     width: 23.5rem;
     background-color: var(--primary-light);
     color: white;
     border-radius: .5rem;
-    margin-top: 16px;
     height: 3rem;
     border: none;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    margin-top: .5rem;
+    margin-bottom: .8rem;
+    /* margin: 1rem 0px; */
 }
 
 .signup-modal-button:disabled {
@@ -75,58 +76,28 @@
     background-color: var(--primary-light-accent);
 }
 
-.signup-modal-errors-email {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    margin-top: 14rem;
-    font-weight: 500;
+.signup-modal-input-label {
+    padding-left: .7rem;
+    padding-bottom: .2rem;
 }
 
-.signup-modal-errors-password-1 {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    font-weight: 500;
-    margin-top: 24.4rem;
-}
-
-.signup-modal-errors-password-2 {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    font-weight: 500;
-    margin-top: 29.5rem;
-}
-
-.signup-modal-errors-username {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    font-weight: 500;
-    margin-top: 19.2rem;
-}
-
-.signup-modal-errors-firstname {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    font-weight: 500;
-    margin-top: 3.7rem;
-}
-
-.signup-modal-errors-lastname {
-    font-size: 12px;
-    color: rgb(207,42,39);
-    position: absolute;
-    font-weight: 500;
-    margin-top: 8.8rem;
-}
-
-.signup-xmark {
+.signupp-xmark {
     position: absolute;
     margin-left: 24.7rem;
     margin-top: 1.5rem;
     color: #999999;
     cursor: pointer;
+}
+
+.errors {
+    border: 2px solid var(--errors);
+}
+
+.error-signup {
+    color: var(--errors);
+    position: absolute;
+    font-size: 14px;
+    margin-top: -.85rem;
+    width: 100%;
+    margin-right: 7.5rem;
 }
