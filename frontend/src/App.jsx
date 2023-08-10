@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session"
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import LandingPage from "./components/LandingPage/LandingPage";
 import MainPage from "./components/MainPage/MainPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   )
 }

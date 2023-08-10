@@ -12,6 +12,10 @@
     z-index: 1;
 }
 
+.navi-home {
+    cursor: pointer;
+}
+
 .navi-login-container {
     list-style-type: none;
     display: flex;

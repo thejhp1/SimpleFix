@@ -35,7 +35,15 @@
 
 .landing-page-info {
     background-color: var(--black);
-    height: 1028px;
+    height: 958px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-page-final-info {
+    background-color: var(--black);
+    height: 1151.02px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +53,7 @@
     color: var(--white);
 }
 
-.landing-page-block {
-    /* border: 1px solid red; */
-    height: 100%;
+.landing-page-ref {
+    height: 70px;
+    background-color: var(--black);
 }

@@ -172,7 +172,7 @@ function SignupFormModal() {
             <input
               type="password"
               placeholder="Please make sure that both passwords are matching..."
-              className={`signup-modal-inputs ${errors.username ? "errors" : ""}`}
+              className={`signup-modal-inputs ${errors.password ? "errors" : ""}`}
               autoComplete="new-password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
