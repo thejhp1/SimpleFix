@@ -6,8 +6,10 @@
     align-items: center;
     gap: 45rem;
     background-color: var(--black);
-    display: flex;
-    z-index: -1;
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
 }
 
 .navi-login-container {
