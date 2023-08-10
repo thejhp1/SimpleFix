@@ -20,7 +20,7 @@ export default function LandingPage() {
         <section className='landing-page-inital-block'>
           <section className='landing-page-video-container'>
             <div className='landing-page-video_inner'>
-              <video src="/public/landingpage_logo.mp4" autoPlay loop muted></video>
+              <video src="../../public/landingpage_logo.mp4" autoPlay loop muted></video>
             </div>
           </section>
           <section className='landing-page-slide-container'>
