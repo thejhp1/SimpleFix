@@ -7,6 +7,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import MainPage from "./components/MainPage/MainPage";
 import Footer from "./components/Footer/Footer";
 import ListTemplate from "./components/ListTemplate/ListTemplate";
+import Ticket from "./components/Ticket/Ticket";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LandingPage />
+          </Route>
+          <Route path="/tickets/:ticketId">
+            <Ticket />
           </Route>
           <Route path="/home">
             <MainPage />
