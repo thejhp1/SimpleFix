@@ -3,8 +3,9 @@
     background-color: var(--border);
     display: flex;
     align-items: flex-end;
-    padding-left: .5rem;
+    padding: 0px 2rem;
     margin-bottom: -2px;
+    justify-content: space-between;
 }
 
 .ticket-tab_inner {
@@ -27,4 +28,21 @@
     border-top-right-radius: .5rem;
     padding: 0px 1rem;
     cursor: pointer;
+}
+
+.ticket-tab-update-button {
+    margin-right: .5rem;
+}
+
+.ticket-tab-update-button > button {
+    border: 0;
+    height: 2.5rem;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+    padding: 0px .5rem;
+    background-color: var(--primary-light);
+    font-family: quicksand;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
 }

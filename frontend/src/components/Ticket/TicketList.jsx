@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { thunkGetAllTicket } from "../../store/ticket";
 import "../../styles/components/TicketList.css"
 
 export default function TicketList() {
   const ticketStore = useSelector((state) => state.tickets);
+  const history = useHistory();
   const dispatch = useDispatch();
   const tickets = Object.values(ticketStore)
 
@@ -12,7 +14,20 @@ export default function TicketList() {
     dispatch(thunkGetAllTicket())
   }, [dispatch])
 
-  console.log("TICKETSTORE", tickets);
+  let completedTickets = [], pendingTickets = [], cancelledTickets = []
+  for (let ticket of tickets) {
+    if (ticket.status === "Completed") {
+        completedTickets.push(ticket)
+    } else if (ticket.status === "Cancel") {
+        cancelledTickets.push(ticket)
+    } else {
+        pendingTickets.push(ticket)
+    }
+  }
+
+  const sendToTicket = (ticketId) => {
+    history.push(`tickets/${ticketId}`)
+  }
 
   return (
     <>
@@ -36,40 +51,49 @@ export default function TicketList() {
                 <h3>Phone Number</h3>
                 <h3>Model Number</h3>
                 <h3 style={{borderTopRightRadius:".5rem"}}>Status</h3>
-                {tickets.map((ticket) => {
-                    //NEED TO REFACTOR
-                    if (ticket.id % 2 === 0) {
+                {pendingTickets?.map((ticket, i) => {
+                    if (i % 2 == 0) {
                         return (
                             <>
-                                <p style={{backgroundColor:"var(--gray)"}}>{ticket?.number}</p>
+                                <p style={{backgroundColor:"var(--gray)", color:"var(--primary-light)", fontWeight:"700"}}>
+                                    <div className="ticket-list-ticket-num" onClick={() => sendToTicket(ticket.id)} >
+                                        {ticket?.number}
+                                    </div>
+                                </p>
                                 <p style={{backgroundColor:"var(--gray)"}}>{ticket?.Customer.firstName} {ticket?.Customer.lastName}</p>
                                 <p style={{backgroundColor:"var(--gray)"}}>{ticket?.Customer.city}</p>
                                 <p style={{backgroundColor:"var(--gray)"}}>{ticket?.Customer.state}</p>
                                 <p style={{backgroundColor:"var(--gray)"}}>{ticket?.Customer.phone}</p>
                                 <p style={{backgroundColor:"var(--gray)"}}>{ticket?.Products[0].modelNumber}</p>
-                                <p style={{backgroundColor:"var(--gray)"}}>{ticket?.status}</p>
+                                <p style={{backgroundColor:"var(--gray)", color:"var(--primary-light)", fontWeight:"700"}}>{ticket?.status}</p>
                             </>
                         )
                     } else {
                         return (
                             <>
-                                <p>{ticket?.number}</p>
+                                <p className="ticket-list-ticket-red">
+                                    <div className="ticket-list-ticket-num" onClick={() => sendToTicket(ticket.id)} >
+                                        {ticket?.number}
+                                    </div>
+                                </p>
                                 <p>{ticket?.Customer.firstName} {ticket?.Customer.lastName}</p>
                                 <p>{ticket?.Customer.city}</p>
                                 <p>{ticket?.Customer.state}</p>
                                 <p>{ticket?.Customer.phone}</p>
                                 <p>{ticket?.Products[0].modelNumber}</p>
-                                <p>{ticket?.status}</p>
+                                <p className="ticket-list-ticket-red">{ticket?.status}</p>
                             </>
                         )
                     }
 
-                }
-
+                 }
                 )}
             </div>
-            <section className="ticket-list-page-num--container">
-                <div className="ticket-list-page-num_inner">
+            <section className="ticket-list-page-num-container">
+                <div className="ticket-list-ticket-count">
+                    <p>Tickets Found: {pendingTickets.length}</p>
+                </div>
+                <div className="ticket-list-page-num">
                     1 2 3 4 5 6 7 8 9 10
                 </div>
             </section>

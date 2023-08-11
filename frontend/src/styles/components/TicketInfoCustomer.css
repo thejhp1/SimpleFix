@@ -1,0 +1,10 @@
+.ticket-info-customer-container {
+   padding-top: 1.5rem;
+}
+.ticket-info-customer_inner {
+    background-color: var(--border);
+    margin: 0px .5rem;
+    border-radius: .5rem;
+    height: 15rem;
+    padding-top: .5rem;
+ }

@@ -7,7 +7,7 @@ export default function TicketTab({ selectedTab, setSelectedTab }) {
   useEffect(() => {
     setSelectedTab("General")
   }, [setSelectedTab])
-  
+
   return (
     <section className='ticket-tab-container'>
         <div className='ticket-tab_inner'>
@@ -21,6 +21,9 @@ export default function TicketTab({ selectedTab, setSelectedTab }) {
                     Service Tracking
                 </div>
             </span>
+        </div>
+        <div className='ticket-tab-update-button'>
+          <button>UPDATE ALL</button>
         </div>
     </section>
   )

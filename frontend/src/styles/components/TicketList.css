@@ -3,7 +3,7 @@
     color: var(--white);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: repeat(20, 42px);
     margin: 0px 2rem;
     border-radius: .5rem;
     margin-top: 1rem;
@@ -35,24 +35,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 42px;
+    cursor: default;
 }
 
-.ticket-list-page-num--container {
+.ticket-list-page-num-container {
     margin: 0px 3rem;
     margin-top: .6rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
-.ticket-list-page-num_inner {
+.ticket-list-page-num, .ticket-list-ticket-count {
     display: flex;
+    color: var(--white);
     align-items: center;
     justify-content: center;
     min-width: 2rem;
     border-radius: .5rem;
     padding: 0px 1rem;
-    color: var(--white);
     background-color: var(--background);
     box-shadow: 4px 4px 3px var(--black);
+    cursor: default;
+}
+
+.ticket-list-ticket-red {
+    font-weight: 700;
+    color: 	var(--primary-light);
+}
+
+.ticket-list-ticket-num:hover {
     cursor: pointer;
+    text-decoration: underline;
 }

@@ -9,10 +9,11 @@
     background-color: var(--background);
     height: 80px;
     padding: .1rem 2.5rem;
-    margin: 0px .5rem;
+    margin: 0px 2rem;
     border-radius: .5rem;
     display: flex;
     align-items: center;
+    box-shadow: 4px 4px 3px var(--black);
 }
 
 .ticket-search-input {
@@ -33,7 +34,4 @@
     height: 2.3rem;
     background-color: var(--border);
     border-radius: .5rem;
-}
-
-.ticket-search-input > input:active {
 }
