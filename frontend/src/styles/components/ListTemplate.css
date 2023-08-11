@@ -2,18 +2,24 @@
     display: grid;
     padding-top: 70px;
     height: 1220px;
-    grid-template-rows: 126px 1fr;
-    grid-template-columns: 1.5fr;
+    grid-template-rows: 50px 127px 1fr;
+    grid-template-columns: 1fr;
+}
+
+.list-template-header-container {
+    background-color: var(--border);
+    grid-column: 1/1;
+    grid-row: 1/1;
 }
 
 .list-template-search-container {
-    background-color: var(--background);
+    background-color: var(--border);
     grid-column: 1/1;
-    grid-row: 1/2;
+    grid-row: 2/2;
 }
 
 .list-template-info-container {
-    background-color: var(--background);
+    background-color: var(--border);
     grid-column: 1/1;
-    grid-row: 2/2;
+    grid-row: 3/3;
 }

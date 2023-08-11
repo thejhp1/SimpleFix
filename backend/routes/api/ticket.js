@@ -1,5 +1,5 @@
 const express = require("express");
-const { Ticket, Customer, Part } = require("../../db/models")
+const { Ticket, Customer, Part, Product } = require("../../db/models")
 const { handleValidationErrors } = require("../../utils/validation");
 const router = express.Router();
 const { requireAuth } = require("../../utils/auth")
@@ -15,6 +15,9 @@ router.get("/", async (req, res, next) => {
         },
         {
             model: Part
+        },
+        {
+            model: Product
         }
     ]
     })
