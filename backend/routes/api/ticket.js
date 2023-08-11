@@ -27,10 +27,9 @@ router.get("/", async (req, res, next) => {
 })
 
 router.get("/:ticketId", async (req, res, next) => {
-    const { user } = req;
     const ticket = await Ticket.findOne({
         where: {
-            employeeId: user.id
+            id: req.params.ticketId
         },
         include: [{
             model: Customer

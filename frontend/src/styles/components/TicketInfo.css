@@ -1,0 +1,13 @@
+.ticket-info-container {
+    height: 1003px;
+    background-color: var(--border);
+    padding: .1rem .5rem;
+}
+
+.ticket-info_inner {
+    background-color: var(--background);
+    height: 994px;
+    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}

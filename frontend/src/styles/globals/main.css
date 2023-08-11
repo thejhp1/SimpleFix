@@ -19,3 +19,8 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+.active {
+    background-color: var(--active);
+    border-bottom: 1px solid var(--black);
+}

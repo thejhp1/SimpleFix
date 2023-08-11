@@ -1,49 +1,50 @@
 :root {
-    --border: #CCCCCC;
+    --active: #727272;
     --background: #32353a;
-    --white: #F6F6F6;
-    --gray: #999999;
-    --black: #000000;
-    --primary-light: #5CE1E6;
-    --primary-light-accent: #12f7ff;
-    --primary-dark: #004AAD;
     --banner: #2789E9;
-    --errors: #F23F42;
+    --black: #000000;
+    --border: #CCCCCC;
     --delete:#DA373C;
     --delete-accent:#A12828;
+    --errors: #F23F42;
+    --gray: #999999;
+    --primary-dark: #004AAD;
+    --primary-light: #5CE1E6;
+    --primary-light-accent: #12f7ff;
+    --white: #F6F6F6;
 }
 
 @font-face {
     font-family: "quicksand";
     font-style: normal;
     font-weight: 300;
-    src: url(../../../public/fonts/Quicksand/Quicksand-Light.ttf);
+    src: url(/fonts/Quicksand/Quicksand-Light.ttf);
 }
 
 @font-face {
     font-family: "quicksand";
     font-style: normal;
     font-weight: 400;
-    src: url(../../../public/fonts/Quicksand/Quicksand-Regular.ttf);
+    src: url(/fonts/Quicksand/Quicksand-Regular.ttf);
 }
 
 @font-face {
     font-family: "quicksand";
     font-style: normal;
     font-weight: 500;
-    src: url(../../../public/fonts/Quicksand/Quicksand-Medium.ttf);
+    src: url(/fonts/Quicksand/Quicksand-Medium.ttf);
 }
 
 @font-face {
     font-family: "quicksand";
     font-style: normal;
     font-weight: 600;
-    src: url(../../../public/fonts/Quicksand/Quicksand-SemiBold.ttf);
+    src: url(/fonts/Quicksand/Quicksand-SemiBold.ttf);
 }
 
 @font-face {
     font-family: "quicksand";
     font-style: normal;
     font-weight: 700;
-    src: url(../../../public/fonts/Quicksand/Quicksand-Bold.ttf);
+    src: url(/fonts/Quicksand/Quicksand-Bold.ttf);
 }
