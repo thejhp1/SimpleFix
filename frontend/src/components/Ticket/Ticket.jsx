@@ -51,7 +51,7 @@ export default function Ticket() {
               setSelectedTab={setSelectedState}
             />
             <div className='ticket-tab-button'>
-                <button>CREATE</button>
+                <button>UPDATE</button>
             </div>
           </div>
           <TicketInfo

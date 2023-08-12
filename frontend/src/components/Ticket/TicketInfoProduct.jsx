@@ -244,52 +244,134 @@ export default function TicketInfoProduct({
                 <p>Model Number: </p>
                 <p>Serial Number: </p>
               </div>
-              <div className="product-input">
-                <input
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
-                ></input>
-                <input
-                  value={model}
-                  onChange={(e) => setModel(e.target.value)}
-                ></input>
-                <input
-                  value={serial}
-                  onChange={(e) => setSerial(e.target.value)}
-                ></input>
+              <div className="product-input-container">
+                <div className="product-input_inner">
+                  <input
+                    value={brand}
+                    style={{
+                      border: `${
+                        errors.brand ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setBrand(e.target.value)}
+                  ></input>
+                  {errors.brand && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.brand}
+                    </p>
+                  )}
+                </div>
+                <div className="product-input_inner">
+                  <input
+                    value={model}
+                    style={{
+                      border: `${
+                        errors.model ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setModel(e.target.value)}
+                  ></input>
+                  {errors.model && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.model}
+                    </p>
+                  )}
+                </div>
+                <div className="product-input_inner">
+                  <input
+                    value={serial}
+                    style={{
+                      border: `${
+                        errors.serial ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setSerial(e.target.value)}
+                  ></input>
+                  {errors.serial && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.serial}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
             <div className="ticket-info-product">
               <div className="product-header">
-                <p>Install Date: </p>
+                <p>{"Install Date: (MM/DD/YY)"}</p>
                 <p>Warranty Status: </p>
                 <p>Product Category: </p>
               </div>
-              <div className="product-input">
-                <input
-                  value={installDate}
-                  disabled={true}
-                  style={{
-                    backgroundColor: "var(--white)",
-                    color: "var(--black)",
-                  }}
-                ></input>
-                <input
-                  value={warrantyStatus}
-                  disabled={true}
-                  style={{
-                    backgroundColor: "var(--white)",
-                    color: "var(--black)",
-                  }}
-                ></input>
-                <input
-                  value={category}
-                  disabled={true}
-                  style={{
-                    backgroundColor: "var(--white)",
-                    color: "var(--black)",
-                  }}
-                ></input>
+              <div className="product-input-container">
+                <div className="product-input_inner">
+                  <input
+                    value={installDate}
+                    style={{
+                      border: `${
+                        errors.installDate ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setInstallDate(e.target.value)}
+                  ></input>
+                  {errors.installDate && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.installDate}
+                    </p>
+                  )}
+                </div>
+                <div className="product-input_inner">
+                  <select
+                    value={warrantyStatus}
+                    style={{
+                      border: `${
+                        errors.warrantyStatus ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setWarrantyStatus(e.target.value)}
+                  >
+                    <option value="" disabled>
+                      Select a warranty status...
+                    </option>
+                    <option>In Warranty</option>
+                    <option>Out of Warranty</option>
+                  </select>
+                  {errors.warrantyStatus && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.warrantyStatus}
+                    </p>
+                  )}
+                </div>
+                <div className="product-input_inner">
+                  <select
+                    value={category}
+                    style={{
+                      border: `${
+                        errors.category ? "3px solid var(--ticket)" : ""
+                      }`,
+                    }}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                  <option value="" disabled>
+                      Select a product category...
+                    </option>
+                    <option>Refrigeration</option>
+                    <option>Kitchen</option>
+                    <option>Laundry - Electric</option>
+                    <option>Laundry - Gas</option>
+                    <option>Cooking - Electric</option>
+                    <option>Cooking - Gas</option>
+                  </select>
+                  {errors.category && (
+                    <p className="error-product">
+                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      {errors.category}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
