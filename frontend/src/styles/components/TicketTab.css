@@ -30,14 +30,21 @@
     cursor: pointer;
 }
 
-.ticket-tab-update-button {
-    margin-right: .5rem;
+.ticket-tab {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--border);
 }
 
-.ticket-tab-update-button > button {
+.ticket-tab-button {
+    margin-right: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.ticket-tab-button > button {
     border: 0;
     height: 2.5rem;
-    margin-bottom: .5rem;
     border-radius: .5rem;
     padding: 0px .5rem;
     background-color: var(--primary-light);
@@ -45,4 +52,5 @@
     color: var(--white);
     font-size: 18px;
     font-weight: 600;
+    margin-right: 3rem;
 }

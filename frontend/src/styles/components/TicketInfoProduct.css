@@ -37,7 +37,7 @@
     padding-left: 1rem;
 }
 
-.product-input {
+.product-input-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -49,14 +49,26 @@
     border-bottom-right-radius: .5rem;
 }
 
-.product-input > input {
+.product-input_inner > input, .product-input_inner > select {
     border: 1px solid var(--gray);
     height: 2rem;
     width: 20vw;
     margin-left: 2rem;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     border-radius: .5rem;
-       font-family: quicksand;
-   font-size: 16px;
-   font-weight: 500;
+    font-family: quicksand;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-input_inner > input:focus {
+    outline: none;
+}
+
+.error-product {
+    color: var(--ticket);
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    margin-left: 2rem;
 }

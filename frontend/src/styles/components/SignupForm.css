@@ -49,7 +49,6 @@
     margin-bottom: 1.9rem;
 }
 
-
 .signup-modal-button {
     width: 23.5rem;
     background-color: var(--primary-light);
@@ -87,10 +86,6 @@
     margin-top: 1.5rem;
     color: #999999;
     cursor: pointer;
-}
-
-.errors {
-    border: 2px solid var(--errors);
 }
 
 .error-signup {

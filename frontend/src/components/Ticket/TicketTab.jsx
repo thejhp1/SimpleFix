@@ -22,9 +22,6 @@ export default function TicketTab({ selectedTab, setSelectedTab }) {
                 </div>
             </span>
         </div>
-        <div className='ticket-tab-update-button'>
-          <button>UPDATE ALL</button>
-        </div>
     </section>
   )
 }

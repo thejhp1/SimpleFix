@@ -1,0 +1,22 @@
+.create-ticket-container {
+    height: 94.5vh;
+    background-color: var(--border);
+}
+
+.create-ticket_inner {
+    padding-top: 4.7rem;
+}
+
+.create-ticket-form-container {
+    background-color: var(--background);
+    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 4px 4px 3px var(--black);
+    margin: 0.15rem 2rem;
+    height: 77vh;
+}
+
+.create-ticket_inner > div:nth-child(1) {
+    margin-bottom: .35rem;
+}

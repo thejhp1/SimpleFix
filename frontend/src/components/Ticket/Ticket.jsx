@@ -5,6 +5,7 @@ import { thunkGetSingleTicket } from "../../store/singleTicket";
 import TicketTab from "./TicketTab";
 import TicketInfo from "./TicketInfo";
 import "../../styles/components/Ticket.css";
+import CreateTicket from "./CreateTicket";
 
 export default function Ticket() {
   const singleTicketStore = useSelector((state) => state.singleTicket);
@@ -23,34 +24,45 @@ export default function Ticket() {
       console.log(ticketNumber);
     }
   };
-
+  console.log(window.location.pathname === "/tickets/new");
   return (
     <>
-      {ticket ? <section className="ticket-container">
-        <section className="ticket-search-container">
-          <div className="ticket-search_inner">
-            <div className="ticket-search-input">
-              <p>Ticket #: </p>
-              <input
-                onKeyDown={handleKeyDown}
-                onChange={(e) => {
-                  setTicketNumber(e.target.value);
-                }}
-                value={ticketNumber || ticket?.number}
-              ></input>
+      {window.location.pathname === "/tickets/new" ? (
+        <CreateTicket />
+      ) : ticket ? (
+        <section className="ticket-container">
+          <section className="ticket-search-container">
+            <div className="ticket-search_inner">
+              <div className="ticket-search-input">
+                <p>Ticket #: </p>
+                <input
+                  onKeyDown={handleKeyDown}
+                  onChange={(e) => {
+                    setTicketNumber(e.target.value);
+                  }}
+                  value={ticketNumber || ticket?.number}
+                ></input>
+              </div>
+            </div>
+          </section>
+          <div className="ticket-tab">
+            <TicketTab
+              selectedTab={selectedState}
+              setSelectedTab={setSelectedState}
+            />
+            <div className='ticket-tab-button'>
+                <button>CREATE</button>
             </div>
           </div>
+          <TicketInfo
+            ticket={ticket}
+            selectedTab={selectedState}
+            setSelectedTab={setSelectedState}
+          />
         </section>
-        <TicketTab
-          selectedTab={selectedState}
-          setSelectedTab={setSelectedState}
-        />
-        <TicketInfo
-          ticket={ticket}
-          selectedTab={selectedState}
-          setSelectedTab={setSelectedState}
-        />
-      </section> : ""}
+      ) : (
+        ""
+      )}
     </>
   );
 }
