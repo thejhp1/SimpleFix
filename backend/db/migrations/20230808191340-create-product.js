@@ -31,6 +31,18 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
+      installDate: {
+        type: Sequelize.STRING(10),
+        allowNull: false
+      },
+      warrantyStatus: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
+      category: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -42,6 +42,21 @@ module.exports = (sequelize, DataTypes) => {
         len: [2, 50]
       }
     },
+    installDate: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [6,8]
+      }
+    },
+    warrantyStatus: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Product',
