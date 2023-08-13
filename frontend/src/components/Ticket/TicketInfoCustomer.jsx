@@ -74,6 +74,8 @@ export default function TicketInfoCustomer({
           city,
           zip,
         });
+
+        return handleCallback = false
       }
       setButtonCheck(false);
       setErrors(errors);
@@ -151,18 +153,18 @@ export default function TicketInfoCustomer({
               <p>Street: </p>
                 <div className="ticket-address-input_inner">
                   <input
-                    value={state}
+                    value={street}
                     style={{
                       border: `${
-                        errors.state ? "3px solid var(--ticket)" : ""
+                        errors.street ? "3px solid var(--ticket)" : ""
                       }`,
                     }}
-                    onChange={(e) => setState(e.target.value)}
+                    onChange={(e) => setStreet(e.target.value)}
                   ></input>
-                  {errors.state && (
+                  {errors.street && (
                     <p className="error-address">
                       <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                      {errors.state}
+                      {errors.street}
                     </p>
                   )}
                 </div>
@@ -187,18 +189,18 @@ export default function TicketInfoCustomer({
               <p>State: </p>
                 <div className="ticket-address-input_inner">
                   <input
-                    value={street}
+                    value={state}
                     style={{
                       border: `${
-                        errors.street ? "3px solid var(--ticket)" : ""
+                        errors.state ? "3px solid var(--ticket)" : ""
                       }`,
                     }}
-                    onChange={(e) => setStreet(e.target.value)}
+                    onChange={(e) => setState(e.target.value)}
                   ></input>
-                  {errors.street && (
+                  {errors.state && (
                     <p className="error-address">
                       <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                      {errors.street}
+                      {errors.state}
                     </p>
                   )}
                 </div>

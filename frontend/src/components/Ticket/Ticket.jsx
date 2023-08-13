@@ -24,7 +24,7 @@ export default function Ticket() {
       console.log(ticketNumber);
     }
   };
-  console.log(window.location.pathname === "/tickets/new");
+  
   return (
     <>
       {window.location.pathname === "/tickets/new" ? (

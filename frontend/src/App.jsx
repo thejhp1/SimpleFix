@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import ListTemplate from "./components/ListTemplate/ListTemplate";
 import Ticket from "./components/Ticket/Ticket";
 import CreateTicket from "./components/Ticket/CreateTicket";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/claims">
             <ListTemplate />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
       )}

@@ -83,11 +83,13 @@ export default function TicketInfoProduct({
           category
         })
 
+        return handleCallback = false
       }
 
       setButtonCheck(false);
       setErrors(errors);
     }
+
   }, [handleCallback]);
 
   return (

@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkGetAllTicket } from "../../store/ticket";
+import Pagination from "../Pagination/Pagination";
 import "../../styles/components/TicketList.css"
 
 export default function TicketList() {
@@ -9,6 +10,8 @@ export default function TicketList() {
   const history = useHistory();
   const dispatch = useDispatch();
   const tickets = Object.values(ticketStore)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [ticketsPerPage, setTicketsPerPage] = useState(20);
 
   useEffect(() => {
     dispatch(thunkGetAllTicket())
@@ -25,6 +28,15 @@ export default function TicketList() {
     }
   }
 
+  //GET CURRENT TICKETS
+  const indexOfLastTicket = currentPage * ticketsPerPage;
+  const indexOfFirstTicket = indexOfLastTicket - ticketsPerPage;
+  const currentTickets = pendingTickets.slice(indexOfFirstTicket, indexOfLastTicket)
+
+  //SET CURRENT PAGE
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  //SEND TO THE TICKET DETAILS
   const sendToTicket = (ticketId) => {
     history.push(`tickets/${ticketId}`)
   }
@@ -51,8 +63,9 @@ export default function TicketList() {
                 <h3>Phone Number</h3>
                 <h3>Model Number</h3>
                 <h3 style={{borderTopRightRadius:".5rem"}}>Status</h3>
-                {pendingTickets?.map((ticket, i) => {
-                    if (i % 2 == 0) {
+                {currentTickets?.map((ticket, i) => {
+                    console.log("TICKET", ticket)
+                    if (i % 2 != 0) {
                         return (
                             <>
                                 <p style={{backgroundColor:"var(--gray)", color:"var(--primary-light)", fontWeight:"700"}}>
@@ -94,7 +107,7 @@ export default function TicketList() {
                     <p>Tickets Found: {pendingTickets.length}</p>
                 </div>
                 <div className="ticket-list-page-num">
-                    1 2 3 4 5 6 7 8 9 10
+                    <Pagination ticketsPerPage={ticketsPerPage} totalTickets={pendingTickets.length} paginate={paginate}/>
                 </div>
             </section>
         </section>

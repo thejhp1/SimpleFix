@@ -1,0 +1,7 @@
+.pagination_inner {
+    list-style-type: none;
+    color: var(--white);
+    display: flex;
+    gap: .5rem;
+    cursor: pointer;
+}
