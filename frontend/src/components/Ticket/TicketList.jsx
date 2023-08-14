@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkGetAllTicket } from "../../store/ticket";
 import Pagination from "../Pagination/Pagination";
-import SearchTicket from "./SearchTicket";
+import Search from "../Search/Search";
 import dayjs from "dayjs";
 import SearchTicketTab from "./SearchTicketTab";
 import "../../styles/components/TicketList.css";
@@ -103,7 +103,7 @@ export default function TicketList() {
       <section className="list-template-search-container">
         <section className="ticket-list-search-container">
           <div className="ticket-list-search_inner">
-            <SearchTicket
+            <Search
               setSearchInput={setSearchInput}
               setSearchDateRange={setSearchDateRange}
               setFiltered={setFiltered}

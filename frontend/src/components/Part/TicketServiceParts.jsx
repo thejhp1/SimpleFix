@@ -25,11 +25,11 @@ export default function TicketServiceParts({ type, parts }) {
                 if (i % 2 != 0) {
                   return (
                     <>
-                      <p>{part?.number}</p>
-                      <p>{part?.description}</p>
-                      <p>{part?.price}</p>
-                      <p>{part?.quantity}</p>
-                      <select>
+                      <input value={number} onChange={(e) => setNumber(e.target.value)} placeholder={part?.number}></input>
+                      <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder={part?.description}></input>
+                      <input value={price} onChange={(e) => setPrice(e.target.value)} placeholder={part?.price}></input>
+                      <input value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder={part?.quantity}></input>
+                      <select value={status} onChange={(e) => setStatus(e.target.value)}>
                         <option value="" disabled>
                           {part?.status}
                         </option>
@@ -39,25 +39,23 @@ export default function TicketServiceParts({ type, parts }) {
                         <option>Backordered</option>
                         <option>Used</option>
                       </select>
-                      <h4>DELETE</h4>
+                      <h4
+                        style={{
+                          color: "var(--primary-light)",
+                        }}
+                      >
+                        DELETE
+                      </h4>
                     </>
                   );
                 } else {
                   return (
                     <>
-                      <p style={{ backgroundColor: "var(--background)" }}>
-                        {part?.number}
-                      </p>
-                      <p style={{ backgroundColor: "var(--background)" }}>
-                        {part?.description}
-                      </p>
-                      <p style={{ backgroundColor: "var(--background)" }}>
-                        {part?.price}
-                      </p>
-                      <p style={{ backgroundColor: "var(--background)" }}>
-                        {part?.quantity}
-                      </p>
-                      <select style={{ backgroundColor: "var(--background)" }}>
+                      <input value={number} onChange={(e) => setNumber(e.target.value)} placeholder={part?.number} style={{ backgroundColor: "var(--background)" }}></input>
+                      <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder={part?.description} style={{ backgroundColor: "var(--background)" }}></input>
+                      <input value={price} onChange={(e) => setPrice(e.target.value)} placeholder={part?.price} style={{ backgroundColor: "var(--background)" }}></input>
+                      <input value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder={part?.quantity} style={{ backgroundColor: "var(--background)" }}></input>
+                      <select value={status} onChange={(e) => setStatus(e.target.value)} style={{backgroundColor: "var(--background)"}}>
                         <option value="" disabled>
                           {part?.status}
                         </option>
@@ -93,12 +91,12 @@ export default function TicketServiceParts({ type, parts }) {
             <h3>Quantity</h3>
             <h3>Status</h3>
             <h3 style={{ borderTopRightRadius: ".5rem", boxShadow:"4px 5px 5px var(--black)" }}>DELETE</h3>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
-            <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
+            <input style={{ backgroundColor: "var(--background)" }} placeholder="NO PART"></input>
             </div>
           </div>
         </section>

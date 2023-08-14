@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from "dayjs";
-import "../../styles/components/SearchTicket.css"
+import "../../styles/components/Search.css"
 
-export default function SearchTicket({ setSearchInput, setSearchDateRange, setFiltered }) {
+export default function Search({ setSearchInput, setSearchDateRange, setFiltered }) {
   const [input, setInput] = useState("");
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("")
