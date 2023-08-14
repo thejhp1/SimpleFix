@@ -66,10 +66,10 @@ export default function TicketList() {
       pendingTickets.push(ticket);
     }
   }
-
+  console.log("FILTERED", filtered)
   //DECIDES WHICH LIST OF TICKETS TO RENDER
   let ticketList;
-  if (Object.values(filtered).length > 1) {
+  if (Object.values(filtered).length >= 1) {
     ticketList = filtered
   } else if (selectedState === "Pending") {
     ticketList = pendingTickets;

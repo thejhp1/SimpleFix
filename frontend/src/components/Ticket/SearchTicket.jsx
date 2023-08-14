@@ -16,7 +16,6 @@ export default function SearchTicket({ setSearchInput, setSearchDateRange, setFi
     } else if (input.length === 0) {
       setSearchInput("")
     }
-    console.log("INPUT", input.length)
     if (dateRangeStart && dateRangeEnd) {
       setSearchDateRange([dayjs(dateRangeStart).format("MM/DD/YY"), dayjs(dateRangeEnd).format("MM/DD/YY")])
     }
