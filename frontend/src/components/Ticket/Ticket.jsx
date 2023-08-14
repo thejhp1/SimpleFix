@@ -26,7 +26,6 @@ export default function Ticket() {
     if (Object.values(updatedTicket).length > 1 ) {
       setLoading(true)
       dispatch(thunkUpdateTicket(updatedTicket))
-      // setLoading(false)
     }
   }, [updatedTicket])
 

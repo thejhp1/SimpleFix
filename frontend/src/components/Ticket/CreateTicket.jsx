@@ -12,6 +12,8 @@ export default function CreateTicket() {
   const [buttonCheck, setButtonCheck] = useState(false)
   const [newCustomer, setNewCustomer] = useState("")
   const [newProduct, setNewProduct] = useState("")
+  const [loading, setLoading] = useState(false)
+
   let ticket, flag = false
 
   // CREATE TICKET COMPONENT IS RENDERING THE TICKETINFOCUSTOMER AND TICKETINFOPRODUCT COMPONENTS. TICKET COMPONENT IS SENDING IN A CALLBACK FUNCTION TO EACH TICKETINFO COMPONENT TO RECEIVE THE FORM DATA.
@@ -25,6 +27,7 @@ export default function CreateTicket() {
   // USEEFFECT IS THERE TO MAKE SURE DISPATCH IS ONLY CALLED ONCE DUE TO MOUNTING AND UNMOUNTING OF PARENT COMPONENT
   useEffect(() => {
     if (flag) {
+      setLoading(true)
       dispatch(thunkCreateTicket(ticket))
     }
     return () => flag = false
@@ -49,7 +52,7 @@ export default function CreateTicket() {
         <div className="ticket-tab">
             <CreateTicketTab />
             <div className='ticket-tab-button'>
-                <button onClick={() => setButtonCheck(true)}>CREATE</button>
+            {loading ? <button>LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i> </button> : <button onClick={() => setButtonCheck(true)}>CREATE</button>}
             </div>
         </div>
         <div className="create-ticket-form-container ">

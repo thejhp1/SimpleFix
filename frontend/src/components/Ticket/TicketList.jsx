@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { thunkGetAllTicket } from "../../store/ticket";
 import Pagination from "../Pagination/Pagination";
 import "../../styles/components/TicketList.css"
+import TicketSearch from "./TicketSearch";
 
 export default function TicketList() {
   const ticketStore = useSelector((state) => state.tickets);
@@ -49,7 +50,7 @@ export default function TicketList() {
       <section className="list-template-search-container">
         <section className="ticket-list-search-container">
             <div className="ticket-list-search_inner">
-                <h1>TO DO SEARCH CONTAINER</h1>
+                <TicketSearch />
             </div>
         </section>
       </section>

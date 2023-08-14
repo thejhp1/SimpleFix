@@ -189,13 +189,6 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
 router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => {
     let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
 
-    // if (!ticket) {
-    //     res.status(404);
-    //     return res.json({
-    //       message: "Ticket couldn't be found",
-    //     });
-    // }
-
     const customer = await Customer.findOne({
         where: {
             id: req.params.ticketId
@@ -214,9 +207,11 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
             formatPhone = phone.split("")
             formatPhone.splice(3,0,"-")
             formatPhone.splice(7,0,"-")
-
+            formatPhone.join("");
+        } else {
+            formatPhone = phone
         }
-        customer.phone = formatPhone.join("");
+        customer.phone = formatPhone
     }
     if (street) {
         customer.street = street;
@@ -230,7 +225,6 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
     if (zip) {
         customer.zip = zip;
     }
-
 
     const product = await Product.findOne({
         where: {

@@ -53,4 +53,11 @@
     font-size: 18px;
     font-weight: 600;
     margin-right: 3rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 3px var(--black);
+
+}
+
+.ticket-tab-button > button:hover {
+    background-color: var(--primary-light-accent);
 }
