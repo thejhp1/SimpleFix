@@ -5,7 +5,7 @@ import TicketInfoCustomer from "./TicketInfoCustomer";
 import TicketInfoProduct from "./TicketInfoProduct";
 import TicketInfoService from "./TicketInfoService";
 import "../../styles/components/TicketInfo.css";
-import TicketServiceParts from "./TicketServiceParts";
+import TicketServiceParts from "../Part/TicketServiceParts";
 
 export default function TicketInfo({
   selectedTab,

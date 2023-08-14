@@ -4,12 +4,14 @@ import session from "./session";
 import logger from "redux-logger";
 import ticketReducer from "./ticket";
 import singleTicketReducer from "./singleTicket"
+import partReducer from "./part";
 
 
 const rootReducer = combineReducers({
   session,
   tickets: ticketReducer,
   singleTicket: singleTicketReducer,
+  parts: partReducer
 });
 
 let enhancer;

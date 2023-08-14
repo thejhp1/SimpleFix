@@ -2,10 +2,10 @@ import React from 'react'
 import "../../styles/components/Pagination.css"
 
 
-export default function Pagination({ ticketsPerPage, totalTickets, paginate}) {
+export default function Pagination({ totalPerPage, totalItems, paginate}) {
   const pageNumbers = [];
 
-  for(let i = 1; i <= Math.ceil(totalTickets / ticketsPerPage); i++) {
+  for(let i = 1; i <= Math.ceil(totalItems / totalPerPage); i++) {
     pageNumbers.push(i)
   }
 

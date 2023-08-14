@@ -8,10 +8,9 @@ export default function TicketServiceParts({ type, parts }) {
   const [quantity, setQuantity] = useState(parts?.quantity || "");
   const [status, setStatus] = useState(parts?.status || "");
   const [errors, setErrors] = useState({});
-
   return (
     <>
-      {parts.lengths <= 0 ? (
+      {parts.length >= 1 ? (
         <section className="ticket-info-part-container">
           <div className="ticket-info-header">PART INFORMATION</div>
           <div className="ticket-info-part_inner">
@@ -93,7 +92,7 @@ export default function TicketServiceParts({ type, parts }) {
             <h3>Price</h3>
             <h3>Quantity</h3>
             <h3>Status</h3>
-            <h3 style={{ borderTopRightRadius: ".5rem" }}>DELETE</h3>
+            <h3 style={{ borderTopRightRadius: ".5rem", boxShadow:"4px 5px 5px var(--black)" }}>DELETE</h3>
             <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
             <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>
             <p style={{ backgroundColor: "var(--background)" }}>NO PARTS</p>

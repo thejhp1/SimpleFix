@@ -390,8 +390,8 @@ export default function TicketList() {
             </div>
             <div className="ticket-list-page-num">
               <Pagination
-                ticketsPerPage={ticketsPerPage}
-                totalTickets={ticketList.length}
+                totalPerPage={ticketsPerPage}
+                totalItems={ticketList.length}
                 paginate={paginate}
               />
             </div>
