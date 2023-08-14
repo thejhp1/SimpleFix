@@ -5,6 +5,7 @@ import TicketInfoCustomer from "./TicketInfoCustomer";
 import TicketInfoProduct from "./TicketInfoProduct";
 import TicketInfoService from "./TicketInfoService";
 import "../../styles/components/TicketInfo.css";
+import TicketServiceParts from "./TicketServiceParts";
 
 export default function TicketInfo({
   selectedTab,
@@ -32,7 +33,7 @@ export default function TicketInfo({
     }
     return () => flag = false
   }, [flag])
-
+  console.log("TICKET", ticket)
   return (
     <>
       {user ? (
@@ -57,7 +58,7 @@ export default function TicketInfo({
         ) : selectedTab === "Service" ? (
           <section className="ticket-info-container">
             <div className="ticket-info_inner">
-              <h1>service</h1>
+              <TicketServiceParts parts={ticket.Parts} />
             </div>
           </section>
         ) : (

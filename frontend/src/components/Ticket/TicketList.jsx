@@ -18,21 +18,29 @@ export default function TicketList() {
   const [selectedState, setSelectedState] = useState("Pending");
   const [searchInput, setSearchInput] = useState("");
   const [searchDateRange, setSearchDateRange] = useState("")
-  const [filtered, setFiltered] = useState(tickets);
+  const [filtered, setFiltered] = useState("");
 
-  // const [tickets, setTickets] = useState("");
 
   useEffect(() => {
-    if (searchDateRange) {
-
-    } else {
       dispatch(thunkGetAllTicket());
-
-    }
   }, [dispatch]);
 
+  //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
+  let completedTickets = [],
+    pendingTickets = [],
+    cancelledTickets = [];
+  for (let ticket of tickets) {
+    if (ticket.status === "Completed") {
+      completedTickets.push(ticket);
+    } else if (ticket.status === "Cancel") {
+      cancelledTickets.push(ticket);
+    } else {
+      pendingTickets.push(ticket);
+    }
+  }
+
   useEffect(() => {
-    if (searchInput) {
+    if (searchInput.length > 1) {
       setFiltered (
         pendingTickets.filter((ticket) => {
           for (let ele of Object.values(ticket)) {
@@ -53,20 +61,7 @@ export default function TicketList() {
     }
   }, [searchInput])
 
-  //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
-  let completedTickets = [],
-    pendingTickets = [],
-    cancelledTickets = [];
-  for (let ticket of tickets) {
-    if (ticket.status === "Completed") {
-      completedTickets.push(ticket);
-    } else if (ticket.status === "Cancel") {
-      cancelledTickets.push(ticket);
-    } else {
-      pendingTickets.push(ticket);
-    }
-  }
-  console.log("FILTERED", filtered)
+
   //DECIDES WHICH LIST OF TICKETS TO RENDER
   let ticketList;
   if (Object.values(filtered).length >= 1) {
