@@ -61,6 +61,7 @@ const validateTicket = [
     handleValidationErrors,
 ];
 
+//GET ALL TICKETS
 router.get("/", async (req, res, next) => {
     const { user } = req;
     const tickets = await Ticket.findAll({
@@ -83,6 +84,7 @@ router.get("/", async (req, res, next) => {
     })
 })
 
+//GET SINGLE TICKET
 router.get("/:ticketId", async (req, res, next) => {
     const ticket = await Ticket.findOne({
         where: {
@@ -111,6 +113,7 @@ router.get("/:ticketId", async (req, res, next) => {
     })
 })
 
+//CREATE SINGLE TICKET
 router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
     const { user } = req
@@ -186,6 +189,7 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     })
 })
 
+//UPDATE SINGLE TICKET
 router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => {
     let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
 
@@ -272,4 +276,5 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
 
     return res.json({ticket: ticket})
 })
+
 module.exports = router;

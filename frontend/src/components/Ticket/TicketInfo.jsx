@@ -33,7 +33,7 @@ export default function TicketInfo({
     }
     return () => flag = false
   }, [flag])
-  console.log("TICKET", ticket)
+
   return (
     <>
       {user ? (
@@ -58,7 +58,7 @@ export default function TicketInfo({
         ) : selectedTab === "Service" ? (
           <section className="ticket-info-container">
             <div className="ticket-info_inner">
-              <TicketServiceParts parts={ticket.Parts} />
+              <TicketServiceParts ticketId={ticket.id} parts={ticket.Parts} />
             </div>
           </section>
         ) : (

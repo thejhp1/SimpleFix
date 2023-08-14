@@ -6,6 +6,7 @@ const CREATE_TICKET = "singleTicket/createTicket"
 const UPDATE_TICKET = "singleTicket/updateTicket"
 const GET_ALL_SEARCH_TICKET = "ticket/getAllSearchTicket"
 const GET_ALL_PART = "part/getAllPart"
+const CREATE_PART = "part/createPart"
 
 export const actionTypes = {
   SET_USER,
@@ -16,4 +17,5 @@ export const actionTypes = {
   UPDATE_TICKET,
   GET_ALL_SEARCH_TICKET,
   GET_ALL_PART,
+  CREATE_PART
 };

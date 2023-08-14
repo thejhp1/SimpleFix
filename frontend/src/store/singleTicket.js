@@ -95,6 +95,17 @@ export default function singleTicketReducer(state = initialState, action) {
             newState[action.payload.ticket.id] = action.payload.ticket
             return newState
         }
+        case actionTypes.CREATE_PART: {
+            const newState = { ...state }
+            // console.log("NEWSTATE IN SINGLE TICKET", newState)
+            const part = action.payload.part
+            // console.log("PART IN SINGLE TICKET", part)
+            // console.log("ASDASDA", ))
+            newState[part.ticketId].Parts.push(part)
+            // newState[part.id].Parts.push(part)
+            // console.log("STATE AFTER", newState)
+            return newState
+        }
         default:
             return state;
     }

@@ -11,6 +11,13 @@ const getAllPart = (parts) =>  {
     }
 }
 
+const createPart = (part) => {
+    return {
+        type: actionTypes.CREATE_PART,
+        payload: part
+    }
+}
+
 // thunk action creator
 export const thunkGetAllPart = () => async (dispatch) => {
     try {
@@ -30,6 +37,29 @@ export const thunkGetAllPart = () => async (dispatch) => {
     }
 }
 
+export const thunkCreatePart = (part) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/parts/new`, {
+            method: "POST",
+            body: JSON.stringify(part)
+        })
+
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(createPart(data));
+            return data;
+        }
+
+    } catch (e) {
+        console.log("ERROR", e)
+        // if (e.status > 400) {
+        //     return window.location.href = ("/")
+        // }
+        // return e
+    }
+}
+
+
 
 export default function partReducer(state = initialState, action) {
     switch(action.type) {
@@ -39,6 +69,12 @@ export default function partReducer(state = initialState, action) {
             for (let part of parts){
                 newState[part.id] = part
             }
+            return newState
+        }
+        case actionTypes.CREATE_PART: {
+            const newState = { ...state }
+            const part = action.payload.part
+            newState[part.id] = part
             return newState
         }
         default:

@@ -10,7 +10,6 @@ import ListTemplate from "./components/ListTemplate/ListTemplate";
 import Ticket from "./components/Ticket/Ticket";
 import CreateTicket from "./components/Ticket/CreateTicket";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import CreatePart from "./components/Part/CreatePart";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,9 +29,6 @@ function App() {
           </Route>
           <Route path="/tickets/new">
             <CreateTicket />
-          </Route>
-          <Route path="/parts/new">
-            <CreatePart />
           </Route>
           <Route path="/tickets/:ticketId">
             <Ticket />

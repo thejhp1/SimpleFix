@@ -14,7 +14,7 @@
     background-color: var(--border);
     margin: 0px 0.5rem;
     border-radius: 0.5rem;
-    height: 15rem;
+    height: 17rem;
     padding-top: 0.5rem;
 }
 
@@ -26,6 +26,7 @@
     justify-content: flex-start;
     border-bottom: 1px solid var(--white);
     padding-left: 2rem;
+    box-shadow: 4px 4px 5px var(--black);
 }
 
 .ticket-part-header > input {
@@ -56,6 +57,7 @@
     border-bottom: 1px solid var(--black);
     border-left: 1px solid var(--black);
     border-right: 1px solid var(--black);
+    box-shadow: 4px 4px 5px var(--black);
 }
 
 .ticket-part-header > h4 {
@@ -67,9 +69,19 @@
     border-bottom: 1px solid var(--black);
     border-left: 1px solid var(--black);
     border-right: 1px solid var(--black);
+    box-shadow: 4px 4px 5px var(--black);
 }
 
 .ticket-part-header > h4:hover {
     cursor: pointer;
     text-decoration-line: underline;
+}
+
+.error-service-tracking {
+    color: var(--ticket);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0px 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr .75fr .5fr;
 }
