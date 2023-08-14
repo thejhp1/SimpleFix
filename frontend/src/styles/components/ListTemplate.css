@@ -2,7 +2,7 @@
     display: grid;
     padding-top: 70px;
     height: 1220px;
-    grid-template-rows: 50px 127px 1fr;
+    grid-template-rows: 60px 117px 1fr;
     grid-template-columns: 1fr;
 }
 

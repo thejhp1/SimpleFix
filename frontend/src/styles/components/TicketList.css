@@ -2,7 +2,7 @@
     background-color: var(--background);
     color: var(--white);
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(20, 42px);
     margin: 0px 2rem;
     border-radius: .5rem;
@@ -16,10 +16,12 @@
 .ticket-list-search-container {
     background-color: var(--background);
     margin: 0px 2rem;
-    border-radius: .5rem;
-    height: 123px;
+    height: 111px;
     display: flex;
     justify-content: center;
+    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
     box-shadow: 4px 4px 3px var(--black);
 }
 
