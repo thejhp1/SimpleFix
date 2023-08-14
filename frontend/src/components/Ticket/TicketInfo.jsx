@@ -43,7 +43,6 @@ export default function TicketInfo({
                 customer={ticket.Customer}
                 handleCallback={handleCallback}
                 setButtonCheck={setButtonCheck}
-                // setUpdatedTicket={setUpdatedTicket}
                 setUpdateTicketCustomer={setUpdateTicketCustomer}
               />
               {/* <TicketInfoService /> */}
@@ -51,7 +50,6 @@ export default function TicketInfo({
                 product={ticket.Products[0]}
                 handleCallback={handleCallback}
                 setButtonCheck={setButtonCheck}
-                // setUpdatedTicket={setUpdatedTicket}
                 setUpdateTicketProduct={setUpdateTicketProduct}
               />
             </div>

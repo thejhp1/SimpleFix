@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import "../../styles/components/TicketInfoProduct.css";
-import { useSelector } from "react-redux";
 
 export default function TicketInfoProduct({
   type,

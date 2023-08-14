@@ -5,8 +5,8 @@ import { thunkGetAllTicket } from "../../store/ticket";
 import Pagination from "../Pagination/Pagination";
 import SearchTicket from "./SearchTicket";
 import dayjs from "dayjs";
-import "../../styles/components/TicketList.css";
 import SearchTicketTab from "./SearchTicketTab";
+import "../../styles/components/TicketList.css";
 
 export default function TicketList() {
   const ticketStore = useSelector((state) => state.tickets);
@@ -16,11 +16,44 @@ export default function TicketList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [ticketsPerPage, setTicketsPerPage] = useState(20);
   const [selectedState, setSelectedState] = useState("Pending");
+  const [searchInput, setSearchInput] = useState("");
+  const [searchDateRange, setSearchDateRange] = useState("")
+  const [filtered, setFiltered] = useState(tickets);
+
+  // const [tickets, setTickets] = useState("");
 
   useEffect(() => {
-    dispatch(thunkGetAllTicket());
+    if (searchDateRange) {
+
+    } else {
+      dispatch(thunkGetAllTicket());
+
+    }
   }, [dispatch]);
 
+  useEffect(() => {
+    if (searchInput) {
+      setFiltered (
+        pendingTickets.filter((ticket) => {
+          for (let ele of Object.values(ticket)) {
+            if (typeof ele == 'object' && !Array.isArray(ele)) {
+              if (Object.values(ele).includes(searchInput)) {
+                return ticket
+              }
+            } else if (Array.isArray(ele)) {
+              for (let ele2 of ele) {
+                if (Object.values(ele2).includes(searchInput)) {
+                  return ticket
+                }
+              }
+            }
+          }
+        })
+      )
+    }
+  }, [searchInput])
+
+  //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
   let completedTickets = [],
     pendingTickets = [],
     cancelledTickets = [];
@@ -33,13 +66,17 @@ export default function TicketList() {
       pendingTickets.push(ticket);
     }
   }
-  let ticketList
-  if (selectedState === "Pending") {
-    ticketList = pendingTickets
+
+  //DECIDES WHICH LIST OF TICKETS TO RENDER
+  let ticketList;
+  if (Object.values(filtered).length > 1) {
+    ticketList = filtered
+  } else if (selectedState === "Pending") {
+    ticketList = pendingTickets;
   } else if (selectedState === "Cancelled") {
-    ticketList = cancelledTickets
+    ticketList = cancelledTickets;
   } else if (selectedState === "Completed") {
-    ticketList = completedTickets
+    ticketList = completedTickets;
   }
 
   //GET CURRENT TICKETS
@@ -71,7 +108,11 @@ export default function TicketList() {
       <section className="list-template-search-container">
         <section className="ticket-list-search-container">
           <div className="ticket-list-search_inner">
-            <SearchTicket />
+            <SearchTicket
+              setSearchInput={setSearchInput}
+              setSearchDateRange={setSearchDateRange}
+              setFiltered={setFiltered}
+            />
           </div>
         </section>
       </section>
@@ -121,7 +162,12 @@ export default function TicketList() {
                         <p style={{ backgroundColor: "var(--gray)" }}>
                           {ticket?.Products[0].modelNumber}
                         </p>
-                        <p style={{ backgroundColor: "var(--gray)"}} >{dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
                         <p
                           style={{
                             backgroundColor: "var(--gray)",
@@ -152,7 +198,12 @@ export default function TicketList() {
                         <p>{ticket?.Customer.state}</p>
                         <p>{ticket?.Customer.phone}</p>
                         <p>{ticket?.Products[0].modelNumber}</p>
-                        <p>{dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p>
+                        {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
 
                         <p className="ticket-list-ticket-red">
                           {ticket?.status}
@@ -197,7 +248,13 @@ export default function TicketList() {
                         <p style={{ backgroundColor: "var(--gray)" }}>
                           {ticket?.Products[0].modelNumber}
                         </p>
-                        <p style={{ backgroundColor: "var(--gray)"}} > {dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {" "}
+                          {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
 
                         <p
                           style={{
@@ -230,7 +287,12 @@ export default function TicketList() {
                         <p>{ticket?.Customer.state}</p>
                         <p>{ticket?.Customer.phone}</p>
                         <p>{ticket?.Products[0].modelNumber}</p>
-                        <p>{dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p>
+                          {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
                         <p className="ticket-list-ticket-red">
                           {ticket?.status}
                         </p>
@@ -274,7 +336,12 @@ export default function TicketList() {
                         <p style={{ backgroundColor: "var(--gray)" }}>
                           {ticket?.Products[0].modelNumber}
                         </p>
-                        <p style={{ backgroundColor: "var(--gray)"}} >{dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                        {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
 
                         <p
                           style={{
@@ -307,7 +374,12 @@ export default function TicketList() {
                         <p>{ticket?.Customer.state}</p>
                         <p>{ticket?.Customer.phone}</p>
                         <p>{ticket?.Products[0].modelNumber}</p>
-                        <p>{dayjs(ticket?.createdAt).diff(dayjs(new Date()), 'day')}</p>
+                        <p>
+                          {dayjs(new Date()).diff(
+                            dayjs(ticket?.createdAt),
+                            "day"
+                          )}
+                        </p>
                         <p className="ticket-list-ticket-red">
                           {ticket?.status}
                         </p>

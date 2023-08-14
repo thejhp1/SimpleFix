@@ -30,6 +30,7 @@
    font-weight: 500;
    border-top-left-radius: .5rem;
    border-bottom-left-radius: .5rem;
+   box-shadow: 5px 4px 3px var(--black);
 }
 
 .ticket-address-container1 {
@@ -44,6 +45,9 @@
    font-weight: 500;
    border-top-left-radius: .5rem;
    border-bottom-left-radius: .5rem;
+   margin-bottom: 0.5rem;
+   box-shadow: 5px 4px 3px var(--black);
+
 }
 
 .ticket-address-container2 {
@@ -58,6 +62,9 @@
    font-weight: 500;
    border-top-right-radius: .5rem;
    border-bottom-right-radius: .5rem;
+   margin-bottom: 0.5rem;
+   box-shadow: 4px 4px 3px var(--black);
+
 }
 
 .ticket-address-input_inner > input {
@@ -91,6 +98,7 @@
    padding-right: 1rem;
    border-top-right-radius: .5rem;
    border-bottom-right-radius: .5rem;
+   box-shadow: 4px 4px 3px var(--black);
 }
 
 .ticket-input > input {

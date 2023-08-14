@@ -18,11 +18,13 @@
     margin: 0px 2rem;
     height: 111px;
     display: flex;
+    align-items: center;
     justify-content: center;
     border-top-right-radius: .5rem;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     box-shadow: 4px 4px 3px var(--black);
+
 }
 
 .ticket-list_inner > h3 {
@@ -70,4 +72,14 @@
 .ticket-list-ticket-num:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.ticket-list-search_inner {
+    background-color: var(--border);
+    height: 90px;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
 }

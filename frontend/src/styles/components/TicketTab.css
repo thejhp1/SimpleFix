@@ -46,7 +46,7 @@
     border: 0;
     height: 2.5rem;
     border-radius: .5rem;
-    padding: 0px .5rem;
+    padding: 0px 5rem;
     background-color: var(--primary-light);
     font-family: quicksand;
     color: var(--white);
@@ -55,7 +55,6 @@
     margin-right: 3rem;
     cursor: pointer;
     box-shadow: 4px 4px 3px var(--black);
-
 }
 
 .ticket-tab-button > button:hover {

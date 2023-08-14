@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { thunkGetSingleTicket, thunkUpdateTicket } from "../../store/singleTicket";
 import TicketTab from "./TicketTab";
 import TicketInfo from "./TicketInfo";
-import "../../styles/components/Ticket.css";
 import CreateTicket from "./CreateTicket";
+import "../../styles/components/Ticket.css";
 
 export default function Ticket() {
   const singleTicketStore = useSelector((state) => state.singleTicket);
