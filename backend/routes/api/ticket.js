@@ -186,4 +186,96 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     })
 })
 
+router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => {
+    let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
+
+    // if (!ticket) {
+    //     res.status(404);
+    //     return res.json({
+    //       message: "Ticket couldn't be found",
+    //     });
+    // }
+
+    const customer = await Customer.findOne({
+        where: {
+            id: req.params.ticketId
+        }
+    })
+
+    if (firstName) {
+        customer.firstName = firstName;
+    }
+    if (lastName) {
+        customer.lastName = lastName;
+    }
+    if (phone) {
+        let formatPhone
+        if (phone.length === 10) {
+            formatPhone = phone.split("")
+            formatPhone.splice(3,0,"-")
+            formatPhone.splice(7,0,"-")
+
+        }
+        customer.phone = formatPhone.join("");
+    }
+    if (street) {
+        customer.street = street;
+    }
+    if (city) {
+        customer.city = city;
+    }
+    if (state) {
+        customer.state = state;
+    }
+    if (zip) {
+        customer.zip = zip;
+    }
+
+
+    const product = await Product.findOne({
+        where: {
+            ticketId: req.params.ticketId
+        }
+    })
+
+    if (brand) {
+        product.brand = brand;
+    }
+    if (category) {
+        product.category = category;
+    }
+    if (installDate) {
+        product.installDate = installDate;
+    }
+    if (model) {
+        product.modelNumber = model;
+    }
+    if (serial) {
+        product.serialNumber = serial;
+    }
+    if (warrantyStatus) {
+        product.warrantyStatus = warrantyStatus;
+    }
+
+    await customer.save()
+    await product.save()
+
+    const ticket = await Ticket.findOne({
+        where: {
+            id: req.params.ticketId
+        },
+        include: [{
+            model: Customer
+        },
+        {
+            model: Part
+        },
+        {
+            model: Product
+        }]
+    })
+    // await ticket.save()
+
+    return res.json({ticket: ticket})
+})
 module.exports = router;

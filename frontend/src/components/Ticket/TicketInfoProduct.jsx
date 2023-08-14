@@ -9,6 +9,8 @@ export default function TicketInfoProduct({
   handleCallback,
   setNewProduct,
   setButtonCheck,
+  setUpdateTicketProduct,
+
 }) {
   const [brand, setBrand] = useState(product.brand || "");
   const [model, setModel] = useState(product.modelNumber || "");
@@ -19,10 +21,7 @@ export default function TicketInfoProduct({
   );
   const [category, setCategory] = useState(product.category || "");
   const [errors, setErrors] = useState({});
-    // console.log(dayjs(installDate).format('MM/DD/YY'))
-    // console.log(dayjs(new Date()).format('MM/DD/YY'))
-    // console.log(installDate.split("/")[0] )
-    // console.log(dayjs(new Date()).format('MM/DD/YY').split("/")[0])
+
 
   useEffect(() => {
     if (handleCallback) {
@@ -54,15 +53,19 @@ export default function TicketInfoProduct({
       } else if (installDate.split("/")[2] > dayjs(new Date()).format('MM/DD/YY').split("/")[2]) {
         errors.installDate = "Date cannot be in the future"
       } else if (installDate.split("/")[2] === dayjs(new Date()).format('MM/DD/YY').split("/")[2]) {
-        if (installDate.split("/")[0] > dayjs(new Date()).format('MM/DD/YY').split("/")[0] || installDate.split("/")[1] > dayjs(new Date()).format('MM/DD/YY').split("/")[1]) {
+        if (installDate.split("/")[0] > dayjs(new Date()).format('MM/DD/YY').split("/")[0]) {
           errors.installDate = "Date cannot be in the future"
+        } else if (installDate.split("/")[0] === dayjs(new Date()).format('MM/DD/YY').split("/")[0]) {
+          if (installDate.split("/")[1] > dayjs(new Date()).format('MM/DD/YY').split("/")[1]) {
+            errors.installDate = "Date cannot be in the future"
+          }
         }
       }
 
       if (!warrantyStatus) {
         errors.warrantyStatus = "Input required";
       } else if (warrantyStatus === "In Warranty" && (dayjs(new Date()).format('MM/DD/YY').split("/")[2] - installDate.split("/")[2] > 1)) {
-        errors.warrantyStatus = "Install date must be within 1 year to be considered In Warranty";
+        errors.warrantyStatus = "Install date must be within 1 year for In Warranty";
       } else if (warrantyStatus === "In Warranty" && (dayjs(new Date()).format('MM/DD/YY').split("/")[2] - installDate.split("/")[2] === 1)) {
         if (installDate.split("/")[0] < dayjs(new Date()).format('MM/DD/YY').split("/")[0] || installDate.split("/")[1] < dayjs(new Date()).format('MM/DD/YY').split("/")[1]) {
           errors.warrantyStatus = "Install date must be within 1 year for In Warranty";
@@ -74,16 +77,26 @@ export default function TicketInfoProduct({
       }
 
       if (Object.values(errors).length === 0) {
-        setNewProduct({
-          brand,
-          model,
-          serial,
-          installDate,
-          warrantyStatus,
-          category
-        })
-
-        return handleCallback = false
+        if (type === "Create") {
+          setNewProduct({
+            brand,
+            model,
+            serial,
+            installDate,
+            warrantyStatus,
+            category
+          })
+        } else {
+          setUpdateTicketProduct({
+            brand,
+            model,
+            serial,
+            installDate,
+            warrantyStatus,
+            category
+          })
+        }
+        // return handleCallback = false
       }
 
       setButtonCheck(false);

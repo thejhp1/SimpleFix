@@ -18,6 +18,13 @@ const createTicket = (ticket) => {
     }
 }
 
+const updateTicket = (ticket) => {
+    return {
+        type: actionTypes.UPDATE_TICKET,
+        payload: ticket
+    }
+}
+
 // thunk action creator
 export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
     try {
@@ -39,15 +46,29 @@ export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
 
 export const thunkCreateTicket = (ticket) => async (dispatch) => {
     try {
-        console.log("TICKET", ticket)
         const res = await csrfFetch('/api/tickets/', {
             method: "POST",
             body: JSON.stringify(ticket)
         })
-        console.log('ccccccccccccccccccccc')
         if (res.ok) {
             const data = await res.json();
             dispatch(createTicket(data));
+            return window.location.href = (`/tickets/${data.ticket.id}`)
+        }
+    } catch (e) {
+        return e
+    }
+}
+
+export const thunkUpdateTicket = (ticket) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/tickets/${ticket.id}`, {
+            method: "PUT",
+            body: JSON.stringify(ticket)
+        })
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(updateTicket(data));
             return window.location.href = (`/tickets/${data.ticket.id}`)
         }
     } catch (e) {
@@ -63,10 +84,15 @@ export default function singleTicketReducer(state = initialState, action) {
             newState[ticket.id] = ticket
             return newState
         }
-        case actionTypes.CREATE_TICKET : {
+        case actionTypes.CREATE_TICKET: {
             const newState = { ...state }
             const ticket = action.payload.ticket
             newState[ticket.id] = ticket
+            return newState
+        }
+        case actionTypes.UPDATE_TICKET: {
+            const newState = { ...state }
+            newState[action.payload.ticket.id] = action.payload.ticket
             return newState
         }
         default:

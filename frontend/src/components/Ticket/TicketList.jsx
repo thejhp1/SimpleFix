@@ -64,7 +64,6 @@ export default function TicketList() {
                 <h3>Model Number</h3>
                 <h3 style={{borderTopRightRadius:".5rem"}}>Status</h3>
                 {currentTickets?.map((ticket, i) => {
-                    console.log("TICKET", ticket)
                     if (i % 2 != 0) {
                         return (
                             <>

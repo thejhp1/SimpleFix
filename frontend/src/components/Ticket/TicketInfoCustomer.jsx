@@ -7,6 +7,8 @@ export default function TicketInfoCustomer({
   handleCallback,
   setNewCustomer,
   setButtonCheck,
+  setUpdateTicketCustomer,
+
 }) {
   const [firstName, setFirstName] = useState(customer.firstName || "");
   const [lastName, setLastName] = useState(customer.lastName || "");
@@ -59,23 +61,38 @@ export default function TicketInfoCustomer({
 
       if (!zip) {
         errors.zip = "Input required";
-      } else if (zip.length !== 5 || isNaN(zip)) {
-        errors.zip = "Input must be a valid zip";
+      } else if (type === "Create") {
+        if (zip.length !== 5 || isNaN(zip)) {
+          errors.zip = "Input must be a valid zip";
+        } else if (type !== "Create") {
+          if (zip.length !== 5 || isNaN(Number(zip))) {
+            errors.zip = "Input must be a valid zip";
+          }
+        }
       }
 
-
       if (Object.values(errors).length === 0) {
-        setNewCustomer({
-          firstName,
-          lastName,
-          phone,
-          street,
-          state,
-          city,
-          zip,
-        });
-
-        return handleCallback = false
+        if (type === "Create") {
+          setNewCustomer({
+            firstName,
+            lastName,
+            phone,
+            street,
+            state,
+            city,
+            zip,
+          });
+        } else {
+          setUpdateTicketCustomer({
+            firstName,
+            lastName,
+            phone,
+            street,
+            state,
+            city,
+            zip,
+          })
+        }
       }
       setButtonCheck(false);
       setErrors(errors);
@@ -150,7 +167,7 @@ export default function TicketInfoCustomer({
             </div>
             <div className="ticket-info-address">
               <div className="ticket-address-container1">
-              <p>Street: </p>
+                <p>Street: </p>
                 <div className="ticket-address-input_inner">
                   <input
                     value={street}
@@ -186,7 +203,7 @@ export default function TicketInfoCustomer({
                 </div>
               </div>
               <div className="ticket-address-container2">
-              <p>State: </p>
+                <p>State: </p>
                 <div className="ticket-address-input_inner">
                   <input
                     value={state}
@@ -232,7 +249,7 @@ export default function TicketInfoCustomer({
               <div className="ticket-header">
                 <p>First Name: </p>
                 <p>Last Name: </p>
-                <p>Phone Number: </p>
+                <p>{`Phone Number: (XXX-XXX-XXXX)`}</p>
               </div>
               <div className="ticket-input">
                 <div className="product-input_inner">
