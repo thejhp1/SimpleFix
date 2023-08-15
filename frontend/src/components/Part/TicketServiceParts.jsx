@@ -8,71 +8,60 @@ export default function TicketServiceParts({ parts, ticketId }) {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [partsPerPage, setPartsPerPage] = useState(7);
+
   const [number, setNumber] = useState(parts?.number || "");
   const [description, setDescription] = useState(parts?.description || "");
   const [price, setPrice] = useState(parts?.price || "");
   const [quantity, setQuantity] = useState(parts?.quantity || "");
   const [status, setStatus] = useState(parts?.status || "");
-  const [numberDark, setNumberDark] = useState(parts?.number || "");
-  const [descriptionDark, setDescriptionDark] = useState(
-    parts?.description || ""
-  );
-  const [priceDark, setPriceDark] = useState(parts?.price || "");
-  const [quantityDark, setQuantityDark] = useState(parts?.quantity || "");
-  const [statusDark, setStatusDark] = useState(parts?.status || "");
-  const [updateNumber, setUpdateNumber] = useState(parts?.number || "");
-  const [updateDescription, setUpdateDescription] = useState("");
-  const [updatePrice, setUpdatePrice] = useState("");
-  const [updateQuantity, setUpdateQuantity] = useState("");
-  const [updateStatus, setUpdateStatus] = useState("");
   const [errors, setErrors] = useState({});
   const [updatePart, setUpdatePart] = useState(false);
 
   const createPart = () => {
     const errors = {};
 
-    if (!updateNumber) {
+    if (!number) {
       errors.number = "Input required";
-    } else if (updateNumber.length < 2 || updateNumber.length > 50) {
+    } else if (number.length < 2 || number.length > 50) {
       errors.number = "Input must be between 2 - 50 characters";
     }
 
-    if (!updateDescription) {
+    if (!description) {
       errors.description = "Input required";
-    } else if (updateDescription.length < 2 || updateDescription.length > 50) {
+    } else if (description.length < 2 || description.length > 50) {
       errors.description = "Input must be between 2 - 50 characters";
     }
 
-    if (!updatePrice) {
+    if (!price) {
       errors.price = "Input required";
-    } else if (isNaN(updatePrice)) {
+    } else if (isNaN(price)) {
       errors.price = "Input must be a number";
     }
 
-    if (!updateQuantity) {
+    if (!quantity) {
       errors.quantity = "Input required";
-    } else if (isNaN(updateQuantity)) {
+    } else if (isNaN(quantity)) {
       errors.quantity = "Input must be a number";
     }
 
-    if (!updateStatus) {
+    if (!status) {
       errors.status = "Input required";
     }
 
     if (Object.values(errors).length === 0) {
       const part = {
-        number: updateNumber,
-        description: updateDescription,
-        price: updatePrice,
-        quantity: updateQuantity,
-        status: updateStatus,
+        number,
+        description,
+        price,
+        quantity,
+        status,
         ticketId,
       };
-      setUpdateNumber("");
-      setUpdateDescription("");
-      setUpdatePrice("");
-      setUpdateQuantity("");
-      setUpdateStatus("");
+      setNumber("");
+      setDescription("");
+      setPrice("");
+      setQuantity("");
+      setStatus("");
       dispatch(thunkCreatePart(part, ticketId));
     }
 
@@ -158,8 +147,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
               })}
 
               <input
-                value={updateNumber}
-                onChange={(e) => setUpdateNumber(e.target.value)}
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -180,8 +169,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part number..."
               ></input>
               <input
-                value={updateDescription}
-                onChange={(e) => setUpdateDescription(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -202,8 +191,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part description..."
               ></input>
               <input
-                value={updatePrice}
-                onChange={(e) => setUpdatePrice(e.target.value)}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -224,8 +213,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part price..."
               ></input>
               <input
-                value={updateQuantity}
-                onChange={(e) => setUpdateQuantity(e.target.value)}
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -246,8 +235,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part quantity..."
               ></input>
               <select
-                value={updateStatus}
-                onChange={(e) => setUpdateStatus(e.target.value)}
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -381,8 +370,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 disabled
               ></input>
               <input
-                value={updateNumber}
-                onChange={(e) => setUpdateNumber(e.target.value)}
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -403,8 +392,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part number..."
               ></input>
               <input
-                value={updateDescription}
-                onChange={(e) => setUpdateDescription(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -425,8 +414,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part description..."
               ></input>
               <input
-                value={updatePrice}
-                onChange={(e) => setUpdatePrice(e.target.value)}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -447,8 +436,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part price..."
               ></input>
               <input
-                value={updateQuantity}
-                onChange={(e) => setUpdateQuantity(e.target.value)}
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
@@ -469,8 +458,8 @@ export default function TicketServiceParts({ parts, ticketId }) {
                 placeholder="Please add part quantity..."
               ></input>
               <select
-                value={updateStatus}
-                onChange={(e) => setUpdateStatus(e.target.value)}
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
                 style={
                   parts.length % 2 === 0
                     ? {
