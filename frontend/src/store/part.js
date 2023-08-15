@@ -25,6 +25,13 @@ const deletePart = (part) => {
     }
 }
 
+const updatePart = (part) => {
+    return {
+        type: actionTypes.UPDATE_PART,
+        payload: part
+    }
+}
+
 // thunk action creator
 export const thunkGetAllPart = () => async (dispatch) => {
     try {
@@ -79,6 +86,22 @@ export const thunkDeletePart = (part) => async (dispatch) => {
         return e
     }
 }
+
+export const thunkUpdatePart = (part) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/parts/${part.partId}`, {
+            method: "PUT",
+            body: JSON.stringify(part)
+        })
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(updatePart(data));
+        }
+    } catch (e) {
+        return e
+    }
+}
+
 
 
 export default function partReducer(state = initialState, action) {

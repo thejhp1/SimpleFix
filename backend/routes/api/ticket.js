@@ -212,11 +212,10 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
             formatPhone.splice(3,0,"-")
             formatPhone.splice(7,0,"-")
             formatPhone.join("");
+            customer.phone = formatPhone.join("")
         } else {
-            formatPhone = phone
+            customer.phone = phone
         }
-
-        customer.phone = formatPhone.join("")
     }
     if (street) {
         customer.street = street;
@@ -273,7 +272,6 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
             model: Product
         }]
     })
-    // await ticket.save()
 
     return res.json({ticket: ticket})
 })

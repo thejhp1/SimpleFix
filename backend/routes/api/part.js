@@ -45,7 +45,33 @@ router.delete("/:partId", async (req, res, next) => {
 
 //UPDATE SINGLE PART
 router.put("/:partId", async (req, res, next) => {
+    let { number, description, price, quantity, status } = req.body
 
+    const part = await Part.findOne({
+        where: {
+            id: req.params.partId
+        }
+    })
+
+    if (number) {
+        part.number = number
+    }
+    if (description) {
+        part.description = description
+    }
+    if (price) {
+        part.price = price
+    }
+    if (quantity) {
+        part.quantity = quantity
+    }
+    if (status) {
+        part.status = status
+    }
+
+    await part.save()
+    
+    res.json({part: part})
 })
 
 

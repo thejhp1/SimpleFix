@@ -8,6 +8,7 @@ const GET_ALL_SEARCH_TICKET = "ticket/getAllSearchTicket"
 const GET_ALL_PART = "part/getAllPart"
 const CREATE_PART = "part/createPart"
 const DELETE_PART = "part/deletePart"
+const UPDATE_PART = "part/updatePart"
 
 export const actionTypes = {
   SET_USER,
@@ -20,4 +21,5 @@ export const actionTypes = {
   GET_ALL_PART,
   CREATE_PART,
   DELETE_PART,
+  UPDATE_PART,
 };

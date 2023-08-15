@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useModal } from "../../context/Modal";
+import { useDispatch } from 'react-redux';
 import "../../styles/components/UpdateModal.css";
+import { thunkUpdatePart } from '../../store/part';
 
-export default function UpdatePartModal({part, ticketId}) {
+export default function UpdatePartModal({ part }) {
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
   const [number, setNumber] = useState(part?.number || "");
   const [description, setDescription] = useState(part?.description || "");
   const [price, setPrice] = useState(part?.price || "");
@@ -39,16 +42,16 @@ export default function UpdatePartModal({part, ticketId}) {
     }
 
     if (Object.values(errors).length === 0) {
-      const part = {
+      const safePart = {
+        partId: part.id,
         number,
         description,
         price,
         quantity,
         status,
-        ticketId,
       };
-      console.log("PART", part)
-
+      dispatch(thunkUpdatePart(safePart))
+      closeModal()
     }
     setErrors(errors)
   }

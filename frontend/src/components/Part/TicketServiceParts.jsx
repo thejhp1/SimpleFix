@@ -112,7 +112,7 @@ export default function TicketServiceParts({ parts, ticketId }) {
                           <span>
                             <OpenModalSpan
                               spanText="UPDATE"
-                              modalComponent={<UpdatePartModal part={part} ticketId={ticketId}/>}
+                              modalComponent={<UpdatePartModal part={part}/>}
                             />
                           </span>
                         </h4>
@@ -145,7 +145,7 @@ export default function TicketServiceParts({ parts, ticketId }) {
                           <span>
                             <OpenModalSpan
                               spanText="UPDATE"
-                              modalComponent={<UpdatePartModal part={part} ticketId={ticketId}/>}
+                              modalComponent={<UpdatePartModal part={part}/>}
                             />
                           </span>
                         </h4>

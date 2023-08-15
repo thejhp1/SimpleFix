@@ -97,25 +97,32 @@ export default function singleTicketReducer(state = initialState, action) {
         }
         case actionTypes.CREATE_PART: {
             const newState = { ...state }
-            // console.log("NEWSTATE IN SINGLE TICKET", newState)
             const part = action.payload.part
-            // console.log("PART IN SINGLE TICKET", part)
-            // console.log("ASDASDA", ))
             newState[part.ticketId].Parts.push(part)
-            // newState[part.id].Parts.push(part)
-            // console.log("STATE AFTER", newState)
             return newState
         }
         case actionTypes.DELETE_PART: {
             const newState = { ...state }
-            // console.log("NEWSTATE IN SINGLE TICKET", newState)
             const part = action.payload
-            // console.log("PART", part)
             for (let i = 0; i < newState[part.ticketId].Parts.length; i++) {
                 const ele = newState[part.ticketId].Parts[i]
                 if (part.id === ele.id) {
-                    // console.log("ELE", newState[part.ticketId].Parts[i])
                     delete newState[part.ticketId].Parts[i]
+                }
+            }
+            return newState
+        }
+        case actionTypes.UPDATE_PART: {
+            const newState = { ...state }
+            const part = action.payload.part
+            for (let i = 0; i < newState[part.ticketId].Parts.length; i++) {
+                let ele = newState[part.ticketId].Parts[i]
+                if (part.id === ele.id) {
+                    ele.number = part.number
+                    ele.description = part.description
+                    ele.price = part.price
+                    ele.quantity = part.quantity
+                    ele.status = part.status
                 }
             }
             return newState
