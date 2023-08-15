@@ -47,7 +47,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       technicianId: {
         type: DataTypes.INTEGER,
-        allowNull: false
       },
       status: {
         type: DataTypes.ENUM(
