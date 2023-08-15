@@ -25,6 +25,9 @@ module.exports = {
             customerId: 2,
             status: "Need Review",
             number: "4171898052",
+            date: "08/14/23",
+            timeFrame: "9:00AM - 12:00PM",
+            technicianId: 1,
           },
           {
             employeeId: 1,
@@ -43,6 +46,9 @@ module.exports = {
             customerId: 5,
             status: "Completed",
             number: "4172025848",
+            date: "05/12/23",
+            timeFrame: "10:00AM - 1:00PM",
+            technicianId: 1,
           },
           {
             employeeId: 1,
@@ -73,6 +79,9 @@ module.exports = {
             customerId: 10,
             status: "Need Review",
             number: "4172107496",
+            date: "06/22/23",
+            timeFrame: "11:00AM - 2:00PM",
+            technicianId: 2,
           },
           {
             employeeId: 1,
@@ -85,6 +94,9 @@ module.exports = {
             customerId: 12,
             status: "Completed",
             number: "4172115459",
+            date: "07/11/23",
+            timeFrame: "1:00PM - 4:00PM",
+            technicianId: 2,
           },
           {
             employeeId: 1,
@@ -127,6 +139,9 @@ module.exports = {
             customerId: 19,
             status: "Completed",
             number: "4172265546",
+            date: "03/04/23",
+            timeFrame: "2:00PM - 5:00PM",
+            technicianId: 2,
           },
           {
             employeeId: 1,
@@ -139,6 +154,9 @@ module.exports = {
             customerId: 21,
             status: "Need Review",
             number: "68626936",
+            date: "02/11/23",
+            timeFrame: "12:00PM - 3:00PM",
+            technicianId: 3,
           },
           {
             employeeId: 2,
@@ -151,6 +169,9 @@ module.exports = {
             customerId: 23,
             status: "Completed",
             number: "68652757",
+            date: "01/26/23",
+            timeFrame: "2:00PM - 5:00PM",
+            technicianId: 3,
           },
           {
             employeeId: 2,
@@ -181,6 +202,9 @@ module.exports = {
             customerId: 28,
             status: "Need Review",
             number: "68725629",
+            date: "07/01/23",
+            timeFrame: "1:00PM - 4:00PM",
+            technicianId: 3,
           },
           {
             employeeId: 2,
@@ -223,6 +247,9 @@ module.exports = {
             customerId: 35,
             status: "Completed",
             number: "68757682",
+            date: "03/23/23",
+            timeFrame: "4:00PM - 7:00PM",
+            technicianId: 4,
           },
           {
             employeeId: 2,
@@ -247,12 +274,18 @@ module.exports = {
             customerId: 39,
             status: "Need Review",
             number: "68768090",
+            date: "02/28/23",
+            timeFrame: "5:00PM - 8:00PM",
+            technicianId: 4,
           },
           {
             employeeId: 2,
             customerId: 40,
             status: "Completed",
             number: "68768835",
+            date: "04/04/23",
+            timeFrame: "3:00PM - 6:00PM",
+            technicianId: 4,
           },
         ],
         options

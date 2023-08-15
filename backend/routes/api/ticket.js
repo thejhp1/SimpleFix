@@ -1,8 +1,8 @@
 const express = require("express");
-const { Ticket, Customer, Part, Product } = require("../../db/models")
+const { Ticket, Customer, Part, Product, Technician } = require("../../db/models")
 const { handleValidationErrors } = require("../../utils/validation");
 const { check } = require("express-validator");
-const { requireAuth } = require("../../utils/auth")
+const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
 const validateTicket = [
@@ -76,6 +76,9 @@ router.get("/", async (req, res, next) => {
         },
         {
             model: Product
+        },
+        {
+            model: Technician
         }]
     })
 
@@ -98,6 +101,9 @@ router.get("/:ticketId", async (req, res, next) => {
         },
         {
             model: Product
+        },
+        {
+            model: Technician
         }]
     })
 

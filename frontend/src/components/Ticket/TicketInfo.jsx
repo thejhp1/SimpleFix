@@ -4,12 +4,11 @@ import { useHistory } from "react-router-dom";
 import TicketInfoCustomer from "./TicketInfoCustomer";
 import TicketInfoProduct from "./TicketInfoProduct";
 import TicketServiceParts from "../Part/TicketServiceParts";
+import TicketServiceSchedule from "../Schedule/TicketServiceSchedule";
 import "../../styles/components/TicketInfo.css";
-import Schedule from "../Schedule/Schedule";
 
 export default function TicketInfo({
   selectedTab,
-  setSelectedTab,
   ticket,
   handleCallback,
   setButtonCheck,
@@ -69,7 +68,7 @@ export default function TicketInfo({
                   ticketId={ticket.id}
                   parts={ticket.Parts}
                 />
-                <Schedule
+                <TicketServiceSchedule
                   ticket={ticket}
                 />
               </div>

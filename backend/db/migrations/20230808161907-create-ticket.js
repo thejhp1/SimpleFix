@@ -1,5 +1,7 @@
 "use strict";
 
+const { DataTypes } = require("sequelize");
+
 let options = {};
 
 if (process.env.NODE_ENV === "production") {
@@ -28,6 +30,9 @@ module.exports = {
         customerId: {
           type: Sequelize.INTEGER,
         },
+        technicianId: {
+          type: Sequelize.INTEGER
+        },
         status: {
           type: Sequelize.ENUM(
             "Completed",
@@ -36,9 +41,32 @@ module.exports = {
             "Waiting for Part",
             "CSR-Part Came In",
             "CSR-Reschedule Done",
-            "Cancel"
+            "Cancel",
+            "Need Reschedule"
           ),
           allowNull: false,
+        },
+        note: {
+          type: Sequelize.STRING(256),
+        },
+        date: {
+          type: Sequelize.STRING(10),
+          validate: {
+            len: [6, 10],
+          },
+        },
+        timeFrame: {
+          type: Sequelize.ENUM(
+            "9:00AM - 12:00PM",
+            "10:00AM - 1:00PM",
+            "11:00AM - 2:00PM",
+            "12:00PM - 3:00PM",
+            "1:00PM - 4:00PM",
+            "2:00PM - 5:00PM",
+            "3:00PM - 6:00PM",
+            "4:00PM - 7:00PM",
+            "5:00PM - 8:00PM"
+          ),
         },
         createdAt: {
           allowNull: false,
