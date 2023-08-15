@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import TicketInfoCustomer from "./TicketInfoCustomer";
 import TicketInfoProduct from "./TicketInfoProduct";
-import TicketInfoService from "./TicketInfoService";
-import "../../styles/components/TicketInfo.css";
 import TicketServiceParts from "../Part/TicketServiceParts";
+import "../../styles/components/TicketInfo.css";
+import Schedule from "../Schedule/Schedule";
 
 export default function TicketInfo({
   selectedTab,
@@ -63,14 +63,17 @@ export default function TicketInfo({
             </div>
           </section>
         ) : selectedTab === "Service" ? (
-          <section className="ticket-info-container">
-            <div className="ticket-info_inner">
-              <TicketServiceParts
-                ticketId={ticket.id}
-                parts={ticket.Parts}
-              />
-            </div>
-          </section>
+            <section className="ticket-info-container">
+              <div className="ticket-info_inner">
+                <TicketServiceParts
+                  ticketId={ticket.id}
+                  parts={ticket.Parts}
+                />
+                <Schedule
+                  ticket={ticket}
+                />
+              </div>
+            </section>
         ) : (
           ""
         )
