@@ -215,7 +215,8 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
         } else {
             formatPhone = phone
         }
-        customer.phone = formatPhone
+
+        customer.phone = formatPhone.join("")
     }
     if (street) {
         customer.street = street;
