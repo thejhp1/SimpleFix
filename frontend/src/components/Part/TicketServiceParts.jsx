@@ -523,29 +523,29 @@ export default function TicketServiceParts({ parts, ticketId }) {
             </div>
             <div className="error-service-tracking">
               {errors.number && (
-                <p>
+                <p className="error-service-tracking-number">
                   <i class="fa-solid fa-circle-exclamation"></i> {errors.number}
                 </p>
               )}
               {errors.description && (
-                <p className="aaaaaaaa">
+                <p className="error-service-tracking-description">
                   <i class="fa-solid fa-circle-exclamation"></i>{" "}
                   {errors.description}
                 </p>
               )}
               {errors.price && (
-                <p className="aaaaaaaa">
+                <p className="error-service-tracking-price">
                   <i class="fa-solid fa-circle-exclamation"></i> {errors.price}
                 </p>
               )}
               {errors.quantity && (
-                <p className="aaaaaaaa">
+                <p className="error-service-tracking-quantity">
                   <i class="fa-solid fa-circle-exclamation"></i>{" "}
                   {errors.quantity}
                 </p>
               )}
               {errors.status && (
-                <p className="aaaaaaaa">
+                <p className="error-service-tracking-status">
                   <i class="fa-solid fa-circle-exclamation"></i> {errors.status}
                 </p>
               )}
