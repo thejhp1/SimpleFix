@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "../../styles/components/TicketServiceParts.css";
 import { thunkCreatePart, thunkDeletePart } from "../../store/part";
 import Pagination from "../Pagination/Pagination";
 
-export default function TicketServiceParts({ type, parts, ticketId }) {
+export default function TicketServiceParts({ parts, ticketId }) {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [partsPerPage, setPartsPerPage] = useState(7);
@@ -13,12 +13,20 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
   const [price, setPrice] = useState(parts?.price || "");
   const [quantity, setQuantity] = useState(parts?.quantity || "");
   const [status, setStatus] = useState(parts?.status || "");
+  const [numberDark, setNumberDark] = useState(parts?.number || "");
+  const [descriptionDark, setDescriptionDark] = useState(
+    parts?.description || ""
+  );
+  const [priceDark, setPriceDark] = useState(parts?.price || "");
+  const [quantityDark, setQuantityDark] = useState(parts?.quantity || "");
+  const [statusDark, setStatusDark] = useState(parts?.status || "");
   const [updateNumber, setUpdateNumber] = useState(parts?.number || "");
   const [updateDescription, setUpdateDescription] = useState("");
   const [updatePrice, setUpdatePrice] = useState("");
   const [updateQuantity, setUpdateQuantity] = useState("");
   const [updateStatus, setUpdateStatus] = useState("");
   const [errors, setErrors] = useState({});
+  const [updatePart, setUpdatePart] = useState(false);
 
   const createPart = () => {
     const errors = {};
@@ -83,6 +91,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
   //SET CURRENT PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  console.log(updatePart);
   return (
     <>
       {parts.length >= 1 ? (
@@ -95,104 +104,54 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
               <h3>Price</h3>
               <h3>Quantity</h3>
               <h3>Status</h3>
-              <h3 style={{ borderTopRightRadius: ".5rem" }}>DELETE</h3>
+              <h3 style={{ borderTopRightRadius: ".5rem" }}>Update/Delete</h3>
               {currentParts?.map((part, i) => {
                 if (i % 2 != 0) {
                   return (
                     <>
-                      <input
-                        value={number}
-                        onChange={(e) => setNumber(e.target.value)}
-                        placeholder={part?.number}
-                      ></input>
-                      <input
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        placeholder={part?.description}
-                      ></input>
-                      <input
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                        placeholder={part?.price}
-                      ></input>
-                      <input
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                        placeholder={part?.quantity}
-                      ></input>
-                      <select
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                      >
-                        <option value="" disabled>
-                          {part?.status}
-                        </option>
-                        <option>Need PO</option>
-                        <option>Waiting for Part</option>
-                        <option>Part Ready</option>
-                        <option>Backordered</option>
-                        <option>Used</option>
-                      </select>
-                      <h4
-                        style={{
-                          color: "var(--primary-light)",
-                        }}
-                        onClick={() => deletePart(part)}
-                      >
-                        DELETE
-                      </h4>
+                      <p>{part.number}</p>
+                      <p>{part.description}</p>
+                      <p>{part.price}</p>
+                      <p>{part.quantity}</p>
+                      <p>{part.status}</p>
+                      <div className="part-list-options">
+                        <h4 onClick={() => setUpdatePart(true)}>UPDATE</h4>
+                        <h4 onClick={() => deletePart(part)}>DELETE</h4>
+                      </div>
                     </>
                   );
                 } else {
                   return (
                     <>
-                      <input
-                        value={number}
-                        onChange={(e) => setNumber(e.target.value)}
-                        placeholder={part?.number}
-                        style={{ backgroundColor: "var(--background)" }}
-                      ></input>
-                      <input
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        placeholder={part?.description}
-                        style={{ backgroundColor: "var(--background)" }}
-                      ></input>
-                      <input
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                        placeholder={part?.price}
-                        style={{ backgroundColor: "var(--background)" }}
-                      ></input>
-                      <input
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                        placeholder={part?.quantity}
-                        style={{ backgroundColor: "var(--background)" }}
-                      ></input>
-                      <select
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                        style={{ backgroundColor: "var(--background)" }}
-                      >
-                        <option value="" disabled>
-                          {part?.status}
-                        </option>
-                        <option>Need PO</option>
-                        <option>Waiting for Part</option>
-                        <option>Part Ready</option>
-                        <option>Backordered</option>
-                        <option>Used</option>
-                      </select>
-                      <h4
-                        style={{
-                          backgroundColor: "var(--background)",
-                          color: "var(--primary-light)",
-                        }}
-                        onClick={() => deletePart(part)}
-                      >
-                        DELETE
-                      </h4>
+                      <p style={{ backgroundColor: "var(--background)" }}>
+                        {part.number}
+                      </p>
+                      <p style={{ backgroundColor: "var(--background)" }}>
+                        {part.description}
+                      </p>
+                      <p style={{ backgroundColor: "var(--background)" }}>
+                        {part.price}
+                      </p>
+                      <p style={{ backgroundColor: "var(--background)" }}>
+                        {part.quantity}
+                      </p>
+                      <p style={{ backgroundColor: "var(--background)" }}>
+                        {part.status}
+                      </p>
+                      <div className="part-list-options">
+                        <h4
+                          style={{ backgroundColor: "var(--background)" }}
+                          onClick={() => setUpdatePart(true)}
+                        >
+                          UPDATE
+                        </h4>
+                        <h4
+                          style={{ backgroundColor: "var(--background)" }}
+                          onClick={() => deletePart(part)}
+                        >
+                          DELETE
+                        </h4>
+                      </div>
                     </>
                   );
                 }
@@ -316,22 +275,24 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                 <option>Backordered</option>
                 <option>Used</option>
               </select>
-              <h4
-                onClick={createPart}
-                style={
-                  parts.length % 2 === 0
-                    ? {
-                        backgroundColor: "var(--background)",
-                        color: "var(--primary-light)",
-                      }
-                    : {
-                        backgroundColor: "var(--gray)",
-                        color: "var(--primary-light)",
-                      }
-                }
-              >
-                ADD
-              </h4>
+              <div className="part-list-options">
+                <h4
+                  onClick={createPart}
+                  style={
+                    parts.length % 2 === 0
+                      ? {
+                          backgroundColor: "var(--background)",
+                          color: "var(--primary-light)",
+                        }
+                      : {
+                          backgroundColor: "var(--gray)",
+                          color: "var(--primary-light)",
+                        }
+                  }
+                >
+                  ADD
+                </h4>
+              </div>
             </div>
             <div className="error-service-tracking">
               {errors.number && (
@@ -387,7 +348,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                   boxShadow: "4px 5px 5px var(--black)",
                 }}
               >
-                DELETE
+                Update/Delete
               </h3>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
@@ -537,22 +498,24 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                 <option>Backordered</option>
                 <option>Used</option>
               </select>
-              <h4
-                onClick={createPart}
-                style={
-                  parts.length % 2 === 0
-                    ? {
-                        backgroundColor: "var(--background)",
-                        color: "var(--primary-light)",
-                      }
-                    : {
-                        backgroundColor: "var(--gray)",
-                        color: "var(--primary-light)",
-                      }
-                }
-              >
-                ADD
-              </h4>
+              <div className="part-list-options">
+                <h4
+                  onClick={createPart}
+                  style={
+                    parts.length % 2 === 0
+                      ? {
+                          backgroundColor: "var(--background)",
+                          color: "var(--primary-light)",
+                        }
+                      : {
+                          backgroundColor: "var(--gray)",
+                          color: "var(--primary-light)",
+                        }
+                  }
+                >
+                  ADD
+                </h4>
+              </div>
             </div>
             <div className="error-service-tracking">
               {errors.number && (

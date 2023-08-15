@@ -19,20 +19,27 @@ export default function TicketInfo({
   const history = useHistory();
   const [updateTicketCustomer, setUpdateTicketCustomer] = useState("");
   const [updateTicketProduct, setUpdateTicketProduct] = useState("");
-  let updatedTicket, flag = false;
+  let updatedTicket,
+    flag = false;
 
-
-  if (Object.values(updateTicketCustomer).length > 1 && Object.values(updateTicketProduct).length > 1) {
-    updatedTicket = ({...updateTicketCustomer, ...updateTicketProduct, id: ticket.id})
-    flag = true
+  if (
+    Object.values(updateTicketCustomer).length > 1 &&
+    Object.values(updateTicketProduct).length > 1
+  ) {
+    updatedTicket = {
+      ...updateTicketCustomer,
+      ...updateTicketProduct,
+      id: ticket.id,
+    };
+    flag = true;
   }
 
   useEffect(() => {
     if (flag) {
-      setUpdatedTicket(updatedTicket)
+      setUpdatedTicket(updatedTicket);
     }
-    return () => flag = false
-  }, [flag])
+    return () => (flag = false);
+  }, [flag]);
 
   return (
     <>
@@ -58,7 +65,10 @@ export default function TicketInfo({
         ) : selectedTab === "Service" ? (
           <section className="ticket-info-container">
             <div className="ticket-info_inner">
-              <TicketServiceParts ticketId={ticket.id} parts={ticket.Parts} />
+              <TicketServiceParts
+                ticketId={ticket.id}
+                parts={ticket.Parts}
+              />
             </div>
           </section>
         ) : (
