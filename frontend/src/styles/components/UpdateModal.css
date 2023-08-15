@@ -16,7 +16,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 3rem;
+    height: 2.5rem;
     font-size: 28px;
     font-weight: 700;
 }
@@ -24,7 +24,7 @@
 .update-modal_inner {
     background-color: var(--border);
     display: flex;
-    height: 90%;
+    height: 91.5%;
     border-top-right-radius: .5rem;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
@@ -33,7 +33,7 @@
 
 .update-modal-outer-container {
     background-color: var(--background);
-    height: 100%;
+    height: 99.5%;
     width: 100%;
     border-radius: .5rem;
     box-shadow: 6px 6px 5px var(--black);
@@ -80,6 +80,10 @@
     font-weight: 600;
     color: var(--ticket);
     position: absolute;
+}
+
+.update-modal-error {
+    border: 2px solid var(--ticket);
 }
 
 .update-modal-error-number {
