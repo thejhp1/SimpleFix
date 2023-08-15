@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
-import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
+import OpenModalLi from "../OpenModalLi/OpenModalLi";
 import LoginFormModal from "../LoginFormModal/LoginFormModal";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/NavigationBar.css";
@@ -28,13 +28,13 @@ function NavigationBar({ isLoaded }) {
           ) : (
             <div className="navi-login-container">
               <div className="navi-login-login-button">
-                <OpenModalMenuItem
+                <OpenModalLi
                   itemText="LOGIN"
                   modalComponent={<LoginFormModal />}
                 />
               </div>
               <div className="navi-login-signup-button">
-                <OpenModalMenuItem
+                <OpenModalLi
                   itemText="SIGNUP"
                   modalComponent={<SignupFormModal />}
                 />

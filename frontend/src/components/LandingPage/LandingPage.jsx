@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
+import OpenModalLi from "../OpenModalLi/OpenModalLi";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/LandingPage.css";
 
@@ -110,7 +110,7 @@ export default function LandingPage() {
               <h3>Are you ready? Let's get started!</h3>
               <button className="landing-page-final-button">
                 {" "}
-                <OpenModalMenuItem
+                <OpenModalLi
                   itemText="Sign Up"
                   modalComponent={<SignupFormModal />}
                 />

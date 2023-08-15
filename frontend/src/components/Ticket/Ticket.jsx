@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { thunkGetSingleTicket, thunkUpdateTicket } from "../../store/singleTicket";
+import {
+  thunkGetSingleTicket,
+  thunkUpdateTicket,
+} from "../../store/singleTicket";
 import TicketTab from "./TicketTab";
 import TicketInfo from "./TicketInfo";
 import CreateTicket from "./CreateTicket";
@@ -12,22 +15,22 @@ export default function Ticket() {
   const dispatch = useDispatch();
   const { ticketId } = useParams();
   const [selectedState, setSelectedState] = useState("");
-  const [buttonCheck, setButtonCheck] = useState(false)
+  const [buttonCheck, setButtonCheck] = useState(false);
   const ticket = singleTicketStore[ticketId];
   const [ticketNumber, setTicketNumber] = useState("");
   const [updatedTicket, setUpdatedTicket] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(thunkGetSingleTicket(ticketId));
   }, [dispatch]);
 
   useEffect(() => {
-    if (Object.values(updatedTicket).length > 1 ) {
-      setLoading(true)
-      dispatch(thunkUpdateTicket(updatedTicket))
+    if (Object.values(updatedTicket).length > 1) {
+      setLoading(true);
+      dispatch(thunkUpdateTicket(updatedTicket));
     }
-  }, [updatedTicket])
+  }, [updatedTicket]);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -60,10 +63,19 @@ export default function Ticket() {
               selectedTab={selectedState}
               setSelectedTab={setSelectedState}
             />
-            <div className='ticket-tab-button'>
-                {loading ? <button>LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i> </button> : <button onClick={() => setButtonCheck(true)}>UPDATE</button> }
-
-            </div>
+            {selectedState === "General" ? (
+              <div className="ticket-tab-button">
+                {loading ? (
+                  <button>
+                    LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i>{" "}
+                  </button>
+                ) : (
+                  <button onClick={() => setButtonCheck(true)}>UPDATE</button>
+                )}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <TicketInfo
             ticket={ticket}

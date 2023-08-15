@@ -1,0 +1,119 @@
+.update-modal-container {
+    height: 40vh;
+    width: 25vw;
+    background-color: var(--background);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.update-modal_tab{
+    background-color: var(--black);
+    color: var(--white);
+    width: fit-content;
+    padding: 0px .5rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 3rem;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.update-modal_inner {
+    background-color: var(--border);
+    display: flex;
+    height: 90%;
+    border-top-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    padding: 1rem;
+}
+
+.update-modal-outer-container {
+    background-color: var(--background);
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+    box-shadow: 6px 6px 5px var(--black);
+    padding: 2rem;
+}
+
+.update-modal-inner-container {
+    background-color: var(--gray);
+    border-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.update-modal-headers {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem
+}
+
+.update-modal-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem
+}
+
+.update-modal-input > input, .update-modal-input > select {
+    height: 2rem;
+    border-radius: .5rem;
+    outline: none;
+    color: var(--white);
+    background-color: var(--background);
+    font-family: quicksand;
+    font-size: 16px;
+    width: 10vw;
+    padding-left: 1rem;
+}
+
+.update-modal-input > p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ticket);
+    position: absolute;
+}
+
+.update-modal-error-number {
+    margin-top: 2rem;
+}
+
+.update-modal-error-description {
+    margin-top: 5.5rem;
+}
+
+.update-modal-error-price {
+    margin-top: 9rem;
+}
+
+.update-modal-error-quantity {
+    margin-top: 12.5rem;
+}
+
+.update-modal-button {
+    font-family: quicksand;
+    font-size: 18px;
+    font-weight: 600;
+    height: 2.5rem;
+    width: 7rem;
+    margin-top: 1.5rem;
+    margin-left: 25rem;
+    border-radius: .5rem;
+    border: 0;
+    color: var(--white);
+    background-color: var(--primary-light);
+    box-shadow: 4px 4px 6px var(--black);
+}
+
+.update-modal-button:hover {
+    cursor: pointer;
+    background-color: var(--primary-light-accent);
+}

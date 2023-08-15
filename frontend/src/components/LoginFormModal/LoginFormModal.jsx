@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import OpenModalMenuItem from "../OpenModal/OpenModalMenuItem";
+import OpenModalLi from "../OpenModalLi/OpenModalLi";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
 import "../../styles/components/LoginForm.css";
 
@@ -111,7 +111,7 @@ function LoginFormModal() {
         <div className="login-modal-signup">
           <span>Not a member yet?</span>
           <span className="signup-modal">
-            <OpenModalMenuItem
+            <OpenModalLi
               itemText="Sign up"
               modalComponent={<SignupFormModal />}
             />

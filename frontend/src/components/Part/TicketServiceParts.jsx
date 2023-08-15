@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import "../../styles/components/TicketServiceParts.css";
 import { thunkCreatePart, thunkDeletePart } from "../../store/part";
 import Pagination from "../Pagination/Pagination";
+import OpenModalSpan from "../OpenModalSpan/OpenModalSpan";
+import UpdatePartModal from "../UpdatePartModal/UpdatePartModal"
+import "../../styles/components/TicketServiceParts.css";
 
 export default function TicketServiceParts({ parts, ticketId }) {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [partsPerPage, setPartsPerPage] = useState(7);
-
-  const [number, setNumber] = useState(parts?.number || "");
-  const [description, setDescription] = useState(parts?.description || "");
-  const [price, setPrice] = useState(parts?.price || "");
-  const [quantity, setQuantity] = useState(parts?.quantity || "");
-  const [status, setStatus] = useState(parts?.status || "");
+  const [number, setNumber] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
-  const [updatePart, setUpdatePart] = useState(false);
 
   const createPart = () => {
     const errors = {};
@@ -80,7 +80,11 @@ export default function TicketServiceParts({ parts, ticketId }) {
   //SET CURRENT PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log(updatePart);
+
+  const updatePart = (part) => {
+    console.log(part)
+  }
+
   return (
     <>
       {parts.length >= 1 ? (
@@ -104,7 +108,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                       <p>{part.quantity}</p>
                       <p>{part.status}</p>
                       <div className="part-list-options">
-                        <h4 onClick={() => setUpdatePart(true)}>UPDATE</h4>
+                        <h4>
+                          <span>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={<UpdatePartModal part={part} ticketId={ticketId}/>}
+                            />
+                          </span>
+                        </h4>
                         <h4 onClick={() => deletePart(part)}>DELETE</h4>
                       </div>
                     </>
@@ -130,9 +141,13 @@ export default function TicketServiceParts({ parts, ticketId }) {
                       <div className="part-list-options">
                         <h4
                           style={{ backgroundColor: "var(--background)" }}
-                          onClick={() => setUpdatePart(true)}
                         >
-                          UPDATE
+                          <span>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={<UpdatePartModal part={part} ticketId={ticketId}/>}
+                            />
+                          </span>
                         </h4>
                         <h4
                           style={{ backgroundColor: "var(--background)" }}
