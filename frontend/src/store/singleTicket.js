@@ -106,6 +106,20 @@ export default function singleTicketReducer(state = initialState, action) {
             // console.log("STATE AFTER", newState)
             return newState
         }
+        case actionTypes.DELETE_PART: {
+            const newState = { ...state }
+            // console.log("NEWSTATE IN SINGLE TICKET", newState)
+            const part = action.payload
+            // console.log("PART", part)
+            for (let i = 0; i < newState[part.ticketId].Parts.length; i++) {
+                const ele = newState[part.ticketId].Parts[i]
+                if (part.id === ele.id) {
+                    // console.log("ELE", newState[part.ticketId].Parts[i])
+                    delete newState[part.ticketId].Parts[i]
+                }
+            }
+            return newState
+        }
         default:
             return state;
     }

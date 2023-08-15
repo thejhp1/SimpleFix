@@ -7,15 +7,15 @@
 }
 
 .ticket-info-part-container {
-    padding-top: .5rem;
+    padding-top: 1.5rem;
 }
 
 .ticket-info-part_inner {
     background-color: var(--border);
     margin: 0px 0.5rem;
     border-radius: 0.5rem;
-    height: 17rem;
-    padding-top: 0.5rem;
+    max-height: 28rem;
+    padding: 0.5rem 0px;
 }
 
 .ticket-part-header > h3 {
@@ -84,4 +84,14 @@
     margin: 0px 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr .75fr .5fr;
+}
+
+.part-list-page-num {
+    background-color: var(--background);
+    width: fit-content;
+    padding: 0px 1rem;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 96%;
 }

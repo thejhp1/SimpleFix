@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "../../styles/components/TicketServiceParts.css";
-import { thunkCreatePart } from "../../store/part";
+import { thunkCreatePart, thunkDeletePart } from "../../store/part";
+import Pagination from "../Pagination/Pagination";
 
 export default function TicketServiceParts({ type, parts, ticketId }) {
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [partsPerPage, setPartsPerPage] = useState(7);
   const [number, setNumber] = useState(parts?.number || "");
   const [description, setDescription] = useState(parts?.description || "");
   const [price, setPrice] = useState(parts?.price || "");
@@ -35,13 +38,13 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
     if (!updatePrice) {
       errors.price = "Input required";
     } else if (isNaN(updatePrice)) {
-      errors.price = "Input must be a number"
+      errors.price = "Input must be a number";
     }
 
     if (!updateQuantity) {
       errors.quantity = "Input required";
     } else if (isNaN(updateQuantity)) {
-      errors.quantity = "Input must be a number"
+      errors.quantity = "Input must be a number";
     }
 
     if (!updateStatus) {
@@ -55,18 +58,30 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
         price: updatePrice,
         quantity: updateQuantity,
         status: updateStatus,
-        ticketId
+        ticketId,
       };
-      setUpdateNumber("")
-      setUpdateDescription("")
-      setUpdatePrice("")
-      setUpdateQuantity("")
-      setUpdateStatus("")
+      setUpdateNumber("");
+      setUpdateDescription("");
+      setUpdatePrice("");
+      setUpdateQuantity("");
+      setUpdateStatus("");
       dispatch(thunkCreatePart(part, ticketId));
     }
 
     setErrors(errors);
   };
+
+  const deletePart = (part) => {
+    dispatch(thunkDeletePart(part));
+  };
+
+  //GET CURRENT Parts
+  const indexOfLastPart = currentPage * partsPerPage;
+  const indexOfFirstPart = indexOfLastPart - partsPerPage;
+  const currentParts = parts.slice(indexOfFirstPart, indexOfLastPart);
+
+  //SET CURRENT PAGE
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -81,7 +96,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
               <h3>Quantity</h3>
               <h3>Status</h3>
               <h3 style={{ borderTopRightRadius: ".5rem" }}>DELETE</h3>
-              {parts?.map((part, i) => {
+              {currentParts?.map((part, i) => {
                 if (i % 2 != 0) {
                   return (
                     <>
@@ -122,6 +137,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                         style={{
                           color: "var(--primary-light)",
                         }}
+                        onClick={() => deletePart(part)}
                       >
                         DELETE
                       </h4>
@@ -173,6 +189,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                           backgroundColor: "var(--background)",
                           color: "var(--primary-light)",
                         }}
+                        onClick={() => deletePart(part)}
                       >
                         DELETE
                       </h4>
@@ -180,6 +197,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                   );
                 }
               })}
+
               <input
                 value={updateNumber}
                 onChange={(e) => setUpdateNumber(e.target.value)}
@@ -329,8 +347,7 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
               )}
               {errors.price && (
                 <p className="aaaaaaaa">
-                  <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                  {errors.price}
+                  <i class="fa-solid fa-circle-exclamation"></i> {errors.price}
                 </p>
               )}
               {errors.quantity && (
@@ -341,10 +358,16 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
               )}
               {errors.status && (
                 <p className="aaaaaaaa">
-                  <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                  {errors.status}
+                  <i class="fa-solid fa-circle-exclamation"></i> {errors.status}
                 </p>
               )}
+            </div>
+            <div className="part-list-page-num">
+              <Pagination
+                totalPerPage={partsPerPage}
+                totalItems={parts.length}
+                paginate={paginate}
+              />
             </div>
           </div>
         </section>
@@ -369,26 +392,32 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 style={{ backgroundColor: "var(--gray)" }}
                 placeholder="NO PART"
+                disabled
               ></input>
               <input
                 value={updateNumber}
@@ -522,9 +551,38 @@ export default function TicketServiceParts({ type, parts, ticketId }) {
                       }
                 }
               >
+                ADD
               </h4>
             </div>
-
+            <div className="error-service-tracking">
+              {errors.number && (
+                <p>
+                  <i class="fa-solid fa-circle-exclamation"></i> {errors.number}
+                </p>
+              )}
+              {errors.description && (
+                <p className="aaaaaaaa">
+                  <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                  {errors.description}
+                </p>
+              )}
+              {errors.price && (
+                <p className="aaaaaaaa">
+                  <i class="fa-solid fa-circle-exclamation"></i> {errors.price}
+                </p>
+              )}
+              {errors.quantity && (
+                <p className="aaaaaaaa">
+                  <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                  {errors.quantity}
+                </p>
+              )}
+              {errors.status && (
+                <p className="aaaaaaaa">
+                  <i class="fa-solid fa-circle-exclamation"></i> {errors.status}
+                </p>
+              )}
+            </div>
           </div>
         </section>
       )}

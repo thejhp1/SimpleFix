@@ -33,6 +33,16 @@ router.post("/new", async (req, res, next) => {
     return res.json({part: part})
 })
 
+router.delete("/:partId", async (req, res, next) => {
+    const part = await Part.findByPk(req.params.partId)
+
+    await part.destroy()
+
+    return res.json({
+        message: "Successfully deleted",
+    });
+})
+
 //UPDATE SINGLE PART
 router.put("/:partId", async (req, res, next) => {
 

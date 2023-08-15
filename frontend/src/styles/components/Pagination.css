@@ -5,3 +5,7 @@
     gap: .5rem;
     cursor: pointer;
 }
+
+.pagination-link:hover {
+    color: var(--primary-light)
+}
