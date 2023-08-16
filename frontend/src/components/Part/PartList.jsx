@@ -47,7 +47,6 @@ export default function PartList() {
                     return part
                   }
                 }
-                console.log("OBJ", obj)
                 return obj.includes(searchInput)
               }
               if (partValue === (searchInput)) {
@@ -67,8 +66,6 @@ export default function PartList() {
     history.push(`/tickets/${part.Ticket.id}`);
   };
 
-  console.log("SEARCH INPUT", searchInput)
-  console.log("FILTERED", filtered)
   return (
     <>
       <section className="list-template-header-container">
@@ -77,7 +74,7 @@ export default function PartList() {
           <div className='ticket-tab_inner'>
               <span  className='active ticket-tab-general-information-container'>
                   <div className='ticket-tab-general-information_inner'>
-                      Parts List
+                      Part List
                   </div>
               </span>
           </div>
