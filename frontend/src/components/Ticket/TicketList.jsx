@@ -61,6 +61,8 @@ export default function TicketList() {
                     }
                   }
                 }
+              } else if (ticketValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                return ticket
               }
             }
           }

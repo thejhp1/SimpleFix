@@ -44,6 +44,14 @@ export default function PartList() {
                 if (partValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
                   return part
                 }
+              } else {
+                for (let partObjectValue of Object.values(partValue)) {
+                  if (partObjectValue !== null) {
+                    if (partObjectValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                      return part
+                    }
+                  }
+                }
               }
             }
           }
