@@ -5,13 +5,14 @@ import logger from "redux-logger";
 import ticketReducer from "./ticket";
 import singleTicketReducer from "./singleTicket"
 import partReducer from "./part";
-
+import claimReducer from "./claim"
 
 const rootReducer = combineReducers({
   session,
   tickets: ticketReducer,
   singleTicket: singleTicketReducer,
-  parts: partReducer
+  parts: partReducer,
+  claims: claimReducer,
 });
 
 let enhancer;

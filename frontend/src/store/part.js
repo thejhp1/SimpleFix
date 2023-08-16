@@ -102,8 +102,6 @@ export const thunkUpdatePart = (part) => async (dispatch) => {
     }
 }
 
-
-
 export default function partReducer(state = initialState, action) {
     switch(action.type) {
         case actionTypes.GET_ALL_PART: {

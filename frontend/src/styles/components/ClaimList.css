@@ -1,4 +1,4 @@
-.part-list_inner {
+.claim-list_inner {
     background-color: var(--background);
     color: var(--white);
     display: grid;
@@ -13,7 +13,7 @@
     padding: .5rem .5rem;
 }
 
-.part-list_inner > h3 {
+.claim-list_inner > h3 {
     border-bottom: 1px solid var(--border);
     background-color: var(--black);
     display: flex;
@@ -21,7 +21,7 @@
     justify-content: center;
 }
 
-.part-list_inner > p {
+.claim-list_inner > p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,13 +32,24 @@
     border-right: 1px solid var(--black);
 }
 
-.part-list-part-num {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--primary-light);
+.claim-list-options {
+    display: flex;
 }
 
-.part-list-part-num:hover {
+.claim-list-options > h4 {
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--black);
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    box-shadow: 4px 4px 5px var(--black);
+    color: var(--primary-light);
+    width: 100%;
+}
+
+.claim-list-options > h4:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
-

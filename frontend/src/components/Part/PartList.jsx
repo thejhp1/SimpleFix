@@ -40,17 +40,10 @@ export default function PartList() {
         currentParts.filter((part) => {
           for (let partValue of Object.values(part)) {
             if (partValue !== null) {
-              if (typeof partValue == 'object' && !Array.isArray(partValue)) {
-                const obj = Object.values(partValue)
-                for (let ele of obj) {
-                  if (ele === (searchInput)) {
-                    return part
-                  }
+              if (typeof partValue !== "object") {
+                if (partValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                  return part
                 }
-                return obj.includes(searchInput)
-              }
-              if (partValue === (searchInput)) {
-                return part
               }
             }
           }

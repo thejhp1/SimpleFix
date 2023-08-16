@@ -1,46 +1,73 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetAllTicket } from "../../store/ticket";
+import { thunkGetAllClaim } from "../../store/claim";
 import { useHistory } from "react-router-dom";
 import Search from "../Search/Search";
 import Pagination from "../Pagination/Pagination";
+import OpenModalSpan from "../OpenModalSpan/OpenModalSpan";
+import UpdateClaimModal from "../UpdateClaimModal/UpdateClaimModal";
 import "../../styles/components/PartList.css";
+import "../../styles/components/ClaimList.css";
 
 export default function ClaimList() {
-  // const claimStore = useSelector((state) => state.tickets);
-  // const claims = Object.values(claimStore);
+  const claimStore = useSelector((state) => state.claims);
+  const claimList = Object.values(claimStore);
   const dispatch = useDispatch();
   const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [claimsPerPage, setClaimsPerPage] = useState(20);
   const [searchInput, setSearchInput] = useState("");
-  const [searchDateRange, setSearchDateRange] = useState("")
+  const [searchDateRange, setSearchDateRange] = useState("");
   const [filtered, setFiltered] = useState("");
-
-  useEffect(() => {
-  //   dispatch(thunkGetAllTicket())
-  }, [dispatch])
 
   //GET CURRENT PARTS
   const indexOfLastClaim = currentPage * claimsPerPage;
   const indexOfFirstClaim = indexOfLastClaim - claimsPerPage;
-  // const currentClaims = claimList.slice(indexOfFirstClaim, indexOfLastClaim);
+  const currentClaims = claimList.slice(indexOfFirstClaim, indexOfLastClaim);
 
   //SET CURRENT PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  useEffect(() => {
+    dispatch(thunkGetAllClaim());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (searchInput.length > 1) {
+      setFiltered(
+        currentClaims.filter((claim) => {
+          for (let claimValue of Object.values(claim)) {
+            if (typeof claimValue !== "object") {
+              console.log("INSIDE", searchInput)
+              if (claimValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                return claim
+              }
+            }
+            console.log("CLAIM VALUE", claimValue)
+          }
+        })
+      )
+    }
+  }, [searchInput])
+
+
+  // console.log("CLAIMS", claims)
+  const sendToClaim = (claim) => {
+    history.push(`/tickets/${claim?.Ticket.id}`)
+  };
+
   return (
     <>
-    <section className="list-template-header-container">
+      <section className="list-template-header-container">
         <div className="list-template-header_inner">
-          <section className='ticket-tab-container'>
-          <div className='ticket-tab_inner'>
-              <span  className='active ticket-tab-general-information-container'>
-                  <div className='ticket-tab-general-information_inner'>
-                      Claim List
-                  </div>
+          <section className="ticket-tab-container">
+            <div className="ticket-tab_inner">
+              <span className="active ticket-tab-general-information-container">
+                <div className="ticket-tab-general-information_inner">
+                  Claim List
+                </div>
               </span>
-          </div>
+            </div>
           </section>
         </div>
       </section>
@@ -56,111 +83,158 @@ export default function ClaimList() {
         </section>
       </section>
       <section className="list-template-info-container">
-        <section className="part-list-container">
-          <div className="part-list_inner">
-            <h3 style={{ borderTopLeftRadius: ".5rem" }}>Number</h3>
-            <h3>Description</h3>
-            <h3>Price</h3>
-            <h3>Quantity</h3>
-            <h3>Ticket Reference</h3>
-            <h3 style={{ borderTopRightRadius: ".5rem" }}>Status</h3>
-            {/* {filtered ? filtered?.map((claim, i) => {
-              if (i % 2 === 0) {
-                return (
-                  <>
-                    <p>
-                      <div
-                        onClick={() => sendToTicket(claim)}
-                        className="part-list-part-num"
-                      >
-                        {claim.number}
-                      </div>
-                    </p>
-                    <p>{claim.description}</p>
-                    <p>{claim.price}</p>
-                    <p>{claim.quantity}</p>
-                    <p>{claim.Ticket.number}</p>
-                    <p>{claim.status}</p>
-                  </>
-                );
-              } else {
-                return (
-                  <>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      <div
-                        onClick={() => sendToTicket(claim)}
-                        className="part-list-part-num"
-                      >
-                        {claim.number}
-                      </div>
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.description}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.price}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.quantity}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.Ticket.number}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.status}
-                    </p>
-                  </>
-                );
-              }
-            }) : currentClaims?.map((claim, i) => {
-              if (i % 2 === 0) {
-                return (
-                  <>
-                    <p>
-                      <div
-                        onClick={() => sendToTicket(claim)}
-                        className="part-list-part-num"
-                      >
-                        {claim.number}
-                      </div>
-                    </p>
-                    <p>{claim.description}</p>
-                    <p>{claim.price}</p>
-                    <p>{claim.quantity}</p>
-                    <p>{claim.Ticket.number}</p>
-                    <p>{claim.status}</p>
-                  </>
-                );
-              } else {
-                return (
-                  <>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      <div
-                        onClick={() => sendToTicket(claim)}
-                        className="part-list-part-num"
-                      >
-                        {claim.number}
-                      </div>
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.description}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.price}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.quantity}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.Ticket.number}
-                    </p>
-                    <p style={{ backgroundColor: "var(--gray)" }}>
-                      {claim.status}
-                    </p>
-                  </>
-                );
-              }
-            })} */}
+        <section className="claim-list-container">
+          <div className="claim-list_inner">
+            <h3 style={{ borderTopLeftRadius: ".5rem" }}>Claim Number</h3>
+            <h3>Labor Amount</h3>
+            <h3>Part Amount</h3>
+            <h3>Mileage</h3>
+            <h3>Status</h3>
+            <h3
+              style={{
+                borderTopRightRadius: ".5rem",
+                boxShadow: "4px 5px 5px var(--black)",
+              }}
+            >
+              Update/Delete
+            </h3>
+            {filtered
+              ? filtered?.map((claim, i) => {
+                  if (i % 2 === 0) {
+                    return (
+                      <>
+                        <p>
+                          <div
+                            onClick={() => sendToClaim(claim)}
+                            className="part-list-part-num"
+                          >
+                            {claim.number}
+                          </div>
+                        </p>
+                        <p>{claim.labor}</p>
+                        <p>{claim.part}</p>
+                        <p>{claim.mileage}</p>
+                        <p class="ticket-list-ticket-red">{claim.status}</p>
+                        <div className="claim-list-options">
+                          <h4>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={
+                                <UpdateClaimModal claim={claim} />
+                              }
+                            />
+                          </h4>
+                        </div>
+                      </>
+                    );
+                  } else {
+                    return (
+                      <>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          <div
+                            onClick={() => sendToClaim(claim)}
+                            className="part-list-part-num"
+                          >
+                            {claim.number}
+                          </div>
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.labor}
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.part}
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.mileage}
+                        </p>
+                        <p
+                          class="ticket-list-ticket-red"
+                          style={{ backgroundColor: "var(--gray)" }}
+                        >
+                          {claim.status}
+                        </p>
+                        <div className="claim-list-options">
+                          <h4 style={{ backgroundColor: "var(--gray)" }}>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={
+                                <UpdateClaimModal claim={claim} />
+                              }
+                            />
+                          </h4>
+                        </div>
+                      </>
+                    );
+                  }
+                })
+              : currentClaims?.map((claim, i) => {
+                  if (i % 2 === 0) {
+                    return (
+                      <>
+                        <p>
+                          <div
+                            onClick={() => sendToClaim(claim)}
+                            className="part-list-part-num"
+                          >
+                            {claim.number}
+                          </div>
+                        </p>
+                        <p>{claim.labor}</p>
+                        <p>{claim.part}</p>
+                        <p>{claim.mileage}</p>
+                        <p class="ticket-list-ticket-red">{claim.status}</p>
+                        <div className="claim-list-options">
+                          <h4>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={
+                                <UpdateClaimModal claim={claim} />
+                              }
+                            />
+                          </h4>
+                        </div>
+                      </>
+                    );
+                  } else {
+                    return (
+                      <>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          <div
+                            onClick={() => sendToClaim(claim)}
+                            className="part-list-part-num"
+                          >
+                            {claim.number}
+                          </div>
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.labor}
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.part}
+                        </p>
+                        <p style={{ backgroundColor: "var(--gray)" }}>
+                          {claim.mileage}
+                        </p>
+                        <p
+                          class="ticket-list-ticket-red"
+                          style={{ backgroundColor: "var(--gray)" }}
+                        >
+                          {claim.status}
+                        </p>
+                        <div className="claim-list-options">
+                          <h4 style={{ backgroundColor: "var(--gray)" }}>
+                            <OpenModalSpan
+                              spanText="UPDATE"
+                              modalComponent={
+                                <UpdateClaimModal claim={claim} />
+                              }
+                            />
+                          </h4>
+                        </div>
+                      </>
+                    );
+                  }
+                })}
           </div>
           <section className="ticket-list-page-num-container">
             <div className="ticket-list-ticket-count">

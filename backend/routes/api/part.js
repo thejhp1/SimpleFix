@@ -1,7 +1,5 @@
 const express = require("express");
 const { Part, Ticket } = require("../../db/models")
-const { handleValidationErrors } = require("../../utils/validation");
-const { check } = require("express-validator");
 const { requireAuth } = require("../../utils/auth")
 const router = express.Router();
 
@@ -70,7 +68,7 @@ router.put("/:partId", async (req, res, next) => {
     }
 
     await part.save()
-    
+
     res.json({part: part})
 })
 

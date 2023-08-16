@@ -1,15 +1,17 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
-const usersRouter = require('./users.js');
-const ticketsRouter = require('./ticket.js')
+const userRouter = require('./users.js');
+const ticketRouter = require('./ticket.js')
 const partRouter = require('./part.js')
+const claimRouter = require('./claim.js')
 const { restoreUser } = require("../../utils/auth.js");
 router.use(restoreUser);
 
 router.use('/session', sessionRouter);
-router.use('/users', usersRouter);
-router.use('/tickets', ticketsRouter)
+router.use('/users', userRouter);
+router.use('/tickets', ticketRouter)
 router.use('/parts', partRouter)
+router.use('/claims', claimRouter)
 
 // Add a XSRF-TOKEN cookie
 router.get("/csrf/restore", (req, res) => {

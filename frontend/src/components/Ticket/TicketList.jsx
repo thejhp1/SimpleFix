@@ -43,15 +43,23 @@ export default function TicketList() {
     if (searchInput.length > 1) {
       setFiltered (
         pendingTickets.filter((ticket) => {
-          for (let ele of Object.values(ticket)) {
-            if (typeof ele == 'object' && !Array.isArray(ele)) {
-              if (Object.values(ele).includes(searchInput)) {
-                return ticket
-              }
-            } else if (Array.isArray(ele)) {
-              for (let ele2 of ele) {
-                if (Object.values(ele2).includes(searchInput)) {
-                  return ticket
+          for (let ticketValue of Object.values(ticket)) {
+            if (ticketValue !== null) {
+              if (typeof ticketValue == 'object' && !Array.isArray(ticketValue)) {
+                for (let ticketObjectValue of Object.values(ticketValue)) {
+                  if (ticketObjectValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                    return ticket
+                  }
+                }
+              } else if (Array.isArray(ticketValue)) {
+                for (let ticketObject of ticketValue) {
+                  for (let ticketArrayValue of Object.values(ticketObject)) {
+                    if (ticketArrayValue !== null) {
+                      if (ticketArrayValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
+                        return ticket
+                      }
+                    }
+                  }
                 }
               }
             }

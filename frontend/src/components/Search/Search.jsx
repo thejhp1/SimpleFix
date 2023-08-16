@@ -22,11 +22,18 @@ export default function Search({ setSearchInput, setSearchDateRange, setFiltered
     setInput("")
     setLoading(false)
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit()
+    }
+  };
+
   return (
     <section className='search-container'>
       <div className='search-input-container'>
         <p>Search: </p>
-        <input value={input} onChange={(e) => setInput(e.target.value)}></input>
+        <input value={input} onKeyDown={handleKeyDown} onChange={(e) => setInput(e.target.value)}></input>
       </div>
       <div className='date-container'>
         <p>Date Range:</p>

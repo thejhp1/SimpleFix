@@ -13,7 +13,7 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         ticketId: 5,
-        number: "H4172218784",
+        number: "H4172025848",
         labor: 100,
         part: 35.62,
         mileage: 40,
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         ticketId: 23,
-        number: "H69652757",
+        number: "H68652757",
         labor: 95,
         part: 95.66,
         mileage: 43,
@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         ticketId: 35,
-        number: "H69757682",
+        number: "H68757682",
         labor: 95,
         part: 63.44,
         mileage: 96,
@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         ticketId: 40,
-        number: "H69768835",
+        number: "H68768835",
         labor: 95,
         part: 40.66,
         mileage: 33,
