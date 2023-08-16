@@ -12,12 +12,13 @@ function LoginFormModal() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [validateError, setValidateError] = useState({});
-  const [keepSignedIn1, setKeepSignedIn1] = useState("");
-  const [keepSignedIn2, setKeepSignedIn2] = useState("hidden");
+  const [keepSignedInUncheck, setKeepSignedInUncheck] = useState("");
+  const [keepSignedInCheck, setKeepSignedInCheck] = useState("hidden");
   const [passState1, setPassState1] = useState("");
   const [passState2, setPassState2] = useState("hidden");
   const [showPass, setShowPass] = useState("password");
   const { closeModal } = useModal();
+  let keepSignedIn
 
   useEffect(() => {
     const validateError = {};
@@ -29,7 +30,7 @@ function LoginFormModal() {
     setValidateError(validateError);
   }, [credential, password]);
 
-  // NEED TO IMPLEMENT A PAGE TO "ISSUE WITH LOGIN PAGE" TO IN FUTURE
+  // NEED TO IMPLEMENT A "ISSUE WITH LOGIN PAGE" PAGE
   const loginIssue = () => {
     alert("Feature coming soon!");
     // closeModal();
@@ -41,16 +42,17 @@ function LoginFormModal() {
     // closeModal();
   };
 
-  //NEED TO IMPLEMENT KEEPING SIGNED IN FUTURE IF BOX IS CHECKED
   const keepSignedInSwitch = () => {
-    alert("Feature coming soon!");
-    if (keepSignedIn1 === "hidden") {
-      setKeepSignedIn1("");
-      setKeepSignedIn2("hidden");
-    } else if (keepSignedIn2 === "hidden") {
-      setKeepSignedIn2("");
-      setKeepSignedIn1("hidden");
+    if (keepSignedInUncheck === "hidden") {
+      setKeepSignedInUncheck("");
+      setKeepSignedInCheck("hidden");
+    } else if (keepSignedInCheck === "hidden") {
+      setKeepSignedInCheck("");
+      setKeepSignedInUncheck("hidden");
     }
+
+    console.log("KEEPSIGNEDINUNCHECK IS SHOWING", keepSignedInUncheck)
+    console.log("KEEPSIGNEDCHECK IS SHOWING", keepSignedInCheck)
   };
 
   const handleSubmit = async (e) => {
@@ -63,7 +65,14 @@ function LoginFormModal() {
     }
 
     if (Object.values(errors).length === 0) {
-      dispatch(sessionActions.login({ credential, password }))
+      if (keepSignedInUncheck === "hidden") {
+        console.log("CHECKED")
+        keepSignedIn = "Checked"
+      } else if (keepSignedInCheck === "hidden") {
+        console.log("UNCHECKED")
+        keepSignedIn = "Unchecked"
+      }
+      dispatch(sessionActions.login({ credential, password, keepSignedIn }))
         .then(closeModal)
         .catch(async (res) => {
           if (res && res.errors) {
@@ -75,7 +84,14 @@ function LoginFormModal() {
   };
 
   const demoUser = () => {
-    dispatch(sessionActions.login({ credential: "Demo-A", password: "password" }))
+    if (keepSignedInUncheck === "hidden") {
+      console.log("CHECKED")
+      keepSignedIn = "Checked"
+    } else if (keepSignedInCheck === "hidden") {
+      console.log("UNCHECKED")
+      keepSignedIn = "Unchecked"
+    }
+    dispatch(sessionActions.login({ credential: "Demo-A", password: "password", keepSignedIn }))
         .then(closeModal)
         .catch(async (res) => {
           if (res && res.errors) {
@@ -95,6 +111,7 @@ function LoginFormModal() {
       setPassState1("hidden");
     }
   };
+
   return (
     <div className="login-modal-container">
       <i className="fa-solid fa-xmark fa-xl login-xmark" onClick={closeModal}></i>
@@ -171,7 +188,7 @@ function LoginFormModal() {
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            className={`login-modal-keep-signed-in-icon ${keepSignedIn1}`}
+            className={`login-modal-keep-signed-in-icon ${keepSignedInUncheck}`}
           >
             <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
           </svg>
@@ -179,7 +196,7 @@ function LoginFormModal() {
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            className={`login-modal-keep-signed-in-icon ${keepSignedIn2}`}
+            className={`login-modal-keep-signed-in-icon ${keepSignedInCheck}`}
           >
             <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
           </svg>
