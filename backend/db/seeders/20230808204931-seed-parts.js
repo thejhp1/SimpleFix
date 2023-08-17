@@ -199,6 +199,38 @@ module.exports = {
             quantity: 1,
             status: "Used",
           },
+          {
+            ticketId: 45,
+            number: "DG47-00038A",
+            description: "Bake Element",
+            price: 44.86,
+            quantity: 1,
+            status: "Backordered",
+          },
+          {
+            ticketId: 46,
+            number: "DE26-00126B",
+            description: "H.V. Transformer",
+            price: 131.53,
+            quantity: 1,
+            status: "Waiting for Part",
+          },
+          {
+            ticketId: 48,
+            number: "DA97-15217D",
+            description: "Ice Maker",
+            price: 105,
+            quantity: 1,
+            status: "Part Ready",
+          },
+          {
+            ticketId: 49,
+            number: "DC97-14486A",
+            description: "Heater Assembly",
+            price: 107.63,
+            quantity: 1,
+            status: "Part Ready",
+          },
         ],
         options
       )

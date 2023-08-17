@@ -12,6 +12,10 @@ export default function TicketServiceSchedule({ ticket }) {
   const [technician, setTechnician] = useState(ticket?.Technician?.name || "");
   const [note, setNote] = useState(ticket?.note || "");
   const [status, setStatus] = useState(ticket?.status || "");
+  const [type, setType] = useState("")
+
+  console.log(ticket)
+  console.log("TICKET", ticket.date)
 
   const handleUpdate = () => {
     const schedule = {
@@ -27,6 +31,7 @@ export default function TicketServiceSchedule({ ticket }) {
       history.push("/tickets")
       // history.push({pathname: "/tickets", state: {selectedState: "Cancelled"}})
     }
+    alert("Updated!")
   }
 
   return (
@@ -47,7 +52,7 @@ export default function TicketServiceSchedule({ ticket }) {
           >
             Update/Delete
           </h3>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={{ backgroundColor: "var(--background)" }}></input>
+          <input type={type} placeholder="MM/DD/YY" onFocus={() => setType('date')} onBlur={() => setType('text')} value={date} onChange={(e) => setDate((e.target.value))} style={{ backgroundColor: "var(--background)" }}></input>
           <select
               style={{ backgroundColor: "var(--background)" }}
               value={timeFrame}

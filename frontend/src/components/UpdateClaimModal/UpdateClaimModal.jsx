@@ -52,6 +52,7 @@ export default function UpdateClaimModal({ claim, type }) {
         status,
       };
       dispatch(thunkUpdateClaim(safeClaim))
+      alert("Updated!")
       closeModal()
     }
     setErrors(errors)
