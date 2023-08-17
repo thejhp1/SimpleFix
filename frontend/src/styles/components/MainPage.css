@@ -8,7 +8,7 @@
 
 .main-page-body-container {
     background-color: var(--background);
-    height: 55.85vh;
+    height: 55.75vh;
     display: flex;
     justify-content: center;
     gap: 20rem
