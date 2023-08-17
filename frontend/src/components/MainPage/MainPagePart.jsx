@@ -1,5 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import OpenModalSpan from "../OpenModalSpan/OpenModalSpan";
+import CreatePartModal from "../CreatePartModal/CreatePartModal";
 
 export default function MainPagePart() {
   const history = useHistory();
@@ -16,6 +18,15 @@ export default function MainPagePart() {
         <div className="main-page-body-options_inner">
           <i class="fa-solid fa-chevron-right fa-2xs"></i>
           <p onClick={sendToPartList}>PART LIST</p>
+        </div>
+        <div className="main-page-body-options_inner">
+          <i class="fa-solid fa-chevron-right fa-2xs"></i>
+          <p>
+            <OpenModalSpan
+              modalComponent={<CreatePartModal />}
+              spanText="NEW PART"
+            />
+          </p>
         </div>
       </div>
     </div>
