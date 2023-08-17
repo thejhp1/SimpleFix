@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import "../../styles/components/CreatePartModal.css";
-import { thunkCreatePart, thunkUpdatePart } from '../../store/part';
+import { thunkCreatePart } from '../../store/part';
 import { thunkGetAllTicket } from '../../store/ticket';
+import "../../styles/components/CreatePartModal.css";
 
-export default function CreatePartModal({part}) {
+export default function CreatePartModal() {
   const { closeModal } = useModal();
   const history = useHistory();
   const dispatch = useDispatch();

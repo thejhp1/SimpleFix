@@ -1,26 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useModal } from "../../context/Modal";
-import { useDispatch } from 'react-redux';
-import "../../styles/components/UpdateModal.css";
-import { thunkUpdatePart } from '../../store/part';
+import { useDispatch, useSelector } from 'react-redux';
+import { thunkCreateClaim } from '../../store/claim';
+import { thunkGetAllTicket } from '../../store/ticket';
+import "../../styles/components/CreateClaimModal.css";
 
-export default function UpdateClaimModal({ claim, type }) {
+
+
+export default function CreateClaimModal({ type }) {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
-  const [number, setNumber] = useState(claim?.number || "");
-  const [laborAmount, setLaborAmount] = useState(claim?.labor || "");
-  const [partAmount, setPartAmount] = useState(claim?.part|| "");
-  const [mileage, setMileage] = useState(claim?.mileage || "");
-  const [status, setStatus] = useState(claim?.status || "");
+  const ticketStore = useSelector(state => state.tickets)
+  const tickets = Object.values(ticketStore)
+  const [ticketNumber, setTicketNumber] = useState("");
+  const [claimNumber, setClaimNumber] = useState("");
+  const [laborAmount, setLaborAmount] = useState("");
+  const [partAmount, setPartAmount] = useState("");
+  const [mileage, setMileage] = useState("");
+  const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    dispatch(thunkGetAllTicket());
+  }, [dispatch]);
+
 
   const handleSubmit = () => {
     const errors = {}
 
-    if (!number) {
-      errors.number = "Input required";
-    } else if (number.length < 2 || number.length > 50) {
-      errors.number = "Input must be between 2 - 50 characters";
+    if (!ticketNumber) {
+      errors.ticketNumber = "Input required"
+    }
+
+    if (!claimNumber) {
+      errors.claimNumber = "Input required";
+    } else if (claimNumber.length < 2 || claimNumber.length > 50) {
+      errors.claimNumber = "Input must be between 2 - 50 characters";
     }
 
     if (!laborAmount) {
@@ -47,20 +62,20 @@ export default function UpdateClaimModal({ claim, type }) {
 
     if (Object.values(errors).length === 0) {
       const safeClaim = {
-        ticketId: claim.ticketId,
-        number,
+        ticketId: ticketNumber,
+        number: claimNumber,
         labor: laborAmount,
         part: partAmount,
         mileage,
         status,
       };
-      // dispatch(thunkUpdatePart(safeClaim))
-      // closeModal()
+      dispatch(thunkCreateClaim(safeClaim))
+      closeModal()
     }
     setErrors(errors)
   }
   return (
-    <section className='update-modal-container'>
+    <section className='create-claim-modal-container'>
       <div className='update-modal_tab'>
         {type === "Create" ? <p>NEW CLAIM</p> : <p>CLAIM UPDATE</p> }
 
@@ -69,7 +84,8 @@ export default function UpdateClaimModal({ claim, type }) {
         <div className='update-modal-outer-container'>
           <div className='update-modal-inner-container'>
             <div className='update-modal-headers'>
-              <p>Number:</p>
+              <p>Ticket Number: </p>
+              <p>Claim Number:</p>
               <p>Labor Amount:</p>
               <p>Part Amount:</p>
               <p>Mileage:</p>
@@ -77,28 +93,42 @@ export default function UpdateClaimModal({ claim, type }) {
 
             </div>
             <div className='update-modal-input'>
-              <input className={`${errors.number ? "update-modal-error" : ""}`} value={number} onChange={(e) => setNumber(e.target.value)} placeholder={claim?.number}></input>
-              {errors.number && <p className="update-modal-error-number"><i class="fa-solid fa-circle-exclamation"></i> {errors.number}</p>}
-              <input className={`${errors.laborAmount ? "update-modal-error" : ""}`} value={laborAmount} onChange={(e) => setLaborAmount(e.target.value)} placeholder={claim?.labor}></input>
-              {errors.laborAmount && <p className="update-modal-error-description"><i class="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
-              <input className={`${errors.partAmount ? "update-modal-error" : ""}`} value={partAmount} onChange={(e) => setPartAmount(e.target.value)} placeholder={claim?.part}></input>
-              {errors.partAmount && <p className="update-modal-error-price"><i class="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
-              <input className={`${errors.mileage ? "update-modal-error" : ""}`} value={mileage} onChange={(e) => setMileage(e.target.value)} placeholder={claim?.mileage}></input>
-              {errors.mileage && <p className="update-modal-error-quantity"><i class="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
+            <select
+                className={`${errors.ticketNumber ? "update-modal-error" : ""}`}
+                value={ticketNumber}
+                onChange={(e) => setTicketNumber(e.target.value)}
+              >
+                <option value="" disabled></option>
+                {tickets?.map(ticket => {
+                    if (ticket.status === "Completed") {
+                        return <option value={ticket.id}>{ticket.number}</option>
+                    }
+                })}
+              </select>
+              {errors.ticketNumber && <p className="create-claim-modal-error-ticketNumber"><i class="fa-solid fa-circle-exclamation"></i> {errors.ticketNumber}</p>}
+
+              <input className={`${errors.claimNumber ? "update-modal-error" : ""}`} value={claimNumber} onChange={(e) => setClaimNumber(e.target.value)}></input>
+              {errors.claimNumber && <p className="create-claim-modal-error-claimNumber"><i class="fa-solid fa-circle-exclamation"></i> {errors.claimNumber}</p>}
+
+              <input className={`${errors.laborAmount ? "update-modal-error" : ""}`} value={laborAmount} onChange={(e) => setLaborAmount(e.target.value)}></input>
+              {errors.laborAmount && <p className="create-claim-modal-error-laborAmount"><i class="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
+              <input className={`${errors.partAmount ? "update-modal-error" : ""}`} value={partAmount} onChange={(e) => setPartAmount(e.target.value)}></input>
+              {errors.partAmount && <p className="create-claim-modal-error-partAmount"><i class="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
+              <input className={`${errors.mileage ? "update-modal-error" : ""}`} value={mileage} onChange={(e) => setMileage(e.target.value)}></input>
+              {errors.mileage && <p className="create-claim-modal-error-mileage"><i class="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
               <select
                 value={status}
                 className={`${errors.mileage ? "update-modal-error" : ""}`}
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="" disabled>
-                  {claim?.status}
                 </option>
                 <option>Need Submit</option>
                 <option>Claim Submitted</option>
                 <option>Paid</option>
                 <option>Rejected</option>
               </select>
-              {errors.status && <p className="update-modal-error-status"><i class="fa-solid fa-circle-exclamation"></i> {errors.status}</p>}
+              {errors.status && <p className="create-claim-modal-error-status"><i class="fa-solid fa-circle-exclamation"></i> {errors.status}</p>}
 
             </div>
           </div>

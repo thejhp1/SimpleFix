@@ -11,6 +11,13 @@ const getAllClaim = (claims) =>  {
     }
 }
 
+const createClaim = (claim) =>  {
+    return {
+        type: actionTypes.CREATE_CLAIM,
+        payload: claim
+    }
+}
+
 // thunk action creator
 export const thunkGetAllClaim = () => async (dispatch) => {
     try {
@@ -30,18 +37,43 @@ export const thunkGetAllClaim = () => async (dispatch) => {
     }
 }
 
+export const thunkCreateClaim = (claim) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/claims`, {
+            method: "POST",
+            body: JSON.stringify(claim)
+        })
+
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(createClaim(data));
+            return data;
+        }
+
+    } catch (e) {
+        if (e.status > 400) {
+            return window.location.href = ("/")
+        }
+        return e
+    }
+}
+
+
 export default function claimReducer(state = initialState, action) {
     switch(action.type) {
         case actionTypes.GET_ALL_CLAIM: {
             const newState = { ...state }
             const claims = action.payload.claims
-            console.log("CLAIMS", claims)
             for (let claim of claims){
                 newState[claim.id] = claim
             }
-            console.log("NEWSTATE", newState)
             return newState
-
+        }
+        case actionTypes.CREATE_CLAIM: {
+            const newState = { ...state }
+            const claim = action.payload.claim
+            console.log("NEWSTATE", newState)
+            console.log("CLAIM", claim)
         }
         default:
             return state;

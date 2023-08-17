@@ -10,8 +10,24 @@ router.get("/", async (req, res, next) => {
             model: Ticket
         }
     })
-    
+
     return res.json({claims: claims})
+})
+
+//CREATE CLAIM
+router.post("/", async (req, res, next) => {
+    let { ticketId, number, labor, part, mileage, status} = req.body
+
+    const claim = await Claim.create({
+        ticketId,
+        number,
+        labor,
+        part,
+        mileage,
+        status
+    })
+
+    return res.json({claim: claim})
 })
 
 module.exports = router;

@@ -1,0 +1,31 @@
+.create-claim-modal-container {
+    height: 44.7vh;
+    width: 25vw;
+    background-color: var(--background);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.create-claim-modal-error-ticketNumber {
+    margin-top: 2.1rem;
+}
+
+.create-claim-modal-error-claimNumber {
+    margin-top: 5.6rem;
+}
+
+.create-claim-modal-error-laborAmount {
+    margin-top: 9.1rem;
+}
+
+.create-claim-modal-error-partAmount {
+    margin-top: 12.6rem;
+}
+
+.create-claim-modal-error-mileage {
+    margin-top: 16.1rem;
+}
+
+.create-claim-modal-error-status {
+    margin-top: 19.6rem;
+}

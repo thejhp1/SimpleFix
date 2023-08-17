@@ -23,7 +23,7 @@ export default function MainPageClaim() {
           <i class="fa-solid fa-chevron-right fa-2xs"></i>
           <p>
             <OpenModalSpan
-              modalComponent={<CreateClaimModal type="Create"/>}
+              modalComponent={<CreateClaimModal />}
               spanText="NEW CLAIM"
             />
           </p>
