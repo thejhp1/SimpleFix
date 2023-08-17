@@ -3,6 +3,7 @@ import { useModal } from "../../context/Modal";
 import { useDispatch } from 'react-redux';
 import "../../styles/components/UpdateModal.css";
 import { thunkUpdatePart } from '../../store/part';
+import { thunkUpdateClaim } from '../../store/claim';
 
 export default function UpdateClaimModal({ claim, type }) {
   const { closeModal } = useModal();
@@ -26,7 +27,7 @@ export default function UpdateClaimModal({ claim, type }) {
     if (!laborAmount) {
       errors.laborAmount = "Input required";
     } else if (isNaN(laborAmount)) {
-      errors.partAmount = "Input must be a number";
+      errors.laborAmount = "Input must be a number";
     }
 
     if (!partAmount) {
@@ -43,15 +44,15 @@ export default function UpdateClaimModal({ claim, type }) {
 
     if (Object.values(errors).length === 0) {
       const safeClaim = {
-        ticketId: claim.ticketId,
+        claimId: claim.id,
         number,
         labor: laborAmount,
         part: partAmount,
         mileage,
         status,
       };
-      // dispatch(thunkUpdatePart(safeClaim))
-      // closeModal()
+      dispatch(thunkUpdateClaim(safeClaim))
+      closeModal()
     }
     setErrors(errors)
   }
