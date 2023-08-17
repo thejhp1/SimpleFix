@@ -47,7 +47,7 @@ export default function TicketServiceSchedule({ ticket }) {
           >
             Update/Delete
           </h3>
-          <input placeholder={date} type="date" value={date} onChange={(e) => setDate(e.target.value)} style={{ backgroundColor: "var(--background)" }}></input>
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={{ backgroundColor: "var(--background)" }}></input>
           <select
               style={{ backgroundColor: "var(--background)" }}
               value={timeFrame}
