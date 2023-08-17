@@ -75,9 +75,9 @@ router.post("/", validateLogin, async (req, res, next) => {
     email: user.email,
     comapny: user.Company
   };
-  if (keepSignedIn === "Checked") {
+  // if (keepSignedIn === "Checked") {
     await setTokenCookie(res, safeUser);
-  } 
+  // } 
 
   return res.json({
     user: safeUser,

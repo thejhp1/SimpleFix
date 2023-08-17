@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { thunkGetAllTicket } from "../../store/ticket";
 import Pagination from "../Pagination/Pagination";
 import Search from "../Search/Search";
@@ -20,6 +20,8 @@ export default function TicketList() {
   const [searchDateRange, setSearchDateRange] = useState("")
   const [filtered, setFiltered] = useState("");
 
+  // const location = useLocation();
+  // console.log("LOCATION", location.state.selectedState)
 
   useEffect(() => {
       dispatch(thunkGetAllTicket());
@@ -70,7 +72,6 @@ export default function TicketList() {
       )
     }
   }, [searchInput])
-
 
   //DECIDES WHICH LIST OF TICKETS TO RENDER
   let ticketList;

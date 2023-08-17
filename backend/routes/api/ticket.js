@@ -151,7 +151,7 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
         employeeId: user.id,
         customerId: safeCustomer.id,
         status: "CSR-Need Schedule",
-        number: ("417" + Math.floor(Math.random() * 700000))
+        number: ("417" + Math.floor(Math.random() * (7000000-1000000) + 1000000))
     })
 
     const safeTicket = {
@@ -193,6 +193,41 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     return res.json({
         ticket: result
     })
+})
+
+//UPDATE SCHEDULE/TICKET
+router.put(`/schedule/:ticketId`, async (req, res, next) => {
+    let { date, timeFrame, technician, note, status } = req.body
+
+    const ticket = await Ticket.findOne({
+        where: {
+            id: req.params.ticketId
+        }
+    })
+
+    if (date) {
+        ticket.date = date
+    }
+
+    if (timeFrame) {
+        ticket.timeFrame = timeFrame
+    }
+
+    if (technician) {
+        ticket.technician = technician
+    }
+
+    if (note) {
+        ticket.note = note
+    }
+
+    if (status) {
+        ticket.status = status
+    }
+
+    await ticket.save()
+
+    return res.json({schedule: ticket})
 })
 
 //UPDATE SINGLE TICKET

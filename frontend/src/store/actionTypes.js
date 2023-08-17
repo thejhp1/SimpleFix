@@ -13,6 +13,7 @@ const GET_SINGLE_CLAIM = "singleClaim/getSingleClaim"
 const CREATE_CLAIM = "claim/createClaim"
 const DELETE_CLAIM = "claim/deleteClaim"
 const UPDATE_CLAIM = "claim/updateClaim"
+const UPDATE_SCHEDULE = "singleTicket/updateSchedule"
 
 export const actionTypes = {
   SET_USER,
@@ -30,4 +31,5 @@ export const actionTypes = {
   CREATE_CLAIM,
   DELETE_CLAIM,
   UPDATE_CLAIM,
+  UPDATE_SCHEDULE,
 };

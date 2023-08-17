@@ -25,6 +25,13 @@ const updateTicket = (ticket) => {
     }
 }
 
+const updateSchedule = (schedule) => {
+    return {
+        type: actionTypes.UPDATE_SCHEDULE,
+        payload: schedule
+    }
+}
+
 // thunk action creator
 export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
     try {
@@ -70,6 +77,21 @@ export const thunkUpdateTicket = (ticket) => async (dispatch) => {
             const data = await res.json();
             dispatch(updateTicket(data));
             return window.location.href = (`/tickets/${data.ticket.id}`)
+        }
+    } catch (e) {
+        return e
+    }
+}
+
+export const thunkUpdateSchedule = (schedule) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/tickets/schedule/${schedule.ticketId}`, {
+            method: "PUT",
+            body: JSON.stringify(schedule)
+        })
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(updateSchedule(data));
         }
     } catch (e) {
         return e
@@ -125,6 +147,24 @@ export default function singleTicketReducer(state = initialState, action) {
                     ele.status = part.status
                 }
             }
+            return newState
+        }
+        case actionTypes.UPDATE_SCHEDULE: {
+            const newState = { ...state }
+            const schedule = action.payload.schedule
+            if (schedule.technidianId) {
+                newState[schedule.id].technidianId = schedule.technidianId
+            }
+            if (schedule.note) {
+                newState[schedule.id].note = schedule.note
+            }
+            if (schedule.date !== "Invalid Date") {
+                newState[schedule.id].date = schedule.date
+            }
+            if (schedule.timeFrame) {
+                newState[schedule.id].timeFrame = schedule.timeFrame
+            }
+            newState[schedule.id].status = schedule.status
             return newState
         }
         default:
