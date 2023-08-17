@@ -378,7 +378,7 @@ module.exports = {
         street: "Give You Up",
         city: "Never Gonna",
         state: "Let You Down",
-        zip: "Never Gonna",
+        zip: "12345",
       },
       {
         firstName: "Joshua",

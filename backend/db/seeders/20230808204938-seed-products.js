@@ -375,8 +375,8 @@ module.exports = {
         },
         {
           ticketId: 41,
-          brand: "Run Around",
-          modelNumber: "And",
+          brand: "Never Gonna",
+          modelNumber: "Run Around And",
           serialNumber: "Desert You",
           installDate: "07/27/87",
           warrantyStatus: "In Warranty",
