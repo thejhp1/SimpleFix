@@ -52,7 +52,6 @@ export default function TicketInfo({
                 setButtonCheck={setButtonCheck}
                 setUpdateTicketCustomer={setUpdateTicketCustomer}
               />
-              {/* <TicketInfoService /> */}
               <TicketInfoProduct
                 product={ticket.Products[0]}
                 handleCallback={handleCallback}

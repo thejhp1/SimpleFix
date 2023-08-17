@@ -41,6 +41,10 @@ export default function UpdateClaimModal({ claim, type }) {
       errors.mileage = "Input must be a number";
     }
 
+    if (!status) {
+      errors.status = "Input required"
+    }
+
     if (Object.values(errors).length === 0) {
       const safeClaim = {
         ticketId: claim.ticketId,
@@ -83,6 +87,7 @@ export default function UpdateClaimModal({ claim, type }) {
               {errors.mileage && <p className="update-modal-error-quantity"><i class="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
               <select
                 value={status}
+                className={`${errors.mileage ? "update-modal-error" : ""}`}
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="" disabled>
@@ -93,10 +98,11 @@ export default function UpdateClaimModal({ claim, type }) {
                 <option>Paid</option>
                 <option>Rejected</option>
               </select>
+              {errors.status && <p className="update-modal-error-status"><i class="fa-solid fa-circle-exclamation"></i> {errors.status}</p>}
 
             </div>
           </div>
-          <button className="update-modal-button" onClick={handleSubmit}>UPDATE</button>
+          <button className="update-modal-button" onClick={handleSubmit}>CREATE</button>
         </div>
       </div>
     </section>

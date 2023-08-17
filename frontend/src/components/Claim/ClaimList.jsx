@@ -11,7 +11,8 @@ import "../../styles/components/ClaimList.css";
 
 export default function ClaimList() {
   const claimStore = useSelector((state) => state.claims);
-  const claimList = Object.values(claimStore);
+  const user = useSelector((state) => state.session.user)
+  const claims = Object.values(claimStore);
   const dispatch = useDispatch();
   const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,11 +20,18 @@ export default function ClaimList() {
   const [searchInput, setSearchInput] = useState("");
   const [searchDateRange, setSearchDateRange] = useState("");
   const [filtered, setFiltered] = useState("");
+  let claimList = [];
+
+  for (let claim of claims) {
+    if (claim.Ticket.employeeId === user?.id) {
+      claimList.push(claim)
+    }
+  }
 
   //GET CURRENT PARTS
   const indexOfLastClaim = currentPage * claimsPerPage;
   const indexOfFirstClaim = indexOfLastClaim - claimsPerPage;
-  const currentClaims = claimList.slice(indexOfFirstClaim, indexOfLastClaim);
+  const currentClaims = claimList?.slice(indexOfFirstClaim, indexOfLastClaim);
 
   //SET CURRENT PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -92,8 +100,7 @@ export default function ClaimList() {
             <h3>Status</h3>
             <h3
               style={{
-                borderTopRightRadius: ".5rem",
-                boxShadow: "4px 5px 5px var(--black)",
+                borderTopRightRadius: ".5rem"
               }}
             >
               Update/Delete
@@ -120,7 +127,7 @@ export default function ClaimList() {
                             <OpenModalSpan
                               spanText="UPDATE"
                               modalComponent={
-                                <UpdateClaimModal claim={claim} />
+                                <UpdateClaimModal claim={claim} type="Update" />
                               }
                             />
                           </h4>
@@ -158,7 +165,7 @@ export default function ClaimList() {
                             <OpenModalSpan
                               spanText="UPDATE"
                               modalComponent={
-                                <UpdateClaimModal claim={claim} />
+                                <UpdateClaimModal claim={claim} type="Update" />
                               }
                             />
                           </h4>
@@ -188,7 +195,7 @@ export default function ClaimList() {
                             <OpenModalSpan
                               spanText="UPDATE"
                               modalComponent={
-                                <UpdateClaimModal claim={claim} />
+                                <UpdateClaimModal claim={claim} type="Update" />
                               }
                             />
                           </h4>
@@ -226,7 +233,7 @@ export default function ClaimList() {
                             <OpenModalSpan
                               spanText="UPDATE"
                               modalComponent={
-                                <UpdateClaimModal claim={claim} />
+                                <UpdateClaimModal claim={claim} type="Update" />
                               }
                             />
                           </h4>
@@ -238,14 +245,14 @@ export default function ClaimList() {
           </div>
           <section className="ticket-list-page-num-container">
             <div className="ticket-list-ticket-count">
-              {/* <p>Claims Found: {claimList.length}</p> */}
+              <p>Claims Found: {claimList?.length}</p>
             </div>
             <div className="ticket-list-page-num">
-              {/* <Pagination
+              <Pagination
                 totalPerPage={claimsPerPage}
                 totalItems={claimList.length}
                 paginate={paginate}
-              /> */}
+              />
             </div>
           </section>
         </section>

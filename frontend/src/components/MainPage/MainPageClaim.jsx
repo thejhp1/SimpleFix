@@ -1,16 +1,14 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
+import OpenModalSpan from "../OpenModalSpan/OpenModalSpan";
+import CreateClaimModal from "../CreateClaimModal/CreateClaimModal";
+
 export default function MainPageClaim() {
   const history = useHistory()
 
   const sendToClaimList = () => {
     history.push("/claims")
   }
-
-  const sendToCreateClaim = () => {
-    // history.push("/claims/new")
-  }
-
 
   return (
     <div className="main-page-body_inner">
@@ -23,7 +21,12 @@ export default function MainPageClaim() {
         </div>
         <div className="main-page-body-options_inner">
           <i class="fa-solid fa-chevron-right fa-2xs"></i>
-          <p onClick={sendToCreateClaim}>NEW CLAIM</p>
+          <p>
+            <OpenModalSpan
+              modalComponent={<CreateClaimModal type="Create"/>}
+              spanText="NEW CLAIM"
+            />
+          </p>
         </div>
       </div>
     </div>

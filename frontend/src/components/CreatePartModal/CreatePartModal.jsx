@@ -130,7 +130,7 @@ export default function CreatePartModal({part}) {
 
             </div>
           </div>
-          <button className="update-modal-button" onClick={handleSubmit}>UPDATE</button>
+          <button className="update-modal-button" onClick={handleSubmit}>CREATE</button>
         </div>
       </div>
     </section>

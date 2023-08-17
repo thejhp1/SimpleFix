@@ -46,6 +46,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 .update-modal-headers {
@@ -87,19 +88,23 @@
 }
 
 .update-modal-error-number {
-    margin-top: 2rem;
+    margin-top: 2.1rem;
 }
 
 .update-modal-error-description {
-    margin-top: 5.5rem;
+    margin-top: 5.6rem;
 }
 
 .update-modal-error-price {
-    margin-top: 9rem;
+    margin-top: 9.1rem;
 }
 
 .update-modal-error-quantity {
-    margin-top: 12.5rem;
+    margin-top: 12.6rem;
+}
+
+.update-modal-error-status {
+    margin-top: 16.1rem;
 }
 
 .update-modal-button {

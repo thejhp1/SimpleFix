@@ -37,14 +37,12 @@
 }
 
 .claim-list-options > h4 {
-    background-color: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid var(--black);
     border-left: 1px solid var(--black);
     border-right: 1px solid var(--black);
-    box-shadow: 4px 4px 5px var(--black);
     color: var(--primary-light);
     width: 100%;
 }
