@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import OpenModalLi from "../OpenModalLi/OpenModalLi";
 import SignupFormModal from "../SignupFormModal/SignupFormModal";
@@ -8,17 +9,15 @@ import "../../styles/components/LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [validateError, setValidateError] = useState({});
-  const [keepSignedInUncheck, setKeepSignedInUncheck] = useState("");
-  const [keepSignedInCheck, setKeepSignedInCheck] = useState("hidden");
   const [passState1, setPassState1] = useState("");
   const [passState2, setPassState2] = useState("hidden");
   const [showPass, setShowPass] = useState("password");
   const { closeModal } = useModal();
-  let keepSignedIn
 
   useEffect(() => {
     const validateError = {};
@@ -42,16 +41,6 @@ function LoginFormModal() {
     // closeModal();
   };
 
-  const keepSignedInSwitch = () => {
-    if (keepSignedInUncheck === "hidden") {
-      setKeepSignedInUncheck("");
-      setKeepSignedInCheck("hidden");
-    } else if (keepSignedInCheck === "hidden") {
-      setKeepSignedInCheck("");
-      setKeepSignedInUncheck("hidden");
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = {};
@@ -62,12 +51,7 @@ function LoginFormModal() {
     }
 
     if (Object.values(errors).length === 0) {
-      if (keepSignedInUncheck === "hidden") {
-        keepSignedIn = "Checked"
-      } else if (keepSignedInCheck === "hidden") {
-        keepSignedIn = "Unchecked"
-      }
-      dispatch(sessionActions.login({ credential, password, keepSignedIn }))
+      dispatch(sessionActions.login({ credential, password }))
         .then(closeModal)
         .catch(async (res) => {
           if (res && res.errors) {
@@ -79,12 +63,7 @@ function LoginFormModal() {
   };
 
   const demoUser = () => {
-    if (keepSignedInUncheck === "hidden") {
-      keepSignedIn = "Checked"
-    } else if (keepSignedInCheck === "hidden") {
-      keepSignedIn = "Unchecked"
-    }
-    dispatch(sessionActions.login({ credential: "Demo-A", password: "password", keepSignedIn }))
+    dispatch(sessionActions.login({ credential: "Demo-A", password: "password"}))
         .then(closeModal)
         .catch(async (res) => {
           if (res && res.errors) {
@@ -171,34 +150,11 @@ function LoginFormModal() {
           required
         />
         {errors.credential && <p className="error-input-password"><i className="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
-        <div className="login-modal-keep-signed-in">
-          <input
-            type="checkbox"
-            className="login-modal-keep-signed-in-checkout"
-            onClick={keepSignedInSwitch}
-          ></input>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            className={`login-modal-keep-signed-in-icon ${keepSignedInUncheck}`}
-          >
-            <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            className={`login-modal-keep-signed-in-icon ${keepSignedInCheck}`}
-          >
-            <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-          </svg>
-          <span>Keep me signed in</span>
-        </div>
         <button
           disabled={Object.values(validateError).length}
           className="login-modal-button"
           type="submit"
+          onClick={sendToMain}
         >
           Log in
         </button>
