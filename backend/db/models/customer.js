@@ -68,6 +68,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [5, 5]
       }
     },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Customer',

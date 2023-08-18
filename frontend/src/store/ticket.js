@@ -28,6 +28,7 @@ export default function ticketReducer(state = initialState, action) {
             const newState = { ...state }
             const tickets = action.payload.tickets
             for (let ticket of tickets) {
+                ticket.Customer.location = JSON.parse(ticket.Customer.location)
                 newState[ticket.id] = ticket
             }
             return newState

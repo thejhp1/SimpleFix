@@ -19,15 +19,17 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23230",
+        location: '{"lat": 37.577890, "lng": -77.497530}'
       },
       {
         firstName: "Marissa",
         lastName: "Rice",
         phone: "804-000-0002",
-        street: "1600 BROWN ST",
+        street: "807 OLIVER HILL WY",
         city: "RICHMOND",
         state: "VA",
         zip: "23219",
+        location: '{"lat": 37.539750, "lng": -77.423490}'
       },
       {
         firstName: "Susan",
@@ -37,6 +39,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23222",
+        location: '{"lat": 37.581450, "lng": -77.406450}'
       },
       {
         firstName: "Les",
@@ -46,6 +49,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23230",
+        location: '{"lat": 37.587920, "lng": -77.492230}'
       },
       {
         firstName: "Mattie",
@@ -55,6 +59,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23219",
+        location: '{"lat": 37.537580, "lng": -77.435940}'
       },
       {
         firstName: "Kenton",
@@ -64,6 +69,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23234",
+        location: '{"lat": 37.476790, "lng": -77.470540}'
       },
       {
         firstName: "Ward",
@@ -73,6 +79,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23223",
+        location: '{"lat": 37.550670, "lng": -77.397790}'
       },
       {
         firstName: "Natalie",
@@ -82,6 +89,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23223",
+        location: '{"lat": 37.544970, "lng": -77.397730}'
       },
       {
         firstName: "Alfreda",
@@ -91,6 +99,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23223",
+        location: '{"lat": 37.552090, "lng": -77.366520}'
       },
       {
         firstName: "Lonnie",
@@ -100,6 +109,7 @@ module.exports = {
         city: "CHESTERFIELD",
         state: "VA",
         zip: "23832",
+        location: '{"lat": 37.397020, "lng": -77.684220}'
       },
       {
         firstName: "Garfield",
@@ -109,6 +119,7 @@ module.exports = {
         city: "CHESTERFIELD",
         state: "VA",
         zip: "23838",
+        location: '{"lat": 37.340960, "lng": -77.732940}'
       },
       {
         firstName: "Buster",
@@ -118,6 +129,7 @@ module.exports = {
         city: "CHESTERFIELD",
         state: "VA",
         zip: "23838",
+        location: '{"lat": 37.370660, "lng": -77.512180}'
       },
       {
         firstName: "Frances",
@@ -127,6 +139,7 @@ module.exports = {
         city: "CHESTERFIELD",
         state: "VA",
         zip: "23832",
+        location: '{"lat": 37.318990, "lng": -77.493270}'
       },
       {
         firstName: "Bradly",
@@ -136,6 +149,7 @@ module.exports = {
         city: "CHESTERFIELD",
         state: "VA",
         zip: "23838",
+        location: '{"lat": 37.321730, "lng": -77.500510}'
       },
       {
         firstName: "Kraig",
@@ -145,6 +159,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23114",
+        location: '{"lat": 37.470020, "lng": -77.613200}'
       },
       {
         firstName: "Cruz",
@@ -154,6 +169,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23113",
+        location: '{"lat": 37.545880, "lng": -77.667220}'
       },
       {
         firstName: "Polly",
@@ -163,6 +179,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23112",
+        location: '{"lat": 37.410520, "lng": -77.642750}'
       },
       {
         firstName: "Jeromy",
@@ -172,6 +189,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23112",
+        location: '{"lat": 37.409010, "lng": -77.646490}'
       },
       {
         firstName: "Bernice",
@@ -181,6 +199,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23114",
+        location: '{"lat": 37.477140, "lng": -77.685650}'
       },
       {
         firstName: "Miquel",
@@ -190,6 +209,7 @@ module.exports = {
         city: "HENRICO",
         state: "VA",
         zip: "23229",
+        location: '{"lat": 37.625060, "lng": -77.561300}'
       },
       {
         firstName: "Isiah",
@@ -199,6 +219,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27103",
+        location: '{"lat": 36.062560, "lng": -80.309980}'
       },
       {
         firstName: "Charmaine",
@@ -208,6 +229,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27104",
+        location: '{"lat": 36.103250, "lng": -80.346270}'
       },
       {
         firstName: "Dan",
@@ -217,6 +239,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27127",
+        location: '{"lat": 36.084450, "lng": -80.235260}'
       },
       {
         firstName: "Junior",
@@ -226,6 +249,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27106",
+        location: '{"lat": 36.140320, "lng": -80.269610}'
       },
       {
         firstName: "Julio",
@@ -235,6 +259,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27101",
+        location: '{"lat": 36.094240, "lng": -80.262380}'
       },
       {
         firstName: "Lynwood",
@@ -244,6 +269,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27103",
+        location: '{"lat": 36.029700, "lng": -80.373770}'
       },
       {
         firstName: "Lynette",
@@ -253,6 +279,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27106",
+        location: '{"lat": 36.306310, "lng": -79.388510}'
       },
       {
         firstName: "Janelle",
@@ -262,6 +289,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27107",
+        location: '{"lat": 36.052700, "lng": -80.222970}'
       },
       {
         firstName: "Abe",
@@ -271,6 +299,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27107",
+        location: '{"lat": 35.975070, "lng": -80.142550}'
       },
       {
         firstName: "Paul",
@@ -280,6 +309,7 @@ module.exports = {
         city: "WINSTON SALEM",
         state: "NC",
         zip: "27104",
+        location: '{"lat": 36.097600, "lng": -80.299880}'
       },
       {
         firstName: "Tonya",
@@ -289,6 +319,7 @@ module.exports = {
         city: "LEWISVILLE",
         state: "NC",
         zip: "27023",
+        location: '{"lat": 36.173610, "lng": -80.296420}'
       },
       {
         firstName: "Dario",
@@ -298,6 +329,7 @@ module.exports = {
         city: "LEWISVILLE",
         state: "NC",
         zip: "27023",
+        location: '{"lat": 36.065640, "lng": -80.445560}'
       },
       {
         firstName: "Cedrick",
@@ -307,6 +339,7 @@ module.exports = {
         city: "LEWISVILLE",
         state: "NC",
         zip: "27023",
+        location: '{"lat": 36.110650, "lng": -80.432190}'
       },
       {
         firstName: "Dallas",
@@ -316,15 +349,17 @@ module.exports = {
         city: "LEWISVILLE",
         state: "NC",
         zip: "27023",
+        location: '{"lat": 36.095280, "lng": -80.416900}'
       },
       {
         firstName: "Amos",
         lastName: "Benitez",
         phone: "336-000-0015",
-        street: "100 S CHERRY ST",
+        street: "110 S CHERRY ST",
         city: "KERNERSVILLE",
         state: "NC",
         zip: "27284",
+        location: '{"lat": 36.119980, "lng": -80.075090}'
       },
       {
         firstName: "Tammy",
@@ -334,6 +369,7 @@ module.exports = {
         city: "KERNERSVILLE",
         state: "NC",
         zip: "27284",
+        location: '{"lat": 36.118040, "lng": -80.057510}'
       },
       {
         firstName: "Max",
@@ -343,6 +379,7 @@ module.exports = {
         city: "KERNERSVILLE",
         state: "NC",
         zip: "27284",
+        location: '{"lat": 36.108050, "lng": -80.093700}'
       },
       {
         firstName: "Rhett",
@@ -352,6 +389,7 @@ module.exports = {
         city: "KERNERSVILLE",
         state: "NC",
         zip: "27284",
+        location: '{"lat": 36.172860, "lng": -80.121850}'
       },
       {
         firstName: "Natasha",
@@ -361,6 +399,7 @@ module.exports = {
         city: "PFAFFTOWN",
         state: "NC",
         zip: "27040",
+        location: '{"lat": 36.166980, "lng": -80.414880}'
       },
       {
         firstName: "Rick",
@@ -370,6 +409,7 @@ module.exports = {
         city: "PFAFFTOWN",
         state: "NC",
         zip: "27040",
+        location: '{"lat": 36.197070, "lng": -80.354920}'
       },
       {
         firstName: "Rick",
@@ -379,6 +419,7 @@ module.exports = {
         city: "Never Gonna",
         state: "Let You Down",
         zip: "12345",
+        location: '{"lat": 37.534280, "lng": -77.553110}'
       },
       {
         firstName: "Joshua",
@@ -388,6 +429,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23226",
+        location: '{"lat": 37.574330, "lng": -77.516490}'
       },
       {
         firstName: "Chad",
@@ -397,6 +439,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23231",
+        location: '{"lat": 37.519630, "lng": -77.408280}'
       },
       {
         firstName: "Felicia",
@@ -406,6 +449,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23234",
+        location: '{"lat": 37.465230, "lng": -77.441070}'
       },
       {
         firstName: "Johnnie",
@@ -415,6 +459,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23223",
+        location: '{"lat": 37.557320, "lng": -77.358330}'
       },
       {
         firstName: "Dallas",
@@ -424,6 +469,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23223",
+        location: '{"lat": 37.531930, "lng": -77.407330}'
       },
       {
         firstName: "Ronald",
@@ -433,6 +479,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23225",
+        location: '{"lat": 37.514790, "lng": -77.504080}'
       },
       {
         firstName: "Jan",
@@ -442,6 +489,7 @@ module.exports = {
         city: "RICHMOND",
         state: "VA",
         zip: "23225",
+        location: '{"lat": 36.194280, "lng": -80.376790}'
       },
       {
         firstName: "Isabel",
@@ -451,6 +499,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23059",
+        location: '{"lat": 37.690840, "lng": -77.497180}'
       },
       {
         firstName: "Sophie",
@@ -460,6 +509,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23060",
+        location: '{"lat": 37.659500, "lng": -77.519350}'
       },
       {
         firstName: "Alejandro",
@@ -469,6 +519,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23060",
+        location: '{"lat": 37.650860, "lng": -77.457460}'
       },
       {
         firstName: "Lydia",
@@ -478,6 +529,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23060",
+        location: '{"lat": 37.667020, "lng": -77.454640}'
       },
       {
         firstName: "Thomas",
@@ -487,6 +539,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23060",
+        location: '{"lat": 37.650180, "lng": -77.587900}'
       },
       {
         firstName: "Lucy",
@@ -496,6 +549,7 @@ module.exports = {
         city: "GLEN ALLEN",
         state: "VA",
         zip: "23060",
+        location: '{"lat": 37.661260, "lng": -77.544870}'
       },
       {
         firstName: "Alan",
@@ -505,6 +559,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23114",
+        location: '{"lat": 37.488400, "lng": -77.627150}'
       },
       {
         firstName: "Charles",
@@ -514,6 +569,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23112",
+        location: '{"lat": 37.428960, "lng": -77.602020}'
       },
       {
         firstName: "Derek",
@@ -523,6 +579,7 @@ module.exports = {
         city: "MIDLOTHIAN",
         state: "VA",
         zip: "23114",
+        location: '{"lat": 37.488900, "lng": -77.665420}'
       },
     ], options).catch((err) => {
       throw new Error(err);

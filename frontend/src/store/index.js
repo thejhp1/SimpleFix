@@ -6,6 +6,7 @@ import ticketReducer from "./ticket";
 import singleTicketReducer from "./singleTicket"
 import partReducer from "./part";
 import claimReducer from "./claim"
+import googleMapReducer from "./googleMap"
 
 const rootReducer = combineReducers({
   session,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   singleTicket: singleTicketReducer,
   parts: partReducer,
   claims: claimReducer,
+  maps: googleMapReducer,
 });
 
 let enhancer;
