@@ -75,7 +75,7 @@ export default function CreateClaimModal({ type }) {
     setErrors(errors)
   }
 
-  console.log("TICKETS", tickets)
+  // console.log("TICKETS", tickets.length >= 1)
   return (
     <section className='create-claim-modal-container'>
       <div className='update-modal_tab'>
@@ -101,7 +101,7 @@ export default function CreateClaimModal({ type }) {
                 onChange={(e) => setTicketNumber(e.target.value)}
               >
                 <option value="" disabled></option>
-                {tickets.length > 1 ? tickets?.map(ticket => {
+                {tickets.length >= 1 ? tickets?.map(ticket => {
                     if (ticket.status === "Completed") {
                         return <option value={ticket.id}>{ticket.number}</option>
                     }
