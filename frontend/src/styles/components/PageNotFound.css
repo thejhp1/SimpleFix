@@ -1,0 +1,19 @@
+.page-not-found-container {
+    height: 1220px;
+}
+
+.page-not-found_inner {
+    background-color: var(--background);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page-not-found_inner > p {
+    font-size: 38px;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
