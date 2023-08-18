@@ -21,9 +21,9 @@ export default function ClaimList() {
   const [searchDateRange, setSearchDateRange] = useState("");
   const [filtered, setFiltered] = useState("");
   let claimList = [];
-
+console.log("CLAIMS", claims)
   for (let claim of claims) {
-    if (claim.Ticket.employeeId === user?.id) {
+    if (claim?.Ticket.employeeId === user?.id) {
       claimList.push(claim)
     }
   }

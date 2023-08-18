@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useModal } from "../../context/Modal";
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { thunkCreateClaim } from '../../store/claim';
+import { thunkCreateClaim, thunkGetAllClaim } from '../../store/claim';
 import { thunkGetAllTicket } from '../../store/ticket';
 import "../../styles/components/CreateClaimModal.css";
 
@@ -10,6 +11,7 @@ import "../../styles/components/CreateClaimModal.css";
 export default function CreateClaimModal({ type }) {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
+  const history = useHistory();
   const ticketStore = useSelector(state => state.tickets)
   const tickets = Object.values(ticketStore)
   const [ticketNumber, setTicketNumber] = useState("");
@@ -22,6 +24,7 @@ export default function CreateClaimModal({ type }) {
 
   useEffect(() => {
     dispatch(thunkGetAllTicket());
+    dispatch(thunkGetAllClaim())
   }, [dispatch]);
 
 
@@ -41,12 +44,12 @@ export default function CreateClaimModal({ type }) {
     if (!laborAmount) {
       errors.laborAmount = "Input required";
     } else if (isNaN(laborAmount)) {
-      errors.partAmount = "Input must be a number";
+      errors.laborAmount = "Input must be a number";
     }
 
     if (!partAmount) {
       errors.partAmount = "Input required";
-    } else if (isNaN(Number(partAmount))) {
+    } else if (isNaN(partAmount)) {
       errors.partAmount = "Input must be a number";
     }
 
@@ -71,11 +74,12 @@ export default function CreateClaimModal({ type }) {
       };
       dispatch(thunkCreateClaim(safeClaim))
       closeModal()
+      history.push('/claims')
     }
     setErrors(errors)
   }
 
-  // console.log("TICKETS", tickets.length >= 1)
+  console.log("PART", tickets)
   return (
     <section className='create-claim-modal-container'>
       <div className='update-modal_tab'>
@@ -101,11 +105,16 @@ export default function CreateClaimModal({ type }) {
                 onChange={(e) => setTicketNumber(e.target.value)}
               >
                 <option value="" disabled></option>
-                {tickets.length >= 1 ? tickets?.map(ticket => {
+                {tickets?.map(ticket => {
+                    let counter = 0
                     if (ticket.status === "Completed") {
+                        counter++
                         return <option value={ticket.id}>{ticket.number}</option>
                     }
-                }) : <option disabled> Please complete a ticket first... </option>}
+                    if (counter === 0) {
+                      return <option disabled> Please complete a ticket first... </option>
+                    }
+                })}
               </select>
               {errors.ticketNumber && <p className="create-claim-modal-error-ticketNumber"><i className="fa-solid fa-circle-exclamation"></i> {errors.ticketNumber}</p>}
 
@@ -114,13 +123,15 @@ export default function CreateClaimModal({ type }) {
 
               <input className={`${errors.laborAmount ? "update-modal-error" : ""}`} value={laborAmount} onChange={(e) => setLaborAmount(e.target.value)}></input>
               {errors.laborAmount && <p className="create-claim-modal-error-laborAmount"><i className="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
+
               <input className={`${errors.partAmount ? "update-modal-error" : ""}`} value={partAmount} onChange={(e) => setPartAmount(e.target.value)}></input>
               {errors.partAmount && <p className="create-claim-modal-error-partAmount"><i className="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
+
               <input className={`${errors.mileage ? "update-modal-error" : ""}`} value={mileage} onChange={(e) => setMileage(e.target.value)}></input>
               {errors.mileage && <p className="create-claim-modal-error-mileage"><i className="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
               <select
                 value={status}
-                className={`${errors.mileage ? "update-modal-error" : ""}`}
+                className={`${errors.status ? "update-modal-error" : ""}`}
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="" disabled>

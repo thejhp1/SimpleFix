@@ -154,7 +154,6 @@ function LoginFormModal() {
           disabled={Object.values(validateError).length}
           className="login-modal-button"
           type="submit"
-          onClick={sendToMain}
         >
           Log in
         </button>

@@ -101,6 +101,10 @@ export default function claimReducer(state = initialState, action) {
         case actionTypes.CREATE_CLAIM: {
             const newState = { ...state }
             const claim = action.payload.claim
+            // claim.ticketId = Number(claim.ticketId)
+            // claim.number = Number(claim.number)
+            // claim.part = Number(claim.part)
+            // claim.mileage = Number(claim.mileage)
             newState[claim.id] = claim
             return newState
         }

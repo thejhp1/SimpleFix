@@ -18,7 +18,7 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
     let { ticketId, number, labor, part, mileage, status} = req.body
 
-    const claim = await Claim.create({
+    const newClaim = await Claim.create({
         ticketId,
         number,
         labor,
@@ -27,6 +27,15 @@ router.post("/", async (req, res, next) => {
         status
     })
 
+    const claim = await Claim.findOne({
+        where: {
+            ticketId: ticketId
+        },
+        include: {
+            model: Ticket
+        }
+    })
+    
     return res.json({claim: claim})
 })
 

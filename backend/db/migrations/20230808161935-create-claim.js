@@ -22,7 +22,6 @@ module.exports = {
       number: {
         type: Sequelize.STRING(50),
         allowNull: false,
-        unique: true,
       },
       labor: {
         type: Sequelize.INTEGER,
