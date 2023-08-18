@@ -31,6 +31,7 @@ router.get("/", async (req, res) => {
         id: user.companyId
       }
     })
+
     const safeUser = {
       id: user.id,
       companyId: user.companyId,
@@ -46,7 +47,7 @@ router.get("/", async (req, res) => {
 
 // Log in
 router.post("/", validateLogin, async (req, res, next) => {
-  const { credential, password, keepSignedIn } = req.body;
+  const { credential, password } = req.body;
 
   const user = await Employee.unscoped().findOne({
     where: {
@@ -75,9 +76,8 @@ router.post("/", validateLogin, async (req, res, next) => {
     email: user.email,
     comapny: user.Company
   };
-  if (keepSignedIn === "Checked") {
-    await setTokenCookie(res, safeUser);
-  } 
+
+  await setTokenCookie(res, safeUser);
 
   return res.json({
     user: safeUser,
