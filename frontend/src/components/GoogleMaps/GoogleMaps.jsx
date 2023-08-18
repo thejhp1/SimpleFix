@@ -29,7 +29,7 @@ export default function GoogleMaps() {
 
     const { isLoaded, loadError } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: import.meta.env.GOOGLE_MAP_API
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API
     })
 
     // if (loadError) {
@@ -43,7 +43,11 @@ export default function GoogleMaps() {
                 zIndex="1"
                 mapContainerStyle={mapStyles}
                 zoom={11}
-                center={center}></GoogleMap>
+                center={center}>
+                    {/*  {Object.values(ticketStore)?.map(ticket => {
+                         <Marker key={ticket.id} position={ticket.Customer.street}></Marker>
+                     })} */}
+                </GoogleMap>
                 : ""}
         </>
     )
