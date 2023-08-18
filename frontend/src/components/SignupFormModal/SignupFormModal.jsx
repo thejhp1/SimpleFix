@@ -134,7 +134,7 @@ function SignupFormModal() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            {errors.email && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.email}</p>}
+            {errors.email && <p className="error-signup"><i className="fa-solid fa-circle-exclamation"></i> {errors.email}</p>}
 
           </label>
 
@@ -149,7 +149,7 @@ function SignupFormModal() {
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-            {errors.username && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.username}</p>}
+            {errors.username && <p className="error-signup"><i className="fa-solid fa-circle-exclamation"></i> {errors.username}</p>}
           </label>
 
           <label>
@@ -163,7 +163,7 @@ function SignupFormModal() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {errors.password && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
+            {errors.password && <p className="error-signup"><i className="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
 
           </label>
           <label>
@@ -178,7 +178,7 @@ function SignupFormModal() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            {errors.password && <p className="error-signup"><i class="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
+            {errors.password && <p className="error-signup"><i className="fa-solid fa-circle-exclamation"></i> {errors.password}</p>}
 
           </label>
           <button

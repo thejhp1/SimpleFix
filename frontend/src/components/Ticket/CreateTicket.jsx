@@ -52,7 +52,7 @@ export default function CreateTicket() {
         <div className="ticket-tab">
             <CreateTicketTab />
             <div className='ticket-tab-button'>
-            {loading ? <button>LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i> </button> : <button onClick={() => setButtonCheck(true)}>CREATE</button>}
+            {loading ? <button>LOADING <i className="fa-solid fa-spinner fa-spin-pulse"></i> </button> : <button onClick={() => setButtonCheck(true)}>CREATE</button>}
             </div>
         </div>
         <div className="create-ticket-form-container ">

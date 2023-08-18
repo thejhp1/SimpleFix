@@ -124,7 +124,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.firstName && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.firstName}
                     </p>
                   )}
@@ -141,7 +141,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.lastName && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.lastName}
                     </p>
                   )}
@@ -158,7 +158,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.phone && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.phone}
                     </p>
                   )}
@@ -180,8 +180,8 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.street && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
-                      {errors.street}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
+                      {className.street}
                     </p>
                   )}
                 </div>
@@ -196,7 +196,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.city && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.city}
                     </p>
                   )}
@@ -216,7 +216,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.state && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.state}
                     </p>
                   )}
@@ -232,7 +232,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.zip && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.zip}
                     </p>
                   )}
@@ -264,7 +264,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.firstName && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.firstName}
                     </p>
                   )}
@@ -281,7 +281,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.lastName && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.lastName}
                     </p>
                   )}
@@ -298,7 +298,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.phone && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.phone}
                     </p>
                   )}
@@ -320,7 +320,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.street && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.street}
                     </p>
                   )}
@@ -336,7 +336,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.city && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.city}
                     </p>
                   )}
@@ -356,7 +356,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.state && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.state}
                     </p>
                   )}
@@ -372,7 +372,7 @@ export default function TicketInfoCustomer({
                   ></input>
                   {errors.zip && (
                     <p className="error-address">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.zip}
                     </p>
                   )}

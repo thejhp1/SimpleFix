@@ -129,7 +129,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.brand && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.brand}
                     </p>
                   )}
@@ -146,7 +146,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.model && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.model}
                     </p>
                   )}
@@ -163,7 +163,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.serial && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.serial}
                     </p>
                   )}
@@ -189,7 +189,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.installDate && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.installDate}
                     </p>
                   )}
@@ -212,7 +212,7 @@ export default function TicketInfoProduct({
                   </select>
                   {errors.warrantyStatus && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.warrantyStatus}
                     </p>
                   )}
@@ -239,7 +239,7 @@ export default function TicketInfoProduct({
                   </select>
                   {errors.category && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.category}
                     </p>
                   )}
@@ -271,7 +271,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.brand && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.brand}
                     </p>
                   )}
@@ -288,7 +288,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.model && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.model}
                     </p>
                   )}
@@ -305,7 +305,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.serial && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.serial}
                     </p>
                   )}
@@ -331,7 +331,7 @@ export default function TicketInfoProduct({
                   ></input>
                   {errors.installDate && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.installDate}
                     </p>
                   )}
@@ -354,7 +354,7 @@ export default function TicketInfoProduct({
                   </select>
                   {errors.warrantyStatus && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.warrantyStatus}
                     </p>
                   )}
@@ -381,7 +381,7 @@ export default function TicketInfoProduct({
                   </select>
                   {errors.category && (
                     <p className="error-product">
-                      <i class="fa-solid fa-circle-exclamation"></i>{" "}
+                      <i className="fa-solid fa-circle-exclamation"></i>{" "}
                       {errors.category}
                     </p>
                   )}

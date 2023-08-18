@@ -67,7 +67,7 @@ export default function Ticket() {
               <div className="ticket-tab-button">
                 {loading ? (
                   <button>
-                    LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i>{" "}
+                    LOADING <i className="fa-solid fa-spinner fa-spin-pulse"></i>{" "}
                   </button>
                 ) : (
                   <button onClick={() => setButtonCheck(true)}>UPDATE</button>

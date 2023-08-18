@@ -76,13 +76,13 @@ export default function UpdateClaimModal({ claim, type }) {
             </div>
             <div className='update-modal-input'>
               <input className={`${errors.number ? "update-modal-error" : ""}`} value={number} onChange={(e) => setNumber(e.target.value)} placeholder={claim?.number}></input>
-              {errors.number && <p className="update-modal-error-number"><i class="fa-solid fa-circle-exclamation"></i> {errors.number}</p>}
+              {errors.number && <p className="update-modal-error-number"><i className="fa-solid fa-circle-exclamation"></i> {errors.number}</p>}
               <input className={`${errors.laborAmount ? "update-modal-error" : ""}`} value={laborAmount} onChange={(e) => setLaborAmount(e.target.value)} placeholder={claim?.labor}></input>
-              {errors.laborAmount && <p className="update-modal-error-description"><i class="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
+              {errors.laborAmount && <p className="update-modal-error-description"><i className="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
               <input className={`${errors.partAmount ? "update-modal-error" : ""}`} value={partAmount} onChange={(e) => setPartAmount(e.target.value)} placeholder={claim?.part}></input>
-              {errors.partAmount && <p className="update-modal-error-price"><i class="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
+              {errors.partAmount && <p className="update-modal-error-price"><i className="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
               <input className={`${errors.mileage ? "update-modal-error" : ""}`} value={mileage} onChange={(e) => setMileage(e.target.value)} placeholder={claim?.mileage}></input>
-              {errors.mileage && <p className="update-modal-error-quantity"><i class="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
+              {errors.mileage && <p className="update-modal-error-quantity"><i className="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}

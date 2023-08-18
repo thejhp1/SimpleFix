@@ -42,7 +42,7 @@ export default function Search({ setSearchInput, setSearchDateRange, setFiltered
         <input type="date" value={dateRangeEnd} onChange={(e) => setDateRangeEnd(e.target.value)}></input>
       </div>
       <div className='ticket-tab-button'>
-              {loading ? <button>LOADING <i class="fa-solid fa-spinner fa-spin-pulse"></i> </button > : <button onClick={handleSubmit}>SEARCH</button> }
+              {loading ? <button>LOADING <i className="fa-solid fa-spinner fa-spin-pulse"></i> </button > : <button onClick={handleSubmit}>SEARCH</button> }
       </div>
 
     </section>

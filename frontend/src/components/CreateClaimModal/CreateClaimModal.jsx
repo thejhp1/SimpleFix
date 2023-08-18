@@ -105,17 +105,17 @@ export default function CreateClaimModal({ type }) {
                     }
                 })}
               </select>
-              {errors.ticketNumber && <p className="create-claim-modal-error-ticketNumber"><i class="fa-solid fa-circle-exclamation"></i> {errors.ticketNumber}</p>}
+              {errors.ticketNumber && <p className="create-claim-modal-error-ticketNumber"><i className="fa-solid fa-circle-exclamation"></i> {errors.ticketNumber}</p>}
 
               <input className={`${errors.claimNumber ? "update-modal-error" : ""}`} value={claimNumber} onChange={(e) => setClaimNumber(e.target.value)}></input>
-              {errors.claimNumber && <p className="create-claim-modal-error-claimNumber"><i class="fa-solid fa-circle-exclamation"></i> {errors.claimNumber}</p>}
+              {errors.claimNumber && <p className="create-claim-modal-error-claimNumber"><i className="fa-solid fa-circle-exclamation"></i> {errors.claimNumber}</p>}
 
               <input className={`${errors.laborAmount ? "update-modal-error" : ""}`} value={laborAmount} onChange={(e) => setLaborAmount(e.target.value)}></input>
-              {errors.laborAmount && <p className="create-claim-modal-error-laborAmount"><i class="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
+              {errors.laborAmount && <p className="create-claim-modal-error-laborAmount"><i className="fa-solid fa-circle-exclamation"></i> {errors.laborAmount}</p>}
               <input className={`${errors.partAmount ? "update-modal-error" : ""}`} value={partAmount} onChange={(e) => setPartAmount(e.target.value)}></input>
-              {errors.partAmount && <p className="create-claim-modal-error-partAmount"><i class="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
+              {errors.partAmount && <p className="create-claim-modal-error-partAmount"><i className="fa-solid fa-circle-exclamation"></i> {errors.partAmount}</p>}
               <input className={`${errors.mileage ? "update-modal-error" : ""}`} value={mileage} onChange={(e) => setMileage(e.target.value)}></input>
-              {errors.mileage && <p className="create-claim-modal-error-mileage"><i class="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
+              {errors.mileage && <p className="create-claim-modal-error-mileage"><i className="fa-solid fa-circle-exclamation"></i> {errors.mileage}</p>}
               <select
                 value={status}
                 className={`${errors.mileage ? "update-modal-error" : ""}`}
@@ -128,7 +128,7 @@ export default function CreateClaimModal({ type }) {
                 <option>Paid</option>
                 <option>Rejected</option>
               </select>
-              {errors.status && <p className="create-claim-modal-error-status"><i class="fa-solid fa-circle-exclamation"></i> {errors.status}</p>}
+              {errors.status && <p className="create-claim-modal-error-status"><i className="fa-solid fa-circle-exclamation"></i> {errors.status}</p>}
 
             </div>
           </div>

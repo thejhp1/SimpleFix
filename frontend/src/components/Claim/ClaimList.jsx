@@ -117,7 +117,7 @@ export default function ClaimList() {
                         <p>{claim.labor}</p>
                         <p>{claim.part}</p>
                         <p>{claim.mileage}</p>
-                        <p class="ticket-list-ticket-red">{claim.status}</p>
+                        <p className="ticket-list-ticket-red">{claim.status}</p>
                         <div className="claim-list-options">
                           <h4>
                             <OpenModalSpan
@@ -151,7 +151,7 @@ export default function ClaimList() {
                           {claim.mileage}
                         </p>
                         <p
-                          class="ticket-list-ticket-red"
+                          className="ticket-list-ticket-red"
                           style={{ backgroundColor: "var(--gray)" }}
                         >
                           {claim.status}
@@ -185,7 +185,7 @@ export default function ClaimList() {
                         <p>{claim.labor}</p>
                         <p>{claim.part}</p>
                         <p>{claim.mileage}</p>
-                        <p class="ticket-list-ticket-red">{claim.status}</p>
+                        <p className="ticket-list-ticket-red">{claim.status}</p>
                         <div className="claim-list-options">
                           <h4>
                             <OpenModalSpan
@@ -219,7 +219,7 @@ export default function ClaimList() {
                           {claim.mileage}
                         </p>
                         <p
-                          class="ticket-list-ticket-red"
+                          className="ticket-list-ticket-red"
                           style={{ backgroundColor: "var(--gray)" }}
                         >
                           {claim.status}

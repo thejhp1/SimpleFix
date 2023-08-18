@@ -138,7 +138,7 @@ function LoginFormModal() {
           onChange={(e) => setCredential(e.target.value)}
           required
         />
-        {errors.credential && <p className="error-input-email"><i class="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
+        {errors.credential && <p className="error-input-email"><i className="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
 
         <div className="login-modal-label-container">
           <label className="login-modal-label-password">Password</label>
@@ -170,7 +170,7 @@ function LoginFormModal() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {errors.credential && <p className="error-input-password"><i class="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
+        {errors.credential && <p className="error-input-password"><i className="fa-solid fa-circle-exclamation"></i> Incorrect information was provided</p>}
         <div className="login-modal-keep-signed-in">
           <input
             type="checkbox"

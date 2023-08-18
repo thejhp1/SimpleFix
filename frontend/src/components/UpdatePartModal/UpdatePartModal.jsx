@@ -73,13 +73,13 @@ export default function UpdatePartModal({ part }) {
             </div>
             <div className='update-modal-input'>
               <input className={`${errors.number ? "update-modal-error" : ""}`} value={number} onChange={(e) => setNumber(e.target.value)} placeholder={part?.number}></input>
-              {errors.number && <p className="update-modal-error-number"><i class="fa-solid fa-circle-exclamation"></i> {errors.number}</p>}
+              {errors.number && <p className="update-modal-error-number"><i className="fa-solid fa-circle-exclamation"></i> {errors.number}</p>}
               <input className={`${errors.description ? "update-modal-error" : ""}`} value={description} onChange={(e) => setDescription(e.target.value)} placeholder={part?.description}></input>
-              {errors.description && <p className="update-modal-error-description"><i class="fa-solid fa-circle-exclamation"></i> {errors.description}</p>}
+              {errors.description && <p className="update-modal-error-description"><i className="fa-solid fa-circle-exclamation"></i> {errors.description}</p>}
               <input className={`${errors.price ? "update-modal-error" : ""}`} value={price} onChange={(e) => setPrice(e.target.value)} placeholder={part?.price}></input>
-              {errors.price && <p className="update-modal-error-price"><i class="fa-solid fa-circle-exclamation"></i> {errors.price}</p>}
+              {errors.price && <p className="update-modal-error-price"><i className="fa-solid fa-circle-exclamation"></i> {errors.price}</p>}
               <input className={`${errors.quantity ? "update-modal-error" : ""}`} value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder={part?.quantity}></input>
-              {errors.quantity && <p className="update-modal-error-quantity"><i class="fa-solid fa-circle-exclamation"></i> {errors.quantity}</p>}
+              {errors.quantity && <p className="update-modal-error-quantity"><i className="fa-solid fa-circle-exclamation"></i> {errors.quantity}</p>}
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}

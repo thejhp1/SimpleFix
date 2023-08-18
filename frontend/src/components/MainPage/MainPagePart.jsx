@@ -16,11 +16,11 @@ export default function MainPagePart() {
       <h1>PART</h1>
       <div className="main-page-body-options-container">
         <div className="main-page-body-options_inner">
-          <i class="fa-solid fa-chevron-right fa-2xs"></i>
+          <i className="fa-solid fa-chevron-right fa-2xs"></i>
           <p onClick={sendToPartList}>PART LIST</p>
         </div>
         <div className="main-page-body-options_inner">
-          <i class="fa-solid fa-chevron-right fa-2xs"></i>
+          <i className="fa-solid fa-chevron-right fa-2xs"></i>
           <p>
             <OpenModalSpan
               modalComponent={<CreatePartModal />}

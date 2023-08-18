@@ -60,11 +60,11 @@ function ProfileButton({ user }) {
               <p className="profile-dropdown-border"></p>
               <span onClick={sendToMain} className="profile-dropdown-menu-option">
                 <p>Let's get to work</p>
-                <i class="fa-regular fa-handshake"></i>
+                <i className="fa-regular fa-handshake"></i>
               </span>
               <span onClick={logout} className="profile-dropdown-menu-option">
                 <p>Log out</p>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
               </span>
             </div>
           ) : ""}

@@ -40,8 +40,8 @@ export default function LandingPage() {
           </section>
           <section className="landing-page-slide-container">
             <div onClick={secondSlide} className="landing-page-slide_inner">
-              <p class="landing-page-slider fa-bounce">EXPLORE</p>
-              <i class="fa-solid fa-angle-down fa-bounce"></i>
+              <p className="landing-page-slider fa-bounce">EXPLORE</p>
+              <i className="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
@@ -64,8 +64,8 @@ export default function LandingPage() {
           </section>
           <section className="landing-page-slide-container">
             <div onClick={thirdSlide} className="landing-page-slide_inner">
-              <p class="landing-page-slider fa-bounce">EXPLORE</p>
-              <i class="fa-solid fa-angle-down fa-bounce"></i>
+              <p className="landing-page-slider fa-bounce">EXPLORE</p>
+              <i className="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
@@ -87,8 +87,8 @@ export default function LandingPage() {
           </section>
           <section className="landing-page-slide-container">
             <div onClick={fourthSlide} className="landing-page-slide_inner">
-              <p class="landing-page-slider fa-bounce">EXPLORE</p>
-              <i class="fa-solid fa-angle-down fa-bounce"></i>
+              <p className="landing-page-slider fa-bounce">EXPLORE</p>
+              <i className="fa-solid fa-angle-down fa-bounce"></i>
             </div>
           </section>
         </section>
@@ -117,8 +117,8 @@ export default function LandingPage() {
               </button>
               <section className="landing-page-final-slide-container">
                 <div onClick={sendToTop} className="landing-page-slide_inner">
-                  <p class="landing-page-slider fa-bounce">BACK UP</p>
-                  <i class="fa-solid fa-angle-up fa-bounce"></i>
+                  <p className="landing-page-slider fa-bounce">BACK UP</p>
+                  <i className="fa-solid fa-angle-up fa-bounce"></i>
                 </div>
               </section>
             </div>

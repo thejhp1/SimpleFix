@@ -16,11 +16,11 @@ export default function MainPageClaim() {
       <h1>CLAIM</h1>
       <div className="main-page-body-options-container">
         <div className="main-page-body-options_inner">
-          <i class="fa-solid fa-chevron-right fa-2xs"></i>
+          <i className="fa-solid fa-chevron-right fa-2xs"></i>
           <p onClick={sendToClaimList}>CLAIM LIST</p>
         </div>
         <div className="main-page-body-options_inner">
-          <i class="fa-solid fa-chevron-right fa-2xs"></i>
+          <i className="fa-solid fa-chevron-right fa-2xs"></i>
           <p>
             <OpenModalSpan
               modalComponent={<CreateClaimModal />}
