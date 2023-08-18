@@ -46,20 +46,16 @@ export default function ClaimList() {
         currentClaims.filter((claim) => {
           for (let claimValue of Object.values(claim)) {
             if (typeof claimValue !== "object") {
-              console.log("INSIDE", searchInput)
               if (claimValue.toString().toLowerCase().includes(searchInput.toLowerCase())) {
                 return claim
               }
             }
-            console.log("CLAIM VALUE", claimValue)
           }
         })
       )
     }
   }, [searchInput])
 
-
-  // console.log("CLAIMS", claims)
   const sendToClaim = (claim) => {
     history.push(`/tickets/${claim?.Ticket.id}`)
   };

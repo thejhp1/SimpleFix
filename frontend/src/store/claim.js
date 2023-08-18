@@ -107,11 +107,7 @@ export default function claimReducer(state = initialState, action) {
         case actionTypes.UPDATE_CLAIM: {
             const newState = { ...state }
             const claim = action.payload.claim
-            // console.log("NEWSTATE BEFORE", newState)
-
-            // console.log("CLAIM", claim)
             newState[claim.id] = claim
-            // console.log("NEWSTATE AFTER", newState)
             return newState
         }
         default:

@@ -50,9 +50,6 @@ function LoginFormModal() {
       setKeepSignedInCheck("");
       setKeepSignedInUncheck("hidden");
     }
-
-    console.log("KEEPSIGNEDINUNCHECK IS SHOWING", keepSignedInUncheck)
-    console.log("KEEPSIGNEDCHECK IS SHOWING", keepSignedInCheck)
   };
 
   const handleSubmit = async (e) => {
@@ -66,10 +63,8 @@ function LoginFormModal() {
 
     if (Object.values(errors).length === 0) {
       if (keepSignedInUncheck === "hidden") {
-        console.log("CHECKED")
         keepSignedIn = "Checked"
       } else if (keepSignedInCheck === "hidden") {
-        console.log("UNCHECKED")
         keepSignedIn = "Unchecked"
       }
       dispatch(sessionActions.login({ credential, password, keepSignedIn }))
@@ -85,10 +80,8 @@ function LoginFormModal() {
 
   const demoUser = () => {
     if (keepSignedInUncheck === "hidden") {
-      console.log("CHECKED")
       keepSignedIn = "Checked"
     } else if (keepSignedInCheck === "hidden") {
-      console.log("UNCHECKED")
       keepSignedIn = "Unchecked"
     }
     dispatch(sessionActions.login({ credential: "Demo-A", password: "password", keepSignedIn }))

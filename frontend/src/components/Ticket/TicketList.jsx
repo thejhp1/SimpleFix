@@ -20,9 +20,6 @@ export default function TicketList() {
   const [searchDateRange, setSearchDateRange] = useState("")
   const [filtered, setFiltered] = useState("");
 
-  // const location = useLocation();
-  // console.log("LOCATION", location.state.selectedState)
-
   useEffect(() => {
       dispatch(thunkGetAllTicket());
   }, [dispatch]);

@@ -14,9 +14,6 @@ export default function TicketServiceSchedule({ ticket }) {
   const [status, setStatus] = useState(ticket?.status || "");
   const [type, setType] = useState("")
 
-  console.log(ticket)
-  console.log("TICKET", ticket.date)
-
   const handleUpdate = () => {
     const schedule = {
       ticketId: ticket.id,

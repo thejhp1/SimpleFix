@@ -21,7 +21,6 @@ export default function TicketInfoCustomer({
 
   useEffect(() => {
     if (handleCallback) {
-      console.log("IN SERVICE CUSTOMER")
       const errors = {};
 
       if (!firstName) {

@@ -80,11 +80,6 @@ export default function TicketServiceParts({ parts, ticketId }) {
   //SET CURRENT PAGE
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
-  const updatePart = (part) => {
-    console.log(part)
-  }
-
   return (
     <>
       {parts.length >= 1 ? (
