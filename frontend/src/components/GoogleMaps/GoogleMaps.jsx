@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import {
   GoogleMap,
   useLoadScript,
   MarkerF,
   InfoWindowF,
 } from "@react-google-maps/api";
-import { useDispatch, useSelector } from "react-redux";
-import { thunkGetAllTicket } from "../../store/ticket";
 import GoogleMapInfoWindow from "./GoogleMapInfoWindow";
 import "../../styles/components/GoogleMaps.css";
 
@@ -15,7 +13,8 @@ const mapStyles = {
   width: "154rem",
 };
 
-export default function GoogleMaps() {
+export default function GoogleMaps({ completedTickets, pendingTickets, cancelledTickets }) {
+
   const center = useMemo(
     () => ({
       lat: 37.526104,
@@ -40,14 +39,7 @@ export default function GoogleMaps() {
     }),
     []
   );
-
-  const ticketStore = useSelector((state) => state.tickets);
-  const dispatch = useDispatch();
   const [active, setActive] = useState({});
-
-  useEffect(() => {
-    dispatch(thunkGetAllTicket());
-  }, [dispatch]);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAP_API,
@@ -57,19 +49,6 @@ export default function GoogleMaps() {
     return <div>Map cannot be loaded right now, sorry.</div>;
   }
 
-  //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
-  let completedTickets = [],
-    pendingTickets = [],
-    cancelledTickets = [];
-  for (let ticket of Object.values(ticketStore)) {
-    if (ticket.status === "Completed") {
-      completedTickets.push(ticket);
-    } else if (ticket.status === "Cancel") {
-      cancelledTickets.push(ticket);
-    } else {
-      pendingTickets.push(ticket);
-    }
-  }
   const handleActive = (marker) => {
     if (marker === active) {
       return

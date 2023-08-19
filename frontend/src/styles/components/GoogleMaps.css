@@ -7,18 +7,19 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--border);
-    gap: 1rem;
 }
 
 .schedule-date-container {
     background-color: var(--background);
     width: 24rem;
     height: 7rem;
-    border-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-top-left-radius: .5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 4px 4px 5px var(--black);
+    margin-top: 1rem;
+    box-shadow: 8px 8px 5px var(--black);
 }
 
 .schedule-date_inner {
@@ -71,5 +72,5 @@
     justify-content: center;
     align-items: center;
     border-radius: .5rem;
-    box-shadow: 4px 4px 5px var(--black);
+    box-shadow: 8px 8px 5px var(--black);
 }
