@@ -7,11 +7,12 @@ import {
 } from "@react-google-maps/api";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllTicket } from "../../store/ticket";
+import GoogleMapInfoWindow from "./GoogleMapInfoWindow";
 import "../../styles/components/GoogleMaps.css";
 
 const mapStyles = {
-  height: "88.5vh",
-  width: "100%",
+  height: "50rem",
+  width: "150rem",
 };
 
 export default function GoogleMaps() {
@@ -40,7 +41,6 @@ export default function GoogleMaps() {
     []
   );
 
-  const user = useSelector((state) => state.session.user);
   const ticketStore = useSelector((state) => state.tickets);
   const dispatch = useDispatch();
   const [active, setActive] = useState({});
@@ -78,41 +78,58 @@ export default function GoogleMaps() {
   }
 
   return (
-    <>
-      {isLoaded ? (
-        <GoogleMap
-          //   position="static"
-          //   zIndex="1"
-          mapContainerStyle={mapStyles}
-          options={lightOptions}
-          zoom={11}
-          center={center}
-        >
-          {pendingTickets?.map((ticket) => (
-            <>
-              <MarkerF
-                key={ticket.id}
-                position={ticket.Customer.location}
-                onClick={() => handleActive(ticket.id)}
-                icon={{
-                  url: "/images/Marker.png",
-                  scaledSize:{width:50, height:50}
-                }}
-              >
-                {active === ticket.id ? <InfoWindowF onCloseClick={() => setActive(null)}>
-                  <section className="map-info-window-container">
-                    <div className="map-info-window_inner">
-                      <p>{ticket.number}</p>
-                    </div>
-                  </section>
-                </InfoWindowF> : null}
-              </MarkerF>;
-            </>
-          ))}
-        </GoogleMap>
-      ) : (
-        ""
-      )}
-    </>
+    <section className="google-map-container">
+      <div className="google-map_inner">
+        {isLoaded ? (
+          <>
+          <section className="schedule-date-container">
+            <div className="schedule-date_inner">
+              <div className="schedule-date-background">
+                <input type="date"></input>
+              </div>
+            </div>
+          </section>
+          <section className="google-map-background-container">
+            <div className="google-map-background_inner">
+              <div className="google-map-second-background">
+                <div className="google-map">
+                  <GoogleMap
+                    position="static"
+                    zIndex="1"
+                    mapContainerStyle={mapStyles}
+                    options={lightOptions}
+                    zoom={11}
+                    center={center}
+                  >
+                    {pendingTickets?.map((ticket) => (
+                      <>
+                        <MarkerF
+                          key={ticket.id}
+                          position={ticket.Customer.location}
+                          onClick={() => handleActive(ticket.id)}
+                          icon={{
+                            url: "/images/Marker.png",
+                            scaledSize:{width:50, height:50}
+                          }}
+                        >
+                          {active === ticket.id ? <InfoWindowF onCloseClick={() => setActive(null)}>
+                            <GoogleMapInfoWindow ticket={ticket} />
+                          </InfoWindowF> : null}
+                        </MarkerF>;
+                      </>
+                    ))}
+                  </GoogleMap>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
+    </section>
   );
 }

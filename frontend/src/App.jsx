@@ -10,7 +10,7 @@ import ListTemplate from "./components/ListTemplate/ListTemplate";
 import Ticket from "./components/Ticket/Ticket";
 import CreateTicket from "./components/Ticket/CreateTicket";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-import ScheduleRoute from "./components/ScheduleRoute/ScheduleRoute";
+import ScheduleRoutePage from "./components/Schedule/ScheduleRoutePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
             <Ticket />
           </Route>
           <Route path="/route">
-            <ScheduleRoute />
+            <ScheduleRoutePage />
           </Route>
           <Route path="/home">
             <MainPage />
