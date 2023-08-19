@@ -11,8 +11,8 @@ import GoogleMapInfoWindow from "./GoogleMapInfoWindow";
 import "../../styles/components/GoogleMaps.css";
 
 const mapStyles = {
-  height: "50rem",
-  width: "150rem",
+  height: "54rem",
+  width: "154rem",
 };
 
 export default function GoogleMaps() {
@@ -90,8 +90,7 @@ export default function GoogleMaps() {
             </div>
           </section>
           <section className="google-map-background-container">
-            <div className="google-map-background_inner">
-              <div className="google-map-second-background">
+
                 <div className="google-map">
                   <GoogleMap
                     position="static"
@@ -102,9 +101,8 @@ export default function GoogleMaps() {
                     center={center}
                   >
                     {pendingTickets?.map((ticket) => (
-                      <>
+                      <div key={ticket.id}>
                         <MarkerF
-                          key={ticket.id}
                           position={ticket.Customer.location}
                           onClick={() => handleActive(ticket.id)}
                           icon={{
@@ -116,14 +114,12 @@ export default function GoogleMaps() {
                             <GoogleMapInfoWindow ticket={ticket} />
                           </InfoWindowF> : null}
                         </MarkerF>;
-                      </>
+                      </div>
                     ))}
                   </GoogleMap>
                 </div>
 
-              </div>
 
-            </div>
           </section>
           </>
         ) : (

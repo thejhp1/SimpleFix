@@ -79,7 +79,6 @@ export default function CreateClaimModal({ type }) {
     setErrors(errors)
   }
 
-  console.log("PART", tickets)
   return (
     <section className='create-claim-modal-container'>
       <div className='update-modal_tab'>

@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         hooks: true
       })
+
+      Company.hasMany(models.Technician, {
+        foreignKey: 'companyId',
+        onDelete: 'CASCADE',
+        hooks: true
+      })
     }
   }
   Company.init({

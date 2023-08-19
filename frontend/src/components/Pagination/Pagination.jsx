@@ -13,7 +13,7 @@ export default function Pagination({ totalPerPage, totalItems, paginate}) {
     <section className='pagination-container'>
         <div className='pagination_inner'>
             {pageNumbers.map(number => (
-                <li className='pagination-item'>
+                <li key={number} className='pagination-item'>
                     <a onClick={() => paginate(number)} className='pagination-link'>
                         {number}
                     </a>

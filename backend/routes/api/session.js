@@ -7,7 +7,7 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { Employee, Company } = require("../../db/models");
+const { Employee, Company, Technician } = require("../../db/models");
 
 const router = express.Router();
 
@@ -29,6 +29,9 @@ router.get("/", async (req, res) => {
     const company = await Company.findOne({
       where: {
         id: user.companyId
+      },
+      include: {
+        model: Technician
       }
     })
 
@@ -38,6 +41,7 @@ router.get("/", async (req, res) => {
       username: user.username,
       email: user.email,
       company: company.name,
+      technicians: company.Technicians,
     };
     return res.json({
       user: safeUser,
@@ -74,7 +78,7 @@ router.post("/", validateLogin, async (req, res, next) => {
     companyId: user.companyId,
     username: user.username,
     email: user.email,
-    comapny: user.Company
+    company: user.Company
   };
 
   await setTokenCookie(res, safeUser);
