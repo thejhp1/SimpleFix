@@ -64,7 +64,6 @@ const validateTicket = [
 //GET ALL TICKETS
 router.get("/", async (req, res, next) => {
     const { user } = req;
-    console.log("USER", user)
     const tickets = await Ticket.findAll({
         where: {
             employeeId: user.id
