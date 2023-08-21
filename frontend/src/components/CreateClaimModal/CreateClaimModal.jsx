@@ -21,6 +21,7 @@ export default function CreateClaimModal({ type }) {
   const [mileage, setMileage] = useState("");
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
+  let counter = 0
 
   useEffect(() => {
     dispatch(thunkGetAllTicket());
@@ -105,15 +106,12 @@ export default function CreateClaimModal({ type }) {
               >
                 <option value="" disabled></option>
                 {tickets?.map(ticket => {
-                    let counter = 0
                     if (ticket.status === "Completed") {
                         counter++
                         return <option value={ticket.id}>{ticket.number}</option>
                     }
-                    if (counter === 0) {
-                      return <option disabled> Please complete a ticket first... </option>
-                    }
                 })}
+                {counter === 0 ? <option disabled> Please complete a ticket first... </option> : ""}
               </select>
               {errors.ticketNumber && <p className="create-claim-modal-error-ticketNumber"><i className="fa-solid fa-circle-exclamation"></i> {errors.ticketNumber}</p>}
 

@@ -34,9 +34,9 @@ function App() {
           <Route path="/tickets/:ticketId">
             <Ticket />
           </Route>
-          <Route path="/route">
+          {/* <Route path="/route">
             <ScheduleRoutePage />
-          </Route>
+          </Route> */}
           <Route path="/home">
             <MainPage />
           </Route>

@@ -19,6 +19,7 @@ export default function CreatePartModal() {
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
+  let counter = 0;
 
   useEffect(() => {
     dispatch(thunkGetAllTicket());
@@ -99,7 +100,7 @@ export default function CreatePartModal() {
               >
                 <option value="" disabled></option>
                 {tickets?.map((ticket) => {
-                  let counter = 0;
+
                   if (
                     ticket.status !== "Completed" &&
                     ticket.status !== "Cancel"
@@ -107,10 +108,8 @@ export default function CreatePartModal() {
                     counter++;
                     return <option value={ticket.id}>{ticket.number}</option>;
                   }
-                  if (counter === 0) {
-                    return <option>Please create an open ticket...</option>
-                  }
                 })}
+                {counter === 0 ? <option disabled> Please add a ticket first... </option> : ""}
               </select>
               {errors.ticketNumber && (
                 <p className="create-part-modal-error-ticketNumber">
