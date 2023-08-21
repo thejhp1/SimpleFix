@@ -181,7 +181,7 @@ export default function TicketInfoCustomer({
                   {errors.street && (
                     <p className="error-address">
                       <i className="fa-solid fa-circle-exclamation"></i>{" "}
-                      {className.street}
+                      {errors.street}
                     </p>
                   )}
                 </div>
