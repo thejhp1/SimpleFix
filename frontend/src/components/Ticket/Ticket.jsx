@@ -34,7 +34,7 @@ export default function Ticket() {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      // console.log(ticketNumber);
+
     }
   };
 

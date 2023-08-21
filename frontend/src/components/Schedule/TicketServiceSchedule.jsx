@@ -13,7 +13,7 @@ export default function TicketServiceSchedule({ ticket }) {
   const [note, setNote] = useState(ticket?.note || "");
   const [status, setStatus] = useState(ticket?.status || "");
   const [type, setType] = useState("text")
-  console.log("asdasd", ticket?.date)
+
   const handleUpdate = () => {
     const schedule = {
       ticketId: ticket.id,
