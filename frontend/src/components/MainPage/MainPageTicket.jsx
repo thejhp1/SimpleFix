@@ -13,8 +13,8 @@ export default function MainPageTicket() {
   }
 
   const sendToRoute = () => {
-    alert("Feature under development")
-    // history.push("/route")
+    // alert("Feature under development")
+    history.push("/route")
   }
 
   return (

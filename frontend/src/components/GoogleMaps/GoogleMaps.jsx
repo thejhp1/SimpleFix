@@ -61,15 +61,7 @@ export default function GoogleMaps({ completedTickets, pendingTickets, cancelled
       <div className="google-map_inner">
         {isLoaded ? (
           <>
-          <section className="schedule-date-container">
-            <div className="schedule-date_inner">
-              <div className="schedule-date-background">
-                <input type="date"></input>
-              </div>
-            </div>
-          </section>
           <section className="google-map-background-container">
-
                 <div className="google-map">
                   <GoogleMap
                     position="static"

@@ -1,26 +1,48 @@
 import React, { useState } from 'react'
 import "../../styles/components/ScheduleTechnician.css";
 import { useSelector } from 'react-redux';
+import ScheduleTechnicanRoute from './ScheduleTechnicanRoute';
 
-export default function ScheduleTechnician({ completedTickets, pendingTickets, cancelledTickets }) {
+export default function ScheduleTechnician({ date, completedTickets, pendingTickets, cancelledTickets }) {
   const technician = useSelector((state) => state.session.user.technicians)
+  let ticketGroup9AM = [], ticketGroup10AM = [], ticketGroup11AM = [], ticketGroup12PM = [], ticketGroup1PM = [], ticketGroup2PM = [], ticketGroup3PM = [], ticketGroup4PM = [], ticketGroup5PM = []
 
-
-  for (let i = 0; i < technician.length; i++) {
-    const tickets = pendingTickets.map(ticket => {
-      if (ticket.Technician?.id === technician[i].id) {
-        return ticket
+  for (let ticket of pendingTickets) {
+    if (ticket.timeFrame !== null) {
+      console.log(ticket)
+      if (ticket.timeFrame.startsWith("9:00")) {
+        ticketGroup9AM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("10:00")) {
+        ticketGroup10AM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("11:00")) {
+        ticketGroup11AM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("12:00")) {
+        ticketGroup12PM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("1:00")) {
+        ticketGroup1PM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("2:00")) {
+        ticketGroup2PM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("3:00")) {
+        ticketGroup3PM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("4:00")) {
+        ticketGroup4PM.push(ticket)
+      } else if (ticket.timeFrame.startsWith("5:00")) {
+        ticketGroup5PM.push(ticket)
       }
-    })
-    return
-  }
-  const renderContent = () => {
 
+    }
   }
+  console.log("DAAATE", date)
   return (
     <section className='technician-container'>
         <div className='technician_inner'>
-            {renderContent()}
+          {technician.map(tech => {
+            return (
+              <div key={tech.id}>
+               <ScheduleTechnicanRoute date={date} technician={tech} ticketGroup9AM={ticketGroup9AM} ticketGroup10AM={ticketGroup10AM} ticketGroup11AM={ticketGroup11AM} ticketGroup12PM={ticketGroup12PM} ticketGroup1PM={ticketGroup1PM} ticketGroup2PM={ticketGroup2PM} ticketGroup3PM={ticketGroup3PM} ticketGroup4PM={ticketGroup4PM} ticketGroup5PM={ticketGroup5PM} />
+              </div>
+            )
+          })}
 
         </div>
     </section>

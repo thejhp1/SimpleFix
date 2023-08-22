@@ -26,7 +26,6 @@ export default function TicketServiceSchedule({ ticket }) {
     dispatch(thunkUpdateSchedule(schedule))
     if (status === "Cancel") {
       history.push("/tickets")
-      // history.push({pathname: "/tickets", state: {selectedState: "Cancelled"}})
     }
     alert("Updated!")
   }

@@ -485,11 +485,11 @@ module.exports = {
         firstName: "Jan",
         lastName: "Young",
         phone: "804-512-9856",
-        street: "6001 LA VETA DR",
+        street: "6001 LAVETA DR",
         city: "RICHMOND",
         state: "VA",
         zip: "23225",
-        location: '{"lat": 36.194280, "lng": -80.376790}'
+        location: '{"lat": 37.50893888647064, "lng": -77.50777829553792}'
       },
       {
         firstName: "Isabel",

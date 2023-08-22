@@ -1,0 +1,9 @@
+.schedule-technician-route-container {
+    /* display: flex; */
+}
+
+.schedule-technician-route_inner {
+    border: 1px solid blue;
+    /* display: flex; */
+    /* justify-content: center; */
+}
