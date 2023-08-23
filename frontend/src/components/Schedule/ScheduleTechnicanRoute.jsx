@@ -21,7 +21,6 @@ export default function ScheduleTechnicanRoute({
         <div className="schedule-time-dark-container">
           <p>9:00AM - 12:00PM</p>
           {ticketGroup9AM.map((ticket) => {
-            console.log(ticket);
             if (
               technician.id === ticket.Technician.id &&
               ticket.date === date

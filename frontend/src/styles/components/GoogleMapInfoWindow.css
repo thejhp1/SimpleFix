@@ -1,4 +1,56 @@
 .map-info-window-container {
-    height: 20vh;
+    height: fit-content;
     width: 20vw;
+    margin-top: .2rem;
+    margin-left: .2rem;
+    margin-right: .9rem;
+    margin-bottom: .9rem;
 }
+
+.map-info-window_inner {
+    color: var(--white);
+    font-family: quicksand;
+}
+
+.asdasd {
+    border-radius: .5rem;
+    background-color: var(--black);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.asdasd > h2 {
+    font-size: 30px;
+    padding-left: 4rem;
+}
+
+.asdzxc {
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    gap: 2rem;
+}
+
+.zxczxc > p {
+    margin-bottom: .5rem;
+}
+
+.zxczxczxc {
+    display: flex;
+    flex-direction: column;
+    gap: .36rem;
+}
+
+.zxczxczxc > input {
+    height: 1.75rem;
+}
+
+.gm-style .gm-style-iw-c {
+    background-color: var(--background);
+}
+
+/* .gm-ui-hover-effect {
+
+} */

@@ -9,7 +9,6 @@ export default function ScheduleTechnician({ date, completedTickets, pendingTick
 
   for (let ticket of pendingTickets) {
     if (ticket.timeFrame !== null) {
-      console.log(ticket)
       if (ticket.timeFrame.startsWith("9:00")) {
         ticketGroup9AM.push(ticket)
       } else if (ticket.timeFrame.startsWith("10:00")) {
