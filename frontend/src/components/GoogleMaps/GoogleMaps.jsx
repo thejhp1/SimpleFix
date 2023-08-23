@@ -77,14 +77,14 @@ export default function GoogleMaps({
                 >
                   {pendingTickets?.map((ticket) => {
                     if (ticket.date === null || ticket.date === date) {
-                      if (ticket.status !== "Need Review") {
+                      if (ticket.status == "CSR-Need Schedule") {
                         return (
                           <div key={ticket.id}>
                             <MarkerF
                               position={ticket.Customer.location}
                               onClick={() => handleActive(ticket.id)}
                               icon={{
-                                url: "/images/Marker-Ticket.png",
+                                url: "/images/Marker-NeedSchedule.png",
                                 scaledSize: { width: 50, height: 50 },
                               }}
                             >
@@ -99,7 +99,7 @@ export default function GoogleMaps({
                             ;
                           </div>
                         );
-                      } else if (ticket.status == "Need Review") {
+                      } else if (ticket.status == "Need Review" || ticket.status == "Need Reschedule") {
                         return (
                           <div key={ticket.id}>
                             <MarkerF
@@ -107,6 +107,72 @@ export default function GoogleMaps({
                               onClick={() => handleActive(ticket.id)}
                               icon={{
                                 url: "/images/Marker-NeedReview.png",
+                                scaledSize: { width: 50, height: 50 },
+                              }}
+                            >
+                              {active === ticket.id ? (
+                                <InfoWindowF
+                                  onCloseClick={() => setActive(null)}
+                                >
+                                  <GoogleMapInfoWindow ticket={ticket} />
+                                </InfoWindowF>
+                              ) : null}
+                            </MarkerF>
+                            ;
+                          </div>
+                        );
+                      } else if (ticket.status == "Waiting for Part") {
+                        return (
+                          <div key={ticket.id}>
+                            <MarkerF
+                              position={ticket.Customer.location}
+                              onClick={() => handleActive(ticket.id)}
+                              icon={{
+                                url: "/images/Marker-WaitingForPart.png",
+                                scaledSize: { width: 50, height: 50 },
+                              }}
+                            >
+                              {active === ticket.id ? (
+                                <InfoWindowF
+                                  onCloseClick={() => setActive(null)}
+                                >
+                                  <GoogleMapInfoWindow ticket={ticket} />
+                                </InfoWindowF>
+                              ) : null}
+                            </MarkerF>
+                            ;
+                          </div>
+                        );
+                      } else if (ticket.status == "CSR-Part Came In") {
+                        return (
+                          <div key={ticket.id}>
+                            <MarkerF
+                              position={ticket.Customer.location}
+                              onClick={() => handleActive(ticket.id)}
+                              icon={{
+                                url: "/images/Marker-PartCameIn.png",
+                                scaledSize: { width: 50, height: 50 },
+                              }}
+                            >
+                              {active === ticket.id ? (
+                                <InfoWindowF
+                                  onCloseClick={() => setActive(null)}
+                                >
+                                  <GoogleMapInfoWindow ticket={ticket} />
+                                </InfoWindowF>
+                              ) : null}
+                            </MarkerF>
+                            ;
+                          </div>
+                        );
+                      } else if (ticket.status == "Ready for Service") {
+                        return (
+                          <div key={ticket.id}>
+                            <MarkerF
+                              position={ticket.Customer.location}
+                              onClick={() => handleActive(ticket.id)}
+                              icon={{
+                                url: "/images/Marker-Ticket.png",
                                 scaledSize: { width: 45, height: 45 },
                               }}
                             >
