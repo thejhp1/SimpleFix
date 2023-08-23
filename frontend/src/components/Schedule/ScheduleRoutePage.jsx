@@ -10,7 +10,7 @@ export default function ScheduleRoutePage() {
   const dispatch = useDispatch();
   const ticketStore = useSelector((state) => state.tickets);
   const [date, setDate] = useState(dayjs(new Date()).format("MM/DD/YYYY"));
-  const [type, setType] = useState("text");
+  const [type, setType] = useState("date");
 
   //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
   let completedTickets = [],
@@ -36,10 +36,12 @@ export default function ScheduleRoutePage() {
         <div className="schedule-date_inner">
           <div className="schedule-date-background">
             <input
-              onFocus={() => setType("date")}
-              onBlur={() => setType("text")}
+              // type="date"
+              // onFocus={() => setType("date")}
+              // onBlur={() => setType("text")}
+              placeholder={date}
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={(e) => setDate(dayjs(e.target.value).format("MM/DD/YYYY"))}
               type={type}
             ></input>
           </div>

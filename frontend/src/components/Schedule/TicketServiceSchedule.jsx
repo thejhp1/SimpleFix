@@ -89,6 +89,8 @@ export default function TicketServiceSchedule({ ticket }) {
               <option>CSR-Reschedule Done</option>
               <option>Need Reschedule</option>
               <option>Need Review</option>
+              <option>Waiting for Part</option>
+              <option>Ready for Service</option>
               <option>Cancel</option>
           </select>
           <div className="part-list-options">
