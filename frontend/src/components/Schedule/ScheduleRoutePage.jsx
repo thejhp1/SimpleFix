@@ -10,7 +10,7 @@ export default function ScheduleRoutePage() {
   const dispatch = useDispatch();
   const ticketStore = useSelector((state) => state.tickets);
   const [date, setDate] = useState(dayjs(new Date()).format("MM/DD/YYYY"));
-  const [type, setType] = useState("date");
+  const [type, setType] = useState("text");
 
   //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
   let completedTickets = [],
@@ -30,25 +30,26 @@ export default function ScheduleRoutePage() {
     dispatch(thunkGetAllTicket());
   }, [dispatch]);
 
+  const formatDate = (date) => {
+    return dayjs(date).format("YYYY-MM-DD")
+  }
+
   return (
     <section className="schedule-route-container">
       <section className="schedule-date-container">
         <div className="schedule-date_inner">
           <div className="schedule-date-background">
             <input
-              // type="date"
-              // onFocus={() => setType("date")}
-              // onBlur={() => setType("text")}
-              placeholder={date}
-              value={date}
-              onChange={(e) => setDate(dayjs(e.target.value).format("MM/DD/YYYY"))}
-              type={type}
+              type="date"
+              value={formatDate(date)}
+              onChange={(e) => setDate(e.target.value)}
             ></input>
           </div>
         </div>
       </section>
       <div className="schedule-route_inner">
         <GoogleMaps
+          date={dayjs(date).format("MM/DD/YY")}
           completedTickets={completedTickets}
           pendingTickets={pendingTickets}
           cancelledTickets={cancelledTickets}

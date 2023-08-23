@@ -13,8 +13,12 @@ const mapStyles = {
   width: "154rem",
 };
 
-export default function GoogleMaps({ completedTickets, pendingTickets, cancelledTickets }) {
-
+export default function GoogleMaps({
+  date,
+  completedTickets,
+  pendingTickets,
+  cancelledTickets,
+}) {
   const center = useMemo(
     () => ({
       lat: 37.526104,
@@ -51,47 +55,78 @@ export default function GoogleMaps({ completedTickets, pendingTickets, cancelled
 
   const handleActive = (marker) => {
     if (marker === active) {
-      return
+      return;
     }
-    setActive(marker)
-  }
+    setActive(marker);
+  };
 
   return (
     <section className="google-map-container">
       <div className="google-map_inner">
         {isLoaded ? (
           <>
-          <section className="google-map-background-container">
-                <div className="google-map">
-                  <GoogleMap
-                    position="static"
-                    zIndex="1"
-                    mapContainerStyle={mapStyles}
-                    options={lightOptions}
-                    zoom={11}
-                    center={center}
-                  >
-                    {pendingTickets?.map((ticket) => (
-                      <div key={ticket.id}>
-                        <MarkerF
-                          position={ticket.Customer.location}
-                          onClick={() => handleActive(ticket.id)}
-                          icon={{
-                            url: "/images/Marker.png",
-                            scaledSize:{width:50, height:50}
-                          }}
-                        >
-                          {active === ticket.id ? <InfoWindowF onCloseClick={() => setActive(null)}>
-                            <GoogleMapInfoWindow ticket={ticket} />
-                          </InfoWindowF> : null}
-                        </MarkerF>;
-                      </div>
-                    ))}
-                  </GoogleMap>
-                </div>
-
-
-          </section>
+            <section className="google-map-background-container">
+              <div className="google-map">
+                <GoogleMap
+                  position="static"
+                  zIndex="1"
+                  mapContainerStyle={mapStyles}
+                  options={lightOptions}
+                  zoom={11}
+                  center={center}
+                >
+                  {pendingTickets?.map((ticket) => {
+                    if (ticket.date === null || ticket.date === date) {
+                      if (ticket.status !== "Need Review") {
+                        return (
+                          <div key={ticket.id}>
+                            <MarkerF
+                              position={ticket.Customer.location}
+                              onClick={() => handleActive(ticket.id)}
+                              icon={{
+                                url: "/images/Marker-Ticket.png",
+                                scaledSize: { width: 50, height: 50 },
+                              }}
+                            >
+                              {active === ticket.id ? (
+                                <InfoWindowF
+                                  onCloseClick={() => setActive(null)}
+                                >
+                                  <GoogleMapInfoWindow ticket={ticket} />
+                                </InfoWindowF>
+                              ) : null}
+                            </MarkerF>
+                            ;
+                          </div>
+                        );
+                      } else if (ticket.status == "Need Review") {
+                        return (
+                          <div key={ticket.id}>
+                            <MarkerF
+                              position={ticket.Customer.location}
+                              onClick={() => handleActive(ticket.id)}
+                              icon={{
+                                url: "/images/Marker-NeedReview.png",
+                                scaledSize: { width: 45, height: 45 },
+                              }}
+                            >
+                              {active === ticket.id ? (
+                                <InfoWindowF
+                                  onCloseClick={() => setActive(null)}
+                                >
+                                  <GoogleMapInfoWindow ticket={ticket} />
+                                </InfoWindowF>
+                              ) : null}
+                            </MarkerF>
+                            ;
+                          </div>
+                        );
+                      }
+                    }
+                  })}
+                </GoogleMap>
+              </div>
+            </section>
           </>
         ) : (
           ""

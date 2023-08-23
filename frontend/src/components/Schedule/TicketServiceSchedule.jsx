@@ -83,7 +83,6 @@ export default function TicketServiceSchedule({ ticket }) {
               <option value="">
                 {ticket?.status ? ticket.status : "Please select a status..."}
               </option>
-              <option>Completed</option>
               <option>CSR-Need Schedule</option>
               <option>CSR-Part Came In</option>
               <option>CSR-Reschedule Done</option>
@@ -91,6 +90,7 @@ export default function TicketServiceSchedule({ ticket }) {
               <option>Need Review</option>
               <option>Waiting for Part</option>
               <option>Ready for Service</option>
+              <option>Completed</option>
               <option>Cancel</option>
           </select>
           <div className="part-list-options">
