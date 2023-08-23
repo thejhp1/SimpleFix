@@ -52,7 +52,7 @@ export default function ScheduleRoutePage() {
           cancelledTickets={cancelledTickets}
         />
         <ScheduleTechnician
-          date={dayjs(date).format("MM/DD/YYYY")}
+          date={dayjs(date).format("MM/DD/YY")}
           completedTickets={completedTickets}
           pendingTickets={pendingTickets}
           cancelledTickets={cancelledTickets}

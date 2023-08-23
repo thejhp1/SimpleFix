@@ -1,9 +1,65 @@
 .schedule-technician-route-container {
-    /* display: flex; */
+    padding: .5rem 0px;
+    background-color: var(--background);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 8px 8px 5px var(--black);
+    margin-bottom: 1rem;
+
 }
 
-.schedule-technician-route_inner {
-    border: 1px solid blue;
-    /* display: flex; */
-    /* justify-content: center; */
+
+.schedule-ticket-info {
+    width: 92.5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;
+    background-color: var(--background);
+    color: var(--white);
+    border-radius: .5rem;
+
+}
+
+.schedule-time-light-container {
+    display: flex;
+    background-color: var(--border);
+    margin: 1rem;
+    box-shadow: 6px 6px 5px var(--black);
+    border-radius: .5rem;
+}
+
+.schedule-time-light-container > p {
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    margin-left: 1rem;
+    border-radius: .5rem;
+    background-color: var(--gray);
+    color: var(--white);
+    border-right: 1px solid var(--black) ;
+}
+
+.schedule-time-dark-container {
+    display: flex;
+    background-color: var(--border);
+    margin: 1rem;
+    box-shadow: 6px 6px 5px var(--black);
+    border-radius: .5rem;
+}
+
+.schedule-time-dark-container > p {
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    margin-left: 1rem;
+    border-radius: .5rem;
+    color: var(--white);
+    background-color: var(--background);
+    border-right: 1px solid var(--black) ;
 }

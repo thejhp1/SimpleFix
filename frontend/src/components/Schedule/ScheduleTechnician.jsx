@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import "../../styles/components/ScheduleTechnician.css";
 import { useSelector } from 'react-redux';
 import ScheduleTechnicanRoute from './ScheduleTechnicanRoute';
+import "../../styles/components/ScheduleTechnician.css";
 
 export default function ScheduleTechnician({ date, completedTickets, pendingTickets, cancelledTickets }) {
   const technician = useSelector((state) => state.session.user.technicians)
@@ -32,13 +32,14 @@ export default function ScheduleTechnician({ date, completedTickets, pendingTick
 
     }
   }
-  console.log("DAAATE", date)
+
   return (
     <section className='technician-container'>
         <div className='technician_inner'>
           {technician.map(tech => {
             return (
-              <div key={tech.id}>
+              <div className='technician-name' key={tech.id}>
+                <h1>{tech.name}</h1>
                <ScheduleTechnicanRoute date={date} technician={tech} ticketGroup9AM={ticketGroup9AM} ticketGroup10AM={ticketGroup10AM} ticketGroup11AM={ticketGroup11AM} ticketGroup12PM={ticketGroup12PM} ticketGroup1PM={ticketGroup1PM} ticketGroup2PM={ticketGroup2PM} ticketGroup3PM={ticketGroup3PM} ticketGroup4PM={ticketGroup4PM} ticketGroup5PM={ticketGroup5PM} />
               </div>
             )
