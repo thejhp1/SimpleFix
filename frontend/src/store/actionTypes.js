@@ -13,6 +13,7 @@ const CREATE_CLAIM = "claim/createClaim"
 const UPDATE_CLAIM = "claim/updateClaim"
 const UPDATE_SCHEDULE = "singleTicket/updateSchedule"
 const GET_ADDRESS = "googleMap/getAddress"
+const UPDATE_ROUTE_PAGE_SCHEDULE = "ticket/updateRoutePageSchedule"
 
 export const actionTypes = {
   SET_USER,
@@ -29,5 +30,6 @@ export const actionTypes = {
   CREATE_CLAIM,
   UPDATE_CLAIM,
   UPDATE_SCHEDULE,
-  GET_ADDRESS
+  GET_ADDRESS,
+  UPDATE_ROUTE_PAGE_SCHEDULE
 };

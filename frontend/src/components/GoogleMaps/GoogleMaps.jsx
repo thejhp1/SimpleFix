@@ -90,6 +90,7 @@ export default function GoogleMaps({
                             >
                               {active === ticket.id ? (
                                 <InfoWindowF
+                                  position={ticket.Customer.location}
                                   onCloseClick={() => setActive(null)}
                                 >
                                   <GoogleMapInfoWindow ticket={ticket} />
@@ -112,6 +113,7 @@ export default function GoogleMaps({
                             >
                               {active === ticket.id ? (
                                 <InfoWindowF
+                                  position={ticket.Customer.location}
                                   onCloseClick={() => setActive(null)}
                                 >
                                   <GoogleMapInfoWindow ticket={ticket} />
@@ -134,6 +136,7 @@ export default function GoogleMaps({
                             >
                               {active === ticket.id ? (
                                 <InfoWindowF
+                                  position={ticket.Customer.location}
                                   onCloseClick={() => setActive(null)}
                                 >
                                   <GoogleMapInfoWindow ticket={ticket} />
@@ -156,6 +159,7 @@ export default function GoogleMaps({
                             >
                               {active === ticket.id ? (
                                 <InfoWindowF
+                                  position={ticket.Customer.location}
                                   onCloseClick={() => setActive(null)}
                                 >
                                   <GoogleMapInfoWindow ticket={ticket} />
@@ -178,6 +182,7 @@ export default function GoogleMaps({
                             >
                               {active === ticket.id ? (
                                 <InfoWindowF
+                                  position={ticket.Customer.location}
                                   onCloseClick={() => setActive(null)}
                                 >
                                   <GoogleMapInfoWindow ticket={ticket} />

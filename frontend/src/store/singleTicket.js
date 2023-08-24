@@ -146,12 +146,13 @@ export default function singleTicketReducer(state = initialState, action) {
                     ele.quantity = part.quantity
                     ele.status = part.status
                 }
-            }
+            }aa
             return newState
         }
         case actionTypes.UPDATE_SCHEDULE: {
             const newState = { ...state }
             const schedule = action.payload.schedule
+            newState[schedule.id].Customer.location = JSON.parse(schedule["Customer"].location)
             if (schedule.technidianId) {
                 newState[schedule.id].technidianId = schedule.technidianId
             }
@@ -164,7 +165,6 @@ export default function singleTicketReducer(state = initialState, action) {
             if (schedule.timeFrame) {
                 newState[schedule.id].timeFrame = schedule.timeFrame
             }
-            newState[schedule.id].status = schedule.status
             return newState
         }
         default:

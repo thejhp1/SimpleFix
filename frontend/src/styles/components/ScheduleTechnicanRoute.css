@@ -8,9 +8,8 @@
 
 }
 
-
 .schedule-ticket-info {
-    width: 92.5%;
+    width: 99.3%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -62,4 +61,20 @@
     color: var(--white);
     background-color: var(--background);
     border-right: 1px solid var(--black) ;
+}
+
+.schedule-ticket-info-container {
+    width: 100%;
+}
+
+.schedule-ticket-info-light {
+    width: 99.3%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;
+    background-color: var(--gray);
+    color: var(--white);
+    border-radius: .5rem;
 }

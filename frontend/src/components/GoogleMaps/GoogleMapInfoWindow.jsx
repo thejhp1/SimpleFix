@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 import "../../styles/components/GoogleMapInfoWindow.css";
-import "../../styles/components/UpdateModal.css";
+import { thunkUpdateRoutePageSchedule } from "../../store/ticket";
 
 export default function GoogleMapInfoWindow({ ticket }) {
+  const dispatch = useDispatch();
   const [timeFrame, setTimeFrame] = useState(ticket?.timeFrame || "");
   const [status, setStatus] = useState(ticket?.status || "");
   const [date, setDate] = useState(
@@ -31,7 +31,7 @@ export default function GoogleMapInfoWindow({ ticket }) {
     }
 
     if (Object.values(errors).length === 0) {
-      console.log(ticket)
+      // console.log(ticket)
       const ticketUpdate = ({
         ticketId: ticket.id,
         date: dayjs(date).format("MM/DD/YY"),
@@ -39,7 +39,9 @@ export default function GoogleMapInfoWindow({ ticket }) {
         technician,
         status
       })
-      console.log("aaaaa", ticketUpdate)
+      dispatch(thunkUpdateRoutePageSchedule(ticketUpdate))
+      // alert("Updated!")
+      setLoading(false)
     }
 
     setErrors(errors);

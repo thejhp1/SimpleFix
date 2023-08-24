@@ -11,6 +11,13 @@ const getAllTicket = (tickets) => {
     }
 }
 
+const updateRoutePageSchedule = (ticket) => {
+    return {
+        type: actionTypes.UPDATE_ROUTE_PAGE_SCHEDULE,
+        payload: ticket
+    }
+}
+
 // thunk action creator
 export const thunkGetAllTicket = () => async (dispatch) => {
     const res = await csrfFetch(`/api/tickets`)
@@ -19,6 +26,21 @@ export const thunkGetAllTicket = () => async (dispatch) => {
         const data = await res.json();
         dispatch(getAllTicket(data));
         return data;
+    }
+}
+
+export const thunkUpdateRoutePageSchedule = (schedule) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/tickets/schedule/${schedule.ticketId}`, {
+            method: "PUT",
+            body: JSON.stringify(schedule)
+        })
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(updateRoutePageSchedule(data));
+        }
+    } catch (e) {
+        return e
     }
 }
 
@@ -31,6 +53,13 @@ export default function ticketReducer(state = initialState, action) {
                 ticket.Customer.location = JSON.parse(ticket.Customer.location)
                 newState[ticket.id] = ticket
             }
+            return newState
+        }
+        case actionTypes.UPDATE_ROUTE_PAGE_SCHEDULE: {
+            const newState = { ...state }
+            const schedule = action.payload.schedule
+            newState[schedule.id] = {...schedule}
+            newState[schedule.id].Customer.location = JSON.parse(schedule["Customer"].location)
             return newState
         }
         default:
