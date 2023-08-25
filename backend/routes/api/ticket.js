@@ -195,79 +195,6 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     })
 })
 
-//UPDATE SCHEDULE
-router.put(`/schedule/:ticketId`, async (req, res, next) => {
-    let { date, timeFrame, technician, note, status } = req.body
-
-    const ticket = await Ticket.findOne({
-        where: {
-            id: req.params.ticketId
-        },
-        include: [{
-            model: Customer
-        },
-        {
-            model: Part
-        },
-        {
-            model: Product
-        }, {
-            model: Technician
-        }]
-    })
-
-    const tech = await Technician.findOne({
-        where: {
-            name: technician
-        }
-    })
-
-    if (date) {
-        ticket.date = date
-    }
-
-    if (timeFrame) {
-        ticket.timeFrame = timeFrame
-    }
-
-    if (technician) {
-        ticket.Technician = JSON.stringify(tech)
-        console.log("aaaaaaaaaaaaaaaaaaaaa",ticket.Technician)
-        ticket.technicianId = tech.id
-    }
-
-    if (note) {
-        ticket.note = note
-    }
-
-    if (status) {
-        ticket.status = status
-    }
-
-    await ticket.save()
-
-
-    const result = await Ticket.findOne({
-        where: {
-            id: req.params.ticketId
-        },
-        include: [{
-            model: Customer
-        },
-        {
-            model: Part
-        },
-        {
-            model: Product
-        }, {
-            model: Technician
-        }]
-    })
-    // return res.json(tech)
-    // console.log("AAAAAAAA", ticket.Technician === null)
-    return res.json({schedule: result})
-})
-
 //UPDATE SINGLE TICKET
 router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => {
     let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
@@ -354,5 +281,80 @@ router.put("/:ticketId", requireAuth, validateTicket, async (req, res, next) => 
 
     return res.json({ticket: ticket})
 })
+
+//UPDATE SCHEDULE
+router.put(`/schedule/:ticketId`, async (req, res, next) => {
+    let { date, timeFrame, technician, note, status } = req.body
+
+    const ticket = await Ticket.findOne({
+        where: {
+            id: req.params.ticketId
+        },
+        include: [{
+            model: Customer
+        },
+        {
+            model: Part
+        },
+        {
+            model: Product
+        }, {
+            model: Technician
+        }]
+    })
+
+    const tech = await Technician.findOne({
+        where: {
+            name: technician
+        }
+    })
+
+    if (date) {
+        ticket.date = date
+    }
+
+    if (timeFrame) {
+        ticket.timeFrame = timeFrame
+    }
+
+    if (technician) {
+        ticket.Technician = JSON.stringify(tech)
+        console.log("aaaaaaaaaaaaaaaaaaaaa",ticket.Technician)
+        ticket.technicianId = tech.id
+    }
+
+    if (note) {
+        ticket.note = note
+    }
+
+    if (status) {
+        ticket.status = status
+    }
+
+    await ticket.save()
+
+
+    const result = await Ticket.findOne({
+        where: {
+            id: req.params.ticketId
+        },
+        include: [{
+            model: Customer
+        },
+        {
+            model: Part
+        },
+        {
+            model: Product
+        }, {
+            model: Technician
+        }]
+    })
+    // return res.json(tech)
+    // console.log("AAAAAAAA", ticket.Technician === null)
+    return res.json({schedule: result})
+})
+
+
 
 module.exports = router;

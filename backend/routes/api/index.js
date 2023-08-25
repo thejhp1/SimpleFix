@@ -4,7 +4,6 @@ const userRouter = require('./users.js');
 const ticketRouter = require('./ticket.js')
 const partRouter = require('./part.js')
 const claimRouter = require('./claim.js')
-const googleMapRouter = require('./googlemap.js')
 const { restoreUser } = require("../../utils/auth.js");
 router.use(restoreUser);
 
@@ -13,7 +12,6 @@ router.use('/users', userRouter);
 router.use('/tickets', ticketRouter)
 router.use('/parts', partRouter)
 router.use('/claims', claimRouter)
-router.use('/maps', googleMapRouter)
 
 // Add a XSRF-TOKEN cookie
 router.get("/csrf/restore", (req, res) => {

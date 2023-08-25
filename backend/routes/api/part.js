@@ -31,6 +31,7 @@ router.post("/new", async (req, res, next) => {
     return res.json({part: part})
 })
 
+//DELETE SINGLE PART
 router.delete("/:partId", async (req, res, next) => {
     const part = await Part.findByPk(req.params.partId)
 
