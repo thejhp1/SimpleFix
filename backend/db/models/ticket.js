@@ -57,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
           "CSR-Part Came In",
           "CSR-Reschedule Done",
           "Cancel",
-          "Need Reschedule"
+          "Need Reschedule",
+          "Ready for Service"
         ),
         allowNull: false,
       },

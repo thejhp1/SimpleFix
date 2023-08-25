@@ -195,13 +195,30 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     })
 })
 
-//UPDATE SCHEDULE/TICKET
+//UPDATE SCHEDULE
 router.put(`/schedule/:ticketId`, async (req, res, next) => {
     let { date, timeFrame, technician, note, status } = req.body
 
     const ticket = await Ticket.findOne({
         where: {
             id: req.params.ticketId
+        },
+        include: [{
+            model: Customer
+        },
+        {
+            model: Part
+        },
+        {
+            model: Product
+        }, {
+            model: Technician
+        }]
+    })
+
+    const tech = await Technician.findOne({
+        where: {
+            name: technician
         }
     })
 
@@ -214,7 +231,9 @@ router.put(`/schedule/:ticketId`, async (req, res, next) => {
     }
 
     if (technician) {
-        ticket.technician = technician
+        ticket.Technician = JSON.stringify(tech)
+        console.log("aaaaaaaaaaaaaaaaaaaaa",ticket.Technician)
+        ticket.technicianId = tech.id
     }
 
     if (note) {
@@ -227,7 +246,26 @@ router.put(`/schedule/:ticketId`, async (req, res, next) => {
 
     await ticket.save()
 
-    return res.json({schedule: ticket})
+
+    const result = await Ticket.findOne({
+        where: {
+            id: req.params.ticketId
+        },
+        include: [{
+            model: Customer
+        },
+        {
+            model: Part
+        },
+        {
+            model: Product
+        }, {
+            model: Technician
+        }]
+    })
+    // return res.json(tech)
+    // console.log("AAAAAAAA", ticket.Technician === null)
+    return res.json({schedule: result})
 })
 
 //UPDATE SINGLE TICKET

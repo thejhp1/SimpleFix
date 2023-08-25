@@ -17,7 +17,6 @@ export default function TicketList() {
   const [ticketsPerPage, setTicketsPerPage] = useState(20);
   const [selectedState, setSelectedState] = useState("Pending");
   const [searchInput, setSearchInput] = useState("");
-  const [searchDateRange, setSearchDateRange] = useState("")
   const [filtered, setFiltered] = useState("");
 
   useEffect(() => {
@@ -113,7 +112,6 @@ export default function TicketList() {
           <div className="ticket-list-search_inner">
             <Search
               setSearchInput={setSearchInput}
-              setSearchDateRange={setSearchDateRange}
               setFiltered={setFiltered}
             />
           </div>

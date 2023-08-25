@@ -20,165 +20,183 @@ export default function ScheduleTechnicanRoute({
       <div className="schedule-technician-route_inner">
         <div className="schedule-time-dark-container">
           <p>9:00AM - 12:00PM</p>
-          {ticketGroup9AM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup9AM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-light-container">
           <p>10:00AM - 1:00PM</p>
-          {ticketGroup10AM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup10AM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info-light" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-dark-container">
           <p>11:00AM - 2:00PM</p>
-          {ticketGroup11AM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup11AM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-light-container">
           <p>12:00PM - 3:00PM</p>
-          {ticketGroup12PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup12PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-dark-container">
           <p>1:00PM - 4:00PM</p>
-          {ticketGroup1PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup1PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-light-container">
           <p>2:00PM - 5:00PM</p>
-          {ticketGroup2PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup2PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-dark-container">
           <p>3:00PM - 6:00PM</p>
-          {ticketGroup3PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup3PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-light-container">
           <p>4:00PM - 7:00PM</p>
-          {ticketGroup4PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup4PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
         <div className="schedule-time-dark-container">
           <p>5:00PM - 8:00PM</p>
-          {ticketGroup5PM.map((ticket) => {
-            if (
-              technician.id === ticket.Technician.id &&
-              ticket.date === date
-            ) {
-              return (
-                <div className="schedule-ticket-info" key={ticket.id}>
-                  <p>{ticket.number}</p>
-                  <p>{ticket.status}</p>
-                  <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
-                  <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
-                </div>
-              );
-            }
-          })}
+          <div className="schedule-ticket-info-container">
+            {ticketGroup5PM.map((ticket) => {
+              if (
+                technician.id === ticket.Technician.id &&
+                ticket.date === date
+              ) {
+                return (
+                  <div className="schedule-ticket-info" key={ticket.id}>
+                    <p>{ticket.number}</p>
+                    <p>{ticket.status}</p>
+                    <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
+                    <p>{`${ticket.Customer.firstName} ${ticket.Customer.lastName}`}</p>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
       </div>
     </section>
