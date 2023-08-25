@@ -177,7 +177,7 @@ export default function GoogleMaps({
                               onClick={() => handleActive(ticket.id)}
                               icon={{
                                 url: "/images/Marker-Ticket.png",
-                                scaledSize: { width: 45, height: 45 },
+                                scaledSize: { width: 59, height: 59 },
                               }}
                             >
                               {active === ticket.id ? (
