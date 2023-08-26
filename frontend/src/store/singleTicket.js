@@ -62,16 +62,13 @@ export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
 export const thunkCreateTicket = (ticket) => async (dispatch) => {
     let addressData
     try {
-
         const resAddress = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${ticket.street} ${ticket.city} ${ticket.state} ${ticket.zip}&key=${import.meta.env.VITE_GOOGLE_MAP_API_UNRESTRICT}`)
         if (resAddress.ok) {
             addressData = await resAddress.json();
-            // dispatch(getAddress(data));
         }
     } catch (error) {
         return e
     }
-    // console.log('ADDRESS',addressData)
     if (addressData) {
         ticket["location"] = JSON.stringify(addressData.results[0].geometry.location)
     }

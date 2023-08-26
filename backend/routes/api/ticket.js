@@ -123,7 +123,7 @@ router.get("/:ticketId", async (req, res, next) => {
 router.post("/", requireAuth, validateTicket, async (req, res, next) => {
     let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus, location } = req.body;
     const { user } = req
-    console.log("AAAAAAAAAAAAAAAAAAA", location)
+
     const customer = await Customer.create({
         firstName,
         lastName,
