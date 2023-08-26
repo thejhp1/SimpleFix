@@ -31,7 +31,7 @@ export default function GoogleMapInfoWindow({ ticket }) {
     }
 
     if (Object.values(errors).length === 0) {
-      // console.log(ticket)
+      console.log(ticket)
       const ticketUpdate = ({
         ticketId: ticket.id,
         date: dayjs(date).format("MM/DD/YY"),
@@ -39,6 +39,9 @@ export default function GoogleMapInfoWindow({ ticket }) {
         technician,
         status
       })
+      // if (status === "Ready for Service") {
+      //   setIcon(markerIcon.RS)
+      // }
       dispatch(thunkUpdateRoutePageSchedule(ticketUpdate))
       // alert("Updated!")
       setLoading(false)

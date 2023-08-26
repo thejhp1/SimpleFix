@@ -50,6 +50,7 @@ export default function ScheduleRoutePage() {
       <div className="schedule-route_inner">
         <GoogleMaps
           date={dayjs(date).format("MM/DD/YY")}
+          tickets={Object.values(ticketStore)}
           completedTickets={completedTickets}
           pendingTickets={pendingTickets}
           cancelledTickets={cancelledTickets}
