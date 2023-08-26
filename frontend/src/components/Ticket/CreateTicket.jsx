@@ -4,6 +4,7 @@ import CreateTicketTab from "./CreateTicketTab";
 import TicketInfoProduct from "./TicketInfoProduct";
 import TicketInfoCustomer from "./TicketInfoCustomer";
 import { thunkCreateTicket } from "../../store/singleTicket";
+import { thunkGetAddress } from "../../store/googleMap";
 import "../../styles/components/CreateTicket.css";
 
 export default function CreateTicket() {
@@ -19,15 +20,24 @@ export default function CreateTicket() {
   // CREATE TICKET COMPONENT IS RENDERING THE TICKETINFOCUSTOMER AND TICKETINFOPRODUCT COMPONENTS. TICKET COMPONENT IS SENDING IN A CALLBACK FUNCTION TO EACH TICKETINFO COMPONENT TO RECEIVE THE FORM DATA.
 
   // ONCE RECEIVE DATA, CHECK TO MAKE SURE BOTH HAVE VALUE THEN CREATE THE "TICKET"
+  console.log("ASD", newCustomer, newProduct)
   if (Object.values(newCustomer).length > 1 && Object.values(newProduct).length > 1) {
     ticket = ({...newCustomer , ...newProduct})
+    // console.log("TICKET", ticket)
+    // const location = dispatch(thunkGetAddress(`${ticket.street} ${ticket.city} ${ticket.state} ${ticket.zip}`)).then((res) => res)
+    // if (location) {
+    //   console.log("LOCATION", location)
+    //     ticket["location"] = JSON.stringify(location.payload.location)
+    //     console.log("TICKETAFTER", ticket["location"])
+    // }
     flag = true
   }
 
   // USEEFFECT IS THERE TO MAKE SURE DISPATCH IS ONLY CALLED ONCE DUE TO MOUNTING AND UNMOUNTING OF PARENT COMPONENT
   useEffect(() => {
     if (flag) {
-      setLoading(true)
+      // setLoading(true)
+      console.log("ASDASDASD")
       dispatch(thunkCreateTicket(ticket))
     }
     return () => flag = false

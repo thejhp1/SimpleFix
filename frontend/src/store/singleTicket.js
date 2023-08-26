@@ -32,6 +32,14 @@ const updateSchedule = (schedule) => {
     }
 }
 
+const getAddress = (address) =>  {
+    return {
+        type: actionTypes.GET_ADDRESS,
+        payload: address
+    }
+}
+
+
 // thunk action creator
 export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
     try {
@@ -52,6 +60,21 @@ export const thunkGetSingleTicket = (ticketId) => async (dispatch) => {
 }
 
 export const thunkCreateTicket = (ticket) => async (dispatch) => {
+    let addressData
+    try {
+
+        const resAddress = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${ticket.street} ${ticket.city} ${ticket.state} ${ticket.zip}&key=${import.meta.env.VITE_GOOGLE_MAP_API_UNRESTRICT}`)
+        if (resAddress.ok) {
+            addressData = await resAddress.json();
+            // dispatch(getAddress(data));
+        }
+    } catch (error) {
+        return e
+    }
+    // console.log('ADDRESS',addressData)
+    if (addressData) {
+        ticket["location"] = JSON.stringify(addressData.results[0].geometry.location)
+    }
     try {
         const res = await csrfFetch('/api/tickets/', {
             method: "POST",
@@ -165,6 +188,12 @@ export default function singleTicketReducer(state = initialState, action) {
             if (schedule.timeFrame) {
                 newState[schedule.id].timeFrame = schedule.timeFrame
             }
+            return newState
+        }
+        case actionTypes.GET_ADDRESS: {
+            const newState = { ...state }
+            const address = action.payload.results[0]
+            newState["location"] = address.geometry.location
             return newState
         }
         default:

@@ -63,8 +63,10 @@ export default function TicketInfoProduct({
 
       if (!warrantyStatus) {
         errors.warrantyStatus = "Input required";
-      } else if (warrantyStatus === "In Warranty" && (dayjs(new Date()).format('MM/DD/YY').split("/")[2] - installDate.split("/")[2] > 1)) {
-        errors.warrantyStatus = "Install date must be within 1 year for In Warranty";
+      } else if (warrantyStatus === "In Warranty" && (dayjs(new Date()).format('MM/DD/YY').split("/")[2] - installDate.split("/")[2] === 1)) {
+        if (dayjs(new Date()).format('MM/DD/YY').split("/")[0] > installDate.split("/")[0]) {
+          errors.warrantyStatus = "Install date must be within 1 year for In Warranty";
+        }
       } else if (warrantyStatus === "In Warranty" && (dayjs(new Date()).format('MM/DD/YY').split("/")[2] - installDate.split("/")[2] === 1)) {
         if (installDate.split("/")[0] < dayjs(new Date()).format('MM/DD/YY').split("/")[0] || installDate.split("/")[1] < dayjs(new Date()).format('MM/DD/YY').split("/")[1]) {
           errors.warrantyStatus = "Install date must be within 1 year for In Warranty";
@@ -76,6 +78,7 @@ export default function TicketInfoProduct({
       }
 
       if (Object.values(errors).length === 0) {
+        console.log('zzzzz')
         if (type === "Create") {
           setNewProduct({
             brand,

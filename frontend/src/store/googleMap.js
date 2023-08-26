@@ -1,5 +1,4 @@
 import { actionTypes } from "./actionTypes";
-import { csrfFetch } from "./csrf";
 
 const initialState = {};
 
@@ -13,13 +12,14 @@ const getAddress = (address) =>  {
 
 
 // thunk action creator
-export const thunkGetAddress = () => async (dispatch) => {
+export const thunkGetAddress = (address) => async (dispatch) => {
     try {
-        const address = "5812 Kacey Meadows Drive Greensboro NC 27410"
+        console.log("ADDRESS IN GOOGLE MAPS", address)
         const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${import.meta.env.VITE_GOOGLE_MAP_API_UNRESTRICT}`)
         if (res.ok) {
             const data = await res.json();
             dispatch(getAddress(data));
+            console.log("DATA", data)
             return data;
         }
     } catch (e) {

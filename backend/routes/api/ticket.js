@@ -121,9 +121,9 @@ router.get("/:ticketId", async (req, res, next) => {
 
 //CREATE SINGLE TICKET
 router.post("/", requireAuth, validateTicket, async (req, res, next) => {
-    let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus } = req.body;
+    let { firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial, warrantyStatus, location } = req.body;
     const { user } = req
-
+    console.log("AAAAAAAAAAAAAAAAAAA", location)
     const customer = await Customer.create({
         firstName,
         lastName,
@@ -131,7 +131,8 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
         street,
         city,
         state,
-        zip
+        zip,
+        location
     })
 
     const safeCustomer = {
@@ -143,6 +144,7 @@ router.post("/", requireAuth, validateTicket, async (req, res, next) => {
         city: customer.city,
         state: customer.state,
         zip: customer.zip,
+        location: customer.location,
         createdAt: customer.createdAt,
         updatedAt: customer.updatedAt,
     }
