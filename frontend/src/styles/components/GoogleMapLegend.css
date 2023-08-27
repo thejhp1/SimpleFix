@@ -1,0 +1,16 @@
+.google-map-legend-container {
+    position: absolute;
+    z-index: 1;
+    top: 4rem;
+    right: .6rem;
+}
+
+.google-map-legend_inner {
+    border-radius: .2rem;
+    background-color: #FFFFFF;
+    height: 15rem;
+    width: 13rem;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+}

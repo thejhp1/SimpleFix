@@ -15,7 +15,7 @@ export default function GoogleMapMarkerPCI({ ticket }) {
         position={ticket.Customer.location}
         onClick={() => handleActive(ticket.id)}
         icon={{
-          url: "/images/Marker-PartCameIn.png",
+          url: "/images/Marker_PartCameIn.png",
           scaledSize: { width: 50, height: 50 },
         }}
       >

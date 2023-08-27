@@ -15,7 +15,7 @@ export default function GoogleMapMarkerNS({ ticket }) {
         position={ticket.Customer.location}
         onClick={() => handleActive(ticket.id)}
         icon={{
-            url: "/images/Marker-NeedSchedule.png",
+            url: "/images/Marker_NeedSchedule.png",
             scaledSize: { width: 50, height: 50 },
           }}
       >

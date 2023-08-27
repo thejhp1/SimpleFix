@@ -9,7 +9,7 @@
     width: 100%;
     position: fixed;
     border-bottom: 1px solid var(--white);
-    z-index: 1;
+    z-index: 10;
 }
 
 .navi-home {

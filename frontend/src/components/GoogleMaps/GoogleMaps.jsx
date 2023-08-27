@@ -12,6 +12,7 @@ import GoogleMapMarkerNR from "./GoogleMapMarkerNR";
 import GoogleMapMarkerWP from "./GoogleMapMarkerWP";
 import GoogleMapMarkerPCI from "./GoogleMapMarkerPCI";
 import GoogleMapMarkerRS from "./GoogleMapMarkerRS";
+import GoogleMapLegend from "./GoogleMapLegend";
 
 const mapStyles = {
   height: "54rem",
@@ -73,6 +74,7 @@ export default function GoogleMaps({
                   zoom={11}
                   center={center}
                 >
+                  <GoogleMapLegend />
                   {tickets?.map((ticket) => {
                     if (ticket.date === null || ticket.date === date) {
                       if (ticket.status == "CSR-Need Schedule") {
@@ -98,7 +100,7 @@ export default function GoogleMaps({
                         return (
                           <GoogleMapMarkerRS ticket={ticket} />
                         );
-                      } 
+                      }
                     }
                   })}
                 </GoogleMap>

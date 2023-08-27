@@ -15,7 +15,7 @@ export default function GoogleMapMarkerWP({ ticket }) {
         position={ticket.Customer.location}
         onClick={() => handleActive(ticket.id)}
         icon={{
-          url: "/images/Marker-WaitingForPart.png",
+          url: "/images/Marker_WaitingForPart.png",
           scaledSize: { width: 50, height: 50 },
         }}
       >
@@ -29,7 +29,7 @@ export default function GoogleMapMarkerWP({ ticket }) {
             />
           </InfoWindowF>
         ) : null}
-        
+
       </MarkerF>
       ;
     </div>

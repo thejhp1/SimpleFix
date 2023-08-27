@@ -15,7 +15,7 @@ export default function GoogleMapMarkerRS({ ticket }) {
         position={ticket.Customer.location}
         onClick={() => handleActive(ticket.id)}
         icon={{
-          url: "/images/Marker-ReadyForService.png",
+          url: "/images/Marker_ReadyForService.png",
           scaledSize: { width: 50, height: 50 },
         }}
       >
