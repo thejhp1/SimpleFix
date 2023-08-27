@@ -12,7 +12,6 @@ export default function GoogleMapInfoWindow({ ticket }) {
     ticket?.date
   );
   const [technician, setTechnician] = useState(ticket?.Technician?.name || "");
-  // const [type, setType] = useState("date");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -39,11 +38,7 @@ export default function GoogleMapInfoWindow({ ticket }) {
         technician,
         status
       })
-      // if (status === "Ready for Service") {
-      //   setIcon(markerIcon.RS)
-      // }
       dispatch(thunkUpdateRoutePageSchedule(ticketUpdate))
-      // alert("Updated!")
       setLoading(false)
     }
 

@@ -8,9 +8,23 @@
 .google-map-legend_inner {
     border-radius: .2rem;
     background-color: #FFFFFF;
-    height: 15rem;
-    width: 13rem;
+    height: 18.1rem;
+    width: 13.4rem;
+    padding-top: .3rem;
+    padding-right: .5rem;
+    /* display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center; */
+}
+
+.asdasd {
     display: grid;
     grid-template-columns: 1fr 5fr;
+    align-items: center;
+}
+
+.zxczxc {
+    display: grid;
+    grid-template-columns: 1fr 5fr .5fr 6fr;
     align-items: center;
 }
