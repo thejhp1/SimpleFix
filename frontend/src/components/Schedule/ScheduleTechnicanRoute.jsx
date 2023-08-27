@@ -14,7 +14,12 @@ export default function ScheduleTechnicanRoute({
   ticketGroup3PM,
   ticketGroup4PM,
   ticketGroup5PM,
+  setClickOnTicket,
 }) {
+  const handleClick = (ticket) => {
+    window.scrollTo({ top: 1, behavior: "smooth" });
+    setClickOnTicket(ticket);
+  }
   return (
     <section className="schedule-technician-route-container">
       <div className="schedule-technician-route_inner">
@@ -27,7 +32,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -47,7 +52,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info-light" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info-light" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -67,7 +72,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -87,7 +92,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -107,7 +112,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -127,7 +132,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -147,7 +152,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -167,7 +172,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>
@@ -187,7 +192,7 @@ export default function ScheduleTechnicanRoute({
                 ticket.date === date
               ) {
                 return (
-                  <div className="schedule-ticket-info" key={ticket.id}>
+                  <div onClick={() => handleClick(ticket)} className="schedule-ticket-info" key={ticket.id}>
                     <p>{ticket.number}</p>
                     <p>{ticket.status}</p>
                     <p>{`${ticket.Customer.city} ${ticket.Customer.state} ${ticket.Customer.zip}`}</p>

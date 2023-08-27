@@ -10,8 +10,8 @@ export default function ScheduleRoutePage() {
   const dispatch = useDispatch();
   const ticketStore = useSelector((state) => state.tickets);
   const [date, setDate] = useState(dayjs(new Date()).format("MM/DD/YYYY"));
-  const [type, setType] = useState("text");
-
+  const [clickOnTicket, setClickOnTicket] = useState("");
+  console.log("CLICKONTICKET", clickOnTicket)
   //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
   let completedTickets = [],
     pendingTickets = [],
@@ -51,15 +51,14 @@ export default function ScheduleRoutePage() {
         <GoogleMaps
           date={dayjs(date).format("MM/DD/YY")}
           tickets={Object.values(ticketStore)}
-          completedTickets={completedTickets}
-          pendingTickets={pendingTickets}
-          cancelledTickets={cancelledTickets}
+          clickOnTicket={clickOnTicket}
         />
         <ScheduleTechnician
           date={dayjs(date).format("MM/DD/YY")}
           completedTickets={completedTickets}
           pendingTickets={pendingTickets}
           cancelledTickets={cancelledTickets}
+          setClickOnTicket={setClickOnTicket}
         />
       </div>
     </section>

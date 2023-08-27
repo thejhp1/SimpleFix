@@ -4,7 +4,6 @@
 }
 
 .technician_inner {
-    /* margin: 1rem; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -24,4 +23,5 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--white);
+    cursor: default;
 }

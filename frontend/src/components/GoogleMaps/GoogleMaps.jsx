@@ -21,9 +21,7 @@ const mapStyles = {
 
 export default function GoogleMaps({
   date,
-  completedTickets,
-  pendingTickets,
-  cancelledTickets,
+  clickOnTicket,
   tickets
 }) {
   const center = useMemo(
@@ -79,26 +77,26 @@ export default function GoogleMaps({
                     if (ticket.date === null || ticket.date === date) {
                       if (ticket.status == "CSR-Need Schedule") {
                         return (
-                          <GoogleMapMarkerNS ticket={ticket} />
+                          <GoogleMapMarkerNS clickOnTicket={clickOnTicket} ticket={ticket} />
                         );
                       } else if (
                         ticket.status == "Need Review" ||
                         ticket.status == "Need Reschedule"
                       ) {
                         return (
-                          <GoogleMapMarkerNR ticket={ticket} />
+                          <GoogleMapMarkerNR clickOnTicket={clickOnTicket} ticket={ticket} />
                         );
                       } else if (ticket.status == "Waiting for Part") {
                         return (
-                          <GoogleMapMarkerWP ticket={ticket} />
+                          <GoogleMapMarkerWP clickOnTicket={clickOnTicket} ticket={ticket} />
                         );
                       } else if (ticket.status == "CSR-Part Came In") {
                         return (
-                          <GoogleMapMarkerPCI ticket={ticket} />
+                          <GoogleMapMarkerPCI clickOnTicket={clickOnTicket} ticket={ticket} />
                         );
                       } else if (ticket.status == "Ready for Service") {
                         return (
-                          <GoogleMapMarkerRS ticket={ticket} />
+                          <GoogleMapMarkerRS clickOnTicket={clickOnTicket} ticket={ticket} />
                         );
                       }
                     }

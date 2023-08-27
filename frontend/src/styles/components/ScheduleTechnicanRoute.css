@@ -18,7 +18,6 @@
     background-color: var(--background);
     color: var(--white);
     border-radius: .5rem;
-
 }
 
 .schedule-time-light-container {
@@ -39,7 +38,8 @@
     border-radius: .5rem;
     background-color: var(--gray);
     color: var(--white);
-    border-right: 1px solid var(--black) ;
+    border-right: 1px solid var(--black);
+    cursor: default;
 }
 
 .schedule-time-dark-container {
@@ -60,11 +60,17 @@
     border-radius: .5rem;
     color: var(--white);
     background-color: var(--background);
-    border-right: 1px solid var(--black) ;
+    border-right: 1px solid var(--black);
+    cursor: default;
 }
 
 .schedule-ticket-info-container {
     width: 100%;
+    cursor: pointer;
+}
+
+.schedule-ticket-info:hover > p, .schedule-ticket-info-light:hover > p {
+    color: var(--primary-light-accent)
 }
 
 .schedule-ticket-info-light {

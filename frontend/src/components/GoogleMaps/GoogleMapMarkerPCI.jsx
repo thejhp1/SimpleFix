@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MarkerF, InfoWindowF } from "@react-google-maps/api";
 import GoogleMapInfoWindow from "./GoogleMapInfoWindow";
-export default function GoogleMapMarkerPCI({ ticket }) {
+export default function GoogleMapMarkerPCI({ ticket, clickOnTicket }) {
   const [active, setActive] = useState({});
   const handleActive = (marker) => {
     if (marker === active) {
@@ -9,6 +9,11 @@ export default function GoogleMapMarkerPCI({ ticket }) {
     }
     setActive(marker);
   };
+
+  useEffect(() => {
+    setActive(clickOnTicket.id)
+  }, [clickOnTicket])
+  
   return (
     <div key={ticket.id}>
       <MarkerF
