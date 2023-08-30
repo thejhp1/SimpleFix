@@ -60,4 +60,4 @@ SimpleFix is an easy ticket management system that can be integrated into any co
 | POST /api/login/ | This fetch attempts to login a user with the provided credentials. It returns an object representing the current user, if validation succeeds |
 | DELETE /api/login/ | This fetch attempts to log out the current user. |
 
-## PROJECT CHALLENGES
+## FUTURE GOALS
