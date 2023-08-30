@@ -7,7 +7,7 @@
 
 SimpleFix is an easy ticket management system that can be integrated into any company. This web project aims to allow companies to easily manage repair tickets. All from scheduling, customer and product information, part tracking and claim submissions. This website will benefit companies by providing a simple and clean design to work off of and an intuitive user experience, thus allowing for less training time, less confusion and much more!
 
-## CONTACT ME:
+## CONTACT ME
 #### [LinkedIn](https://www.linkedin.com/in/jun-park-3b23b7285/) or thejhp96@gmail.com
 
 
