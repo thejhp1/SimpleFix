@@ -43,7 +43,7 @@ SimpleFix is an easy ticket management system that can be integrated into any co
 
 ## ENDPOINTS
 | REQUEST | PURPOSE |
-| ------- |:-------:|
+| ------- | ------- |
 | GET /api/tickets/ | This fetch will get every ticket available |
 | GET /api/tickets/:ticketId/ | This fetch will get a single ticket based on the given ticketId |
 | POST /api/tickets/ | This fetch will receive a body that contains firstName, lastName, phone, street, city, state, zip, brand, category, installDate, model, serial and warrantyStatus and then return a randomized ticket number beginning with 417 |
