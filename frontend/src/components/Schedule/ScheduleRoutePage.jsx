@@ -11,7 +11,7 @@ export default function ScheduleRoutePage() {
   const ticketStore = useSelector((state) => state.tickets);
   const [date, setDate] = useState(dayjs(new Date()).format("MM/DD/YYYY"));
   const [clickOnTicket, setClickOnTicket] = useState("");
-  console.log("CLICKONTICKET", clickOnTicket)
+
   //DIVIDE TICKETS INTO COMPLETED, PENDING AND CANCELLED
   let completedTickets = [],
     pendingTickets = [],

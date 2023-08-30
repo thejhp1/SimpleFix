@@ -78,7 +78,6 @@ export default function TicketInfoProduct({
       }
 
       if (Object.values(errors).length === 0) {
-        console.log('zzzzz')
         if (type === "Create") {
           setNewProduct({
             brand,

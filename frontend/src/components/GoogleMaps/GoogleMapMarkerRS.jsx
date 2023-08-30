@@ -14,7 +14,6 @@ export default function GoogleMapMarkerRS({ ticket, clickOnTicket }) {
   useEffect(() => {
     setActive(clickOnTicket.id);
   }, [clickOnTicket]);
-  console.log("TICKET", ticket);
   return (
     <div key={ticket.id}>
       {ticket.Technician.name === "JP" ? (

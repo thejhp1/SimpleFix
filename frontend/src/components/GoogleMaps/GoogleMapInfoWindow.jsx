@@ -30,7 +30,6 @@ export default function GoogleMapInfoWindow({ ticket }) {
     }
 
     if (Object.values(errors).length === 0) {
-      console.log(ticket)
       const ticketUpdate = ({
         ticketId: ticket.id,
         date: dayjs(date).format("MM/DD/YY"),

@@ -351,8 +351,6 @@ router.put(`/schedule/:ticketId`, async (req, res, next) => {
             model: Technician
         }]
     })
-    // return res.json(tech)
-    // console.log("AAAAAAAA", ticket.Technician === null)
     return res.json({schedule: result})
 })
 

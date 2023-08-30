@@ -19,7 +19,6 @@ export default function CreateTicket() {
   // CREATE TICKET COMPONENT IS RENDERING THE TICKETINFOCUSTOMER AND TICKETINFOPRODUCT COMPONENTS. TICKET COMPONENT IS SENDING IN A CALLBACK FUNCTION TO EACH TICKETINFO COMPONENT TO RECEIVE THE FORM DATA.
 
   // ONCE RECEIVE DATA, CHECK TO MAKE SURE BOTH HAVE VALUE THEN CREATE THE "TICKET"
-  console.log("ASD", newCustomer, newProduct)
   if (Object.values(newCustomer).length > 1 && Object.values(newProduct).length > 1) {
     ticket = ({...newCustomer , ...newProduct})
     flag = true
