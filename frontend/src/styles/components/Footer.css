@@ -26,3 +26,45 @@
 .footer-developer > i {
     cursor: pointer;
 }
+
+@media (min-width: 1025px)
+        and (max-width: 1200px) {
+        .footer_inner > img {
+            padding-left: 1rem;
+        }
+    }
+
+@media (min-width: 769px)
+        and (max-width: 1024px) {
+        .footer_inner {
+            gap: 8rem
+        }
+        .footer_inner > img {
+            padding-left: 1rem;
+        }
+    }
+
+@media (min-width: 481px)
+    and (max-width: 768px) {
+        .footer_inner {
+            gap: 5rem
+        }
+        .footer_inner > img {
+            padding-left: 1rem;
+        }
+    }
+
+@media (max-width: 480px) {
+    .footer_inner {
+        gap: 7.5rem
+    }
+    .footer_inner > img {
+        padding-left: 1rem;
+    }
+    .footer-container {
+        width: 60rem;
+    }
+    .footer_inner > span {
+        padding-right: 1rem;
+    }
+}

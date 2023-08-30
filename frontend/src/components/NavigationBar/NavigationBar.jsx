@@ -26,20 +26,20 @@ function NavigationBar({ isLoaded }) {
           {sessionUser ? (
             <ProfileButton user={sessionUser} />
           ) : (
-            <div className="navi-login-container">
-              <div className="navi-login-login-button">
-                <OpenModalLi
-                  itemText="LOGIN"
-                  modalComponent={<LoginFormModal />}
-                />
+              <div className="navi-login-container">
+                <div className="navi-login-login-button">
+                  <OpenModalLi
+                    itemText="LOGIN"
+                    modalComponent={<LoginFormModal />}
+                  />
+                </div>
+                <div className="navi-login-signup-button">
+                  <OpenModalLi
+                    itemText="SIGNUP"
+                    modalComponent={<SignupFormModal />}
+                  />
+                </div>
               </div>
-              <div className="navi-login-signup-button">
-                <OpenModalLi
-                  itemText="SIGNUP"
-                  modalComponent={<SignupFormModal />}
-                />
-              </div>
-            </div>
           )}
         </>
       )}

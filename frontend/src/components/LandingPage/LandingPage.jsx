@@ -7,6 +7,7 @@ export default function LandingPage() {
   const secondSlideRef = useRef(null);
   const thirdSlideRef = useRef(null);
   const fourthSlideRef = useRef(null);
+  const videoRef = useRef(null);
 
   const secondSlide = () => {
     secondSlideRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -20,8 +21,13 @@ export default function LandingPage() {
     fourthSlideRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleVideo = () => {
+    videoRef.current.play();
+  }
+
   const sendToTop = () => {
-    window.scrollTo({ top: 1, behavior: "smooth" });
+    handleVideo()
+    window.scrollTo({ top: 1 });
   }
 
   return (
@@ -31,9 +37,9 @@ export default function LandingPage() {
           <section className="landing-page-video-container">
             <div className="landing-page-video_inner">
               <video
+                ref={videoRef}
                 src="/images/landingpage_logo.mp4"
                 autoPlay
-                loop
                 muted
               ></video>
             </div>

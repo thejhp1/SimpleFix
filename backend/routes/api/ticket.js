@@ -321,7 +321,6 @@ router.put(`/schedule/:ticketId`, async (req, res, next) => {
 
     if (technician) {
         ticket.Technician = JSON.stringify(tech)
-        console.log("aaaaaaaaaaaaaaaaaaaaa",ticket.Technician)
         ticket.technicianId = tech.id
     }
 
