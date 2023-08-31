@@ -51,7 +51,7 @@
 }
 
 .ticket-address-container2 {
-   width: 21vw;
+   width: 22vw;
    background-color: var(--active);
    padding: .5rem;
    display: flex;
@@ -124,3 +124,24 @@
    position: absolute;
    margin-left: .4rem;
 }
+
+@media (min-width: 769px)
+        and (max-width: 879px) {
+         /* .product-input_inner > input, .product-input_inner > select {
+            margin-left: 0;
+         } */
+
+         .ticket-info-customer_inner {
+            padding-bottom: 21.5rem;
+         }
+        }
+
+@media (min-width: 481px)
+        and (max-width: 768px) {
+         .ticket-info-customer_inner {
+            padding-bottom: 21.5rem;
+         }
+         .ticket-address-input_inner > input {
+          width: 18vw;
+         }
+        }

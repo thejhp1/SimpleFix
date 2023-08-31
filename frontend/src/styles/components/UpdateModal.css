@@ -126,3 +126,14 @@
     cursor: pointer;
     background-color: var(--primary-light-accent);
 }
+
+@media (min-width: 500px)
+        and (max-width: 1415px) {
+            .update-modal-inner-container {
+                justify-content: center;
+                gap: 4rem;
+            }
+            .update-modal-input > input, .update-modal-input > select {
+                width: 14rem;
+            }
+        }

@@ -1,6 +1,6 @@
 .create-part-modal-container {
-    height: 44.7vh;
-    width: 25vw;
+    height: 37rem;
+    width: 40rem;
     background-color: var(--background);
     border-radius: .5rem;
     padding: 1rem;

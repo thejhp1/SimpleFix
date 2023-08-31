@@ -36,7 +36,7 @@ export const login = (user) => async (dispatch) => {
     const data = await response.json();
     if (response.ok === true) {
       dispatch(setUser(data.user));
-      // return window.location.href="/home"
+      return window.location.href="/home"
     }
   } catch (error) {
     const data = await error.json();
