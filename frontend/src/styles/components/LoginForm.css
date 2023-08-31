@@ -200,3 +200,75 @@
     font-weight: 600;
     cursor: pointer;
 }
+
+
+@media (max-width: 480px) {
+    .login-modal-container {
+        height: 80rem;
+        width: 50rem;
+    }
+
+    .login-xmark {
+        font-size: 60px;
+        margin-left:44rem;
+        margin-top: 1.8rem;
+    }
+
+    .login-modal-icon > img {
+        width: 400px;
+        height: 400px;
+    }
+
+    .login-modal-title {
+        font-size: 75px;
+    }
+
+    .login-modal-signup {
+        font-size: 40px;
+    }
+    .login-modal {
+        font-size: 40px;
+        margin-top: 5rem;
+    }
+
+    .login-modal-input {
+        width: 35rem;
+        height: 6rem;
+        font-size: 25px;
+    }
+
+    .login-modal-label-login {
+        margin-right: 12.5rem;
+    }
+
+    .login-modal-label-container {
+        gap: 4.4rem
+    }
+    .login-modal-label-forgot-password {
+        font-size: 30px;
+    }
+    .reveal-pass {
+        margin-left: 30rem;
+        margin-top: 17rem;
+    }
+
+    .login-modal-button {
+        width: 35rem;
+        height: 6rem;
+        font-size: 40px;
+    }
+
+    .login-modal-reveal-pass-container {
+        margin-top: 15.5rem;
+        margin-left: 29.75rem;
+
+    }
+
+    .login-modal-separator-center {
+        font-size: 35px;
+    }
+
+    .login-modal-footer > span {
+        font-size: 30px;
+    }
+}
