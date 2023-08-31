@@ -108,7 +108,7 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal-outer-container">
-      <i className="fa-sharp fa-solid fa-xmark fa-xl signupp-xmark" onClick={closeModal}></i>
+      <i className="fa-sharp fa-solid fa-xmark fa-xl signup-xmark" onClick={closeModal}></i>
       <section className="signup-modal-container">
         <div className="login-modal-icon">
           <img width="175px" height="175px" src="/images/LandingPage_BlackVerticalLogo.png"></img>

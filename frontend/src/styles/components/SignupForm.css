@@ -80,7 +80,7 @@
     padding-bottom: .2rem;
 }
 
-.signupp-xmark {
+.signup-xmark {
     position: absolute;
     margin-left: 24.7rem;
     margin-top: 1.5rem;
@@ -95,4 +95,41 @@
     margin-top: -.85rem;
     width: 100%;
     margin-right: 7.5rem;
+}
+
+@media (max-width: 480px) {
+    .signup-modal-outer-container {
+        height: 80rem;
+        width: 50rem;
+    }
+
+    .signup-xmark {
+        font-size: 60px;
+        margin-left:43.3rem;
+        margin-top: 1.8rem;
+    }
+
+    .signup-modal-container > h1 {
+        font-size: 75px;
+    }
+
+    .signup-modal-login {
+        font-size: 40px;
+    }
+
+    .signup-modal-input-label {
+        font-size: 40px;
+    }
+
+    .signup-modal-inputs {
+        width: 40rem;
+        height: 4rem;
+        font-size: 25px;
+    }
+
+    .signup-modal-button {
+        width: 40rem;
+        height: 5rem;
+        font-size: 25px;
+    }
 }
