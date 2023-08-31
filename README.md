@@ -1,4 +1,4 @@
-# SimpleFix
+![8-31-2023 (01-29-20)](https://github.com/thejhp1/SimpleFix/assets/124937654/d92f4205-297e-40de-927d-d0ff0ec50e7b)# SimpleFix
 ![simplefix-landing](https://github.com/thejhp1/SimpleFix/assets/124937654/6901b2f7-8fbb-4cea-b0d7-5b5f7f3aa3f5)
 
 
@@ -61,3 +61,5 @@ SimpleFix is an easy ticket management system that can be integrated into any co
 | DELETE /api/login/ | This fetch attempts to log out the current user. |
 
 ## FUTURE GOALS
+* Finish media queries for mobile phone size
+* Implement AWS S3 Bucket for an "Attachment" section
