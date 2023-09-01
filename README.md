@@ -1,8 +1,11 @@
-![8-31-2023 (01-29-20)](https://github.com/thejhp1/SimpleFix/assets/124937654/d92f4205-297e-40de-927d-d0ff0ec50e7b)# SimpleFix
+# SimpleFix
 ![simplefix-landing](https://github.com/thejhp1/SimpleFix/assets/124937654/6901b2f7-8fbb-4cea-b0d7-5b5f7f3aa3f5)
 
 
 ![simplefix-intro](https://github.com/thejhp1/SimpleFix/assets/124937654/4aa255c2-af94-49e8-b4a3-6dcf25d285d5)
+
+
+https://github.com/thejhp1/SimpleFix/assets/124937654/28c9d133-c1f0-4aa7-8343-ee38f05bdc15
 ### [LIVE LINK](https://simplefix.onrender.com/)
 
 SimpleFix is an easy ticket management system that can be integrated into any company. This web project aims to allow companies to easily manage repair tickets. All from scheduling, customer and product information, part tracking and claim submissions. This website will benefit companies by providing a simple and clean design to work off of and an intuitive user experience, thus allowing for less training time, less confusion and much more!
