@@ -166,7 +166,7 @@ export default function singleTicketReducer(state = initialState, action) {
                     ele.quantity = part.quantity
                     ele.status = part.status
                 }
-            }aa
+            }
             return newState
         }
         case actionTypes.UPDATE_SCHEDULE: {

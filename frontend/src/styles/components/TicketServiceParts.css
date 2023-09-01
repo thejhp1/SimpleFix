@@ -101,36 +101,37 @@
 }
 
 .error-service-tracking {
-    color: var(--ticket);
+    color: var(--ticket-red);
     font-size: 18px;
     font-weight: 700;
-    /* margin: 0px 1rem; */
     display: flex;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr .75fr .5fr; */
-    position: absolute;
 }
 .error-service-tracking-number {
+    position: absolute;
     margin-left: 1rem;
     margin-top: -.3rem;
 }
 
 .error-service-tracking-description {
-    margin-left: 20.1rem;
+    position: absolute;
+    margin-left: 30.1rem;
     margin-top: -.3rem;
 }
 
 .error-service-tracking-price {
-    margin-left: 20.1rem;
+    position: absolute;
+    margin-left: 59.5rem;
     margin-top: -.3rem;
 }
 
 .error-service-tracking-quantity {
-    margin-left: 20.1rem;
+    position: absolute;
+    margin-left: 88.8rem;
     margin-top: -.3rem;
 }
 
 .error-service-tracking-status {
-    margin-left: 20.1rem;
+    margin-left: 118.1rem;
     margin-top: -.3rem;
 }
 

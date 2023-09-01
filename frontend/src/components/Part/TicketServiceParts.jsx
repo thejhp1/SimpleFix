@@ -187,14 +187,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.description ? "3px solid var(--ticket)" : ""
+                          errors.description ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.description ? "3px solid var(--ticket)" : ""
+                          errors.description ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -209,14 +209,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.price ? "3px solid var(--ticket)" : ""
+                          errors.price ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.price ? "3px solid var(--ticket)" : ""
+                          errors.price ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -231,14 +231,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.quantity ? "3px solid var(--ticket)" : ""
+                          errors.quantity ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.quantity ? "3px solid var(--ticket)" : ""
+                          errors.quantity ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -253,14 +253,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.status ? "3px solid var(--ticket)" : ""
+                          errors.status ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.status ? "3px solid var(--ticket)" : ""
+                          errors.status ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -388,14 +388,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.number ? "3px solid var(--ticket)" : ""
+                          errors.number ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.number ? "3px solid var(--ticket)" : ""
+                          errors.number ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -410,14 +410,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.description ? "3px solid var(--ticket)" : ""
+                          errors.description ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.description ? "3px solid var(--ticket)" : ""
+                          errors.description ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -432,14 +432,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.price ? "3px solid var(--ticket)" : ""
+                          errors.price ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.price ? "3px solid var(--ticket)" : ""
+                          errors.price ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -454,14 +454,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.quantity ? "3px solid var(--ticket)" : ""
+                          errors.quantity ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.quantity ? "3px solid var(--ticket)" : ""
+                          errors.quantity ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
@@ -476,14 +476,14 @@ export default function TicketServiceParts({ parts, ticketId }) {
                         backgroundColor: "var(--background)",
                         color: "var(--white)",
                         border: `${
-                          errors.status ? "3px solid var(--ticket)" : ""
+                          errors.status ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                     : {
                         backgroundColor: "var(--gray)",
                         color: "var(--white)",
                         border: `${
-                          errors.status ? "3px solid var(--ticket)" : ""
+                          errors.status ? "3px solid var(--ticket-red)" : ""
                         }`,
                       }
                 }
